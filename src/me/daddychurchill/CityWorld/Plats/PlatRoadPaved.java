@@ -12,10 +12,11 @@ import me.daddychurchill.CityWorld.Support.Direction.TrapDoor;
 import me.daddychurchill.CityWorld.Support.RealChunk;
 import me.daddychurchill.CityWorld.Support.ByteChunk;
 import me.daddychurchill.CityWorld.Support.SurroundingRoads;
+import me.daddychurchill.CityWorld.Plugins.LootContext;
+
 import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
 import org.bukkit.generator.ChunkGenerator.BiomeGrid;
-import org.bukkit.inventory.ItemStack;
 
 public class PlatRoadPaved extends PlatRoad {
 	//TODO Lines on the road
@@ -47,6 +48,8 @@ public class PlatRoadPaved extends PlatRoad {
 	protected final static byte pavementId = (byte) Material.STONE.getId();
 	protected final static byte sidewalkId = (byte) Material.STEP.getId();
 	
+	protected final LootContext sewerVaultLoot;
+	
 	public PlatRoadPaved(Random rand, PlatMapContext context) {
 		super(rand, context);
 
@@ -57,6 +60,9 @@ public class PlatRoadPaved extends PlatRoad {
 
 		// all paved roads are interconnected
 		connectedkey = connectedkeyForPavedRoads;
+		
+		this.sewerVaultLoot = context.createLootContext(rand, "SewerVault"); 
+		
 	}
 
 	@Override
@@ -551,10 +557,6 @@ public class PlatRoadPaved extends PlatRoad {
 		}
 	}
 	
-	private int minTreasureId = Material.IRON_SPADE.getId();
-	private int maxTreasureId = Material.ROTTEN_FLESH.getId();
-	private int countTreasureIds = maxTreasureId - minTreasureId;
-	
 	protected void populateVault(RealChunk chunk, PlatMapContext context, int x1, int x2, int y1, int z1, int z2) {
 		Random random = chunk.random;
 		//int y2 = y1 + PlatMap.FloorHeight;
@@ -576,16 +578,8 @@ public class PlatRoadPaved extends PlatRoad {
 					if (context.doSpawnerInSewer && random.nextInt(context.oddsOfSewerTrick) == 0) {
 						chunk.setSpawner(xC, y1, zC, pickTrick(random));
 					} else {
-						
-						// fabricate the treasures
-						int treasureCount = random.nextInt(context.maxTreasureCount) + 1;
-						ItemStack[] items = new ItemStack[treasureCount];
-						for (int i = 0; i < treasureCount; i++) {
-							items[i] = new ItemStack(random.nextInt(countTreasureIds) + minTreasureId, random.nextInt(2) + 1);
-						}
-						
 						// make a chest and stuff the stuff into it
-						chunk.setChest(xC, y1, zC, Chest.NORTH, items);
+						chunk.setChest(xC, y1, zC, Chest.NORTH, sewerVaultLoot);
 					}
 				}
 			}

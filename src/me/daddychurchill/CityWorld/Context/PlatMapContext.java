@@ -4,6 +4,8 @@ import java.util.Random;
 
 import me.daddychurchill.CityWorld.CityWorld;
 import me.daddychurchill.CityWorld.Support.SupportChunk;
+import me.daddychurchill.CityWorld.Plugins.LootContext;
+import me.daddychurchill.CityWorld.Plugins.LootProvider;
 
 public class PlatMapContext {
 	public static int oddsNeverGoingToHappen = Integer.MAX_VALUE;
@@ -77,7 +79,9 @@ public class PlatMapContext {
 	public boolean doSpawnerInSewer;
 	public boolean doOresInSewer;
 	public boolean doOresInUnderworld;
-	
+
+	private final LootProvider lootProvider;
+
 	public PlatMapContext(CityWorld plugin, SupportChunk typicalChunk) {
 		super();
 		Random random = typicalChunk.random;
@@ -115,6 +119,9 @@ public class PlatMapContext {
 
 		// default floor range
 		setFloorRange(random, 2, 2);
+
+		lootProvider = plugin.getLootProvider();
+
 	}
 	
 	protected void setFloorRange(Random random, int aboveRange, int belowRange) {
@@ -126,5 +133,9 @@ public class PlatMapContext {
 		buildingWallInsettedMinLowPoint = floorsFourth;
 		buildingWallInsettedMinMidPoint = floorsFourth * 2;
 		buildingWallInsettedMinHighPoint = floorsFourth * 3;
+	}
+
+	public LootContext createLootContext(Random rand, String name) {
+		return new LootContext(rand, lootProvider, this, name);
 	}
 }

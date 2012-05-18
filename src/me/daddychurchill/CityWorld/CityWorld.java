@@ -2,6 +2,8 @@ package me.daddychurchill.CityWorld;
 
 import java.util.logging.Logger;
 
+import me.daddychurchill.CityWorld.Plugins.LootProvider;
+
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.World;
@@ -93,7 +95,9 @@ public class CityWorld extends JavaPlugin{
 	public final static int defaultStreetLevel = 30;
 	public final static int defaultMaximumFloors = 20;
 	
-    public CityWorld() {
+	private LootProvider lootProvider;
+	
+	public CityWorld() {
 		super();
 		
 		setBedrockIsolation(defaultBedrockIsolation);
@@ -315,5 +319,12 @@ public class CityWorld extends JavaPlugin{
 		}
 		return cityWorldPrime;
 	}
+
+	public LootProvider getLootProvider() {
+		if (lootProvider == null) 
+			lootProvider = LootProvider.loadLootProvider();
+		return lootProvider;
+	}
+
 }
 
