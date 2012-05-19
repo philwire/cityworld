@@ -7,11 +7,10 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
-import org.bukkit.block.Chest;
 import org.bukkit.block.CreatureSpawner;
 import org.bukkit.entity.EntityType;
-import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemStack;
+
+import me.daddychurchill.CityWorld.Plugins.LootContext;
 
 public class RealChunk extends SupportChunk {
 	private Chunk chunk;
@@ -144,15 +143,10 @@ public class RealChunk extends SupportChunk {
 		setBlock(x, y, z, material.getId(), direction.getData());
 	}
 	
-	public void setChest(int x, int y, int z, Direction.Chest direction, ItemStack... items) {
+	public void setChest(int x, int y, int z, Direction.Chest direction, LootContext loot) {
 		Block block = chunk.getBlock(x, y, z);
 		block.setTypeIdAndData(Material.CHEST.getId(), direction.getData(), true);
-		if (items.length > 0) {
-			Chest chest = (Chest) block.getState();
-			Inventory inv = chest.getInventory();
-			inv.clear();
-			inv.addItem(items);
-		}
+		loot.fill(block);
 	}
 
 	public void setSpawner(int x, int y, int z, EntityType aType) {
