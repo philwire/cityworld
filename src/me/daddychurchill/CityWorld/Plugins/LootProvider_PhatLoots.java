@@ -15,10 +15,6 @@ import com.codisimus.plugins.phatloots.PhatLootChest;
 
 public class LootProvider_PhatLoots extends LootProvider {
 	
-	private LootProvider_PhatLoots(PhatLoots plugin) {
-		super();
-	}
-	
 	@Override
 	public void fill(Random rand, PlatMapContext context, String name, Block block) {
 
@@ -38,36 +34,36 @@ public class LootProvider_PhatLoots extends LootProvider {
 	private static String name = "PhatLoots";
 	public static LootProvider loadPhatLoots() {
 
+		PhatLoots phatLoots = null;
+
 		PluginManager pm = Bukkit.getServer().getPluginManager();
-		
-		PhatLoots phatLoots;
-		phatLoots = (PhatLoots) pm.getPlugin(name);
 
-		if (phatLoots == null) {
-			return null;
-		} else {
-
-			CityWorld.log.info(String.format("[CityWorld][LootProvider] Found %s.", name));
-			
-			try {
-
-				if (!pm.isPluginEnabled(phatLoots)) {
-					CityWorld.log.info(String.format("[CityWorld][LootProvider] Enabling %s.", name));
-					pm.enablePlugin(phatLoots);
-				}
-				CityWorld.log.info(String.format("[CityWorld][LootProvider] %s Enabled.", name));
-				
-				return new LootProvider_PhatLoots(phatLoots);
-				
-			} catch (Exception ex) {
-				
-				CityWorld.log.info(String.format("[CityWorld][LootProvider] Failed to enable %s.", name));
-				CityWorld.log.info(ex.getStackTrace().toString());
-				return null;
-			}
-			
+		try {
+			phatLoots = (PhatLoots) pm.getPlugin(name);
+		} catch (Exception ex) {
+			CityWorld.log.info(String.format("[CityWorld][LootProvider] Bad Version %s.", name));
 		}
-		
-	}
 
+		if (phatLoots == null)
+			return null;
+
+		CityWorld.log.info(String.format("[CityWorld][LootProvider] Found %s.", name));
+		
+		try {
+
+			if (!pm.isPluginEnabled(phatLoots)) {
+				CityWorld.log.info(String.format("[CityWorld][LootProvider] Enabling %s.", name));
+				pm.enablePlugin(phatLoots);
+			}
+			CityWorld.log.info(String.format("[CityWorld][LootProvider] %s Enabled.", name));
+			
+			return new LootProvider_PhatLoots();
+			
+		} catch (Exception ex) {
+			CityWorld.log.info(String.format("[CityWorld][LootProvider] Failed to enable %s.", name));
+			CityWorld.log.info(ex.getStackTrace().toString());
+			return null;
+		}
+
+	}
 }
