@@ -668,7 +668,7 @@ public class StructureOnGroundProvider extends Provider {
     private final static Material materialGlass = Material.GLASS;
     private final static Material materialFence = Material.SPRUCE_FENCE;
     private final static Material materialStair = Material.BIRCH_STAIRS;
-    private final static Material materialUnderStairs = Material.SPRUCE_PLANKS;
+    private final static Material materialUnderStairs = Material.BIRCH_PLANKS;
 
     private final static int MinSize = 4;
     private final static int MaxSize = 6;
