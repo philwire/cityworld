@@ -200,17 +200,17 @@ public class FarmLot extends ConnectedLot {
         if (!fallowField)
             switch (cropType) {
                 case PADDOCK:
-                    chunk.setWalls(1, 15, cropY, cropY + 1, 1, 15, Material.SPRUCE_FENCE);
+                    chunk.setWallsWithPhysics(1, 15, cropY, cropY + 1, 1, 15, Material.SPRUCE_FENCE);
 
                     //@@ TODO: I fix the gates one of these days
                     if (chunkOdds.flipCoin())
-                        chunk.setBlock(7, cropY, 1, Material.SPRUCE_FENCE_GATE, BlockFace.NORTH); // face north
+                        chunk.setBlockWithPhysics(7, cropY, 1, Material.SPRUCE_FENCE_GATE, BlockFace.NORTH); // face north
                     if (chunkOdds.flipCoin())
-                        chunk.setBlock(7, cropY, 14, Material.SPRUCE_FENCE_GATE, BlockFace.SOUTH); // face south
+                        chunk.setBlockWithPhysics(7, cropY, 14, Material.SPRUCE_FENCE_GATE, BlockFace.SOUTH); // face south
                     if (chunkOdds.flipCoin())
-                        chunk.setBlock(1, cropY, 7, Material.SPRUCE_FENCE_GATE, BlockFace.WEST); // face west
+                        chunk.setBlockWithPhysics(1, cropY, 7, Material.SPRUCE_FENCE_GATE, BlockFace.WEST); // face west
                     if (chunkOdds.flipCoin())
-                        chunk.setBlock(14, cropY, 7, Material.SPRUCE_FENCE_GATE, BlockFace.EAST); // face east
+                        chunk.setBlockWithPhysics(14, cropY, 7, Material.SPRUCE_FENCE_GATE, BlockFace.EAST); // face east
                     break;
                 case TRELLIS:
                 case VINES:

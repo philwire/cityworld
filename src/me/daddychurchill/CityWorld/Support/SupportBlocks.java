@@ -146,6 +146,12 @@ public abstract class SupportBlocks extends AbstractBlocks {
             setBlock(x, y, z, material);
     }
 
+    public final void setBlocksWithPhysics(int x, int y1, int y2, int z, Material material) {
+        boolean was = setDoPhysics(true);
+        setBlocks(x, y1, y2, z, material);
+        setDoPhysics(was);
+    }
+
     //================ x1, x2, y1, y2, z1, z2
     @Override
     public final void setBlocks(int x1, int x2, int y1, int y2, int z1, int z2, Material material) {
@@ -180,12 +186,30 @@ public abstract class SupportBlocks extends AbstractBlocks {
         }
     }
 
+    public final void setBlocksWithPhysics(int x1, int x2, int y, int z1, int z2, Material material) {
+        boolean was = setDoPhysics(true);
+        setBlocks(x1, x2, y, z1, z2, material);
+        setDoPhysics(was);
+    }
+
+    public final void setBlocksUpwardWithPhysics(int x, int y1, int z, int maxY, Material material) {
+        boolean was = setDoPhysics(true);
+        setBlocksUpward(x, y1, z, maxY, material);
+        setDoPhysics(was);
+    }
+
     @Override
     public final void setWalls(int x1, int x2, int y1, int y2, int z1, int z2, Material material) {
         setBlocks(x1, x2, y1, y2, z1, z1 + 1, material);
         setBlocks(x1, x2, y1, y2, z2 - 1, z2, material);
         setBlocks(x1, x1 + 1, y1, y2, z1 + 1, z2 - 1, material);
         setBlocks(x2 - 1, x2, y1, y2, z1 + 1, z2 - 1, material);
+    }
+
+    public final void setWallsWithPhysics(int x1, int x2, int y1, int y2, int z1, int z2, Material material) {
+        boolean was = setDoPhysics(true);
+        setWalls(x1, x2, y1, y2, z1, z2, material);
+        setDoPhysics(was);
     }
 
     @Override
@@ -436,6 +460,13 @@ public abstract class SupportBlocks extends AbstractBlocks {
         return block;
     }
 
+    public final Block setBlockWithPhysics(int x, int y, int z, Material material, BlockFace facing) {
+        boolean was = setDoPhysics(true);
+        Block block = setBlock(x, y, z, material, facing);
+        setDoPhysics(was);
+        return block;
+    }
+
     public final void setBlocks(int x, int y1, int y2, int z, Material material, BlockFace facing) {
         setBlocks(x, x + 1, y1, y2, z, z + 1, material, facing);
     }
@@ -454,15 +485,15 @@ public abstract class SupportBlocks extends AbstractBlocks {
         Colors colors = new Colors(odds);
 
         // vertical bit
-        setBlocks(x, y, y + 8, z, Material.IRON_BARS);
-        setBlocks(x - 1, y, y + 8, z, Material.IRON_BARS); // 1.9 shows iron fences very thin now
+        setBlocksWithPhysics(x, y, y + 8, z, Material.IRON_BARS);
+        setBlocksWithPhysics(x - 1, y, y + 8, z, Material.IRON_BARS); // 1.9 shows iron fences very thin now
         setBlocks(x, y + 8, y + 10, z, Material.STONE);
         setBlocks(x - 1, y + 8, y + 10, z, Material.STONE_SLAB);
         setBlock(x, y + 10, z, context.torchMat, BlockFace.UP);
 
         // horizontal bit
         setBlock(x + 1, y + 8, z, Material.GLASS);
-        setBlocks(x + 2, x + 11, y + 8, y + 9, z, z + 1, Material.IRON_BARS);
+        setBlocksWithPhysics(x + 2, x + 11, y + 8, y + 9, z, z + 1, Material.IRON_BARS);
         setBlocks(x + 1, x + 10, y + 9, y + 10, z, z + 1, Material.STONE_SLAB);
         setBlock(x + 10, y + 9, z, Material.STONE_BRICK_STAIRS, BlockFace.WEST);
 

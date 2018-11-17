@@ -1419,7 +1419,7 @@ public class RoadLot extends ConnectedLot {
                 chunk.setBlocks(x, y, y + 2, z, Material.BRICKS);
                 break;
             case 2:
-                chunk.setBlocks(x, y, y + 2, z, Material.IRON_BARS);
+                chunk.setBlocksWithPhysics(x, y, y + 2, z, Material.IRON_BARS);
                 break;
             case 3:
                 chunk.setBlocks(x, y, y + 2, z, Material.AIR);

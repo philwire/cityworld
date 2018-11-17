@@ -94,7 +94,7 @@ public class StructureOnGroundProvider extends Provider {
         else if (odds.playOdds(oddsOfCraftingTable))
             chunk.setBlock(x, y, z, Material.CRAFTING_TABLE);
         else {
-            chunk.setBlock(x, y, z, Material.SPRUCE_FENCE);
+            chunk.setBlockWithPhysics(x, y, z, Material.SPRUCE_FENCE);
             chunk.setBlock(x, y + 1, z, Material.BIRCH_PRESSURE_PLATE);
         }
     }

@@ -19,7 +19,7 @@ public class TreeProvider_Spooky extends TreeProvider {
                 chunk.setBlock(x, y, z, Material.COBWEB);
         } else if (material == Material.BIRCH_LEAVES) {
             if (chunk.isEmpty(x, y, z))
-                chunk.setBlock(x, y, z, Material.IRON_BARS);
+                chunk.setBlockWithPhysics(x, y, z, Material.IRON_BARS);
         } else if (material == Material.DARK_OAK_LEAVES) {
             if (chunk.isEmpty(x, y, z))
                 if (odds.playOdds(Odds.oddsLikely))
