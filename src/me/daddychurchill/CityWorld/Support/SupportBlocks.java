@@ -654,6 +654,7 @@ public abstract class SupportBlocks extends AbstractBlocks {
     }
 
     public final void setDoubleChest(CityWorldGenerator generator, int x, int y, int z, BlockFace facing, Odds odds, LootProvider lootProvider, LootLocation lootLocation) {
+        Chest chestData1, chestData2;
         switch (facing) {
             default:
             case EAST:
@@ -663,8 +664,8 @@ public abstract class SupportBlocks extends AbstractBlocks {
                 setChest(generator, x, y, z, facing, odds, lootProvider, lootLocation);
                 setChest(generator, x, y, z + 1, facing, odds, lootProvider, lootLocation);
                 // Connect chest
-                Chest chestData1 = (Chest) getActualBlock(x, y, z).getBlockData();
-                Chest chestData2 = (Chest) getActualBlock(x, y, z + 1).getBlockData();
+                chestData1 = (Chest) getActualBlock(x, y, z).getBlockData();
+                chestData2 = (Chest) getActualBlock(x, y, z + 1).getBlockData();
                 if (facing == BlockFace.EAST) {
                     chestData1.setType(Chest.Type.LEFT);
                     chestData2.setType(Chest.Type.RIGHT);
@@ -682,17 +683,17 @@ public abstract class SupportBlocks extends AbstractBlocks {
                 setChest(generator, x, y, z, facing, odds, lootProvider, lootLocation);
                 setChest(generator, x + 1, y, z, facing, odds, lootProvider, lootLocation);
                 // Connect chest
-                Chest chestData3 = (Chest) getActualBlock(x, y, z).getBlockData();
-                Chest chestData4 = (Chest) getActualBlock(x + 1, y, z).getBlockData();
+                chestData1 = (Chest) getActualBlock(x, y, z).getBlockData();
+                chestData2 = (Chest) getActualBlock(x + 1, y, z).getBlockData();
                 if (facing == BlockFace.NORTH) {
-                    chestData3.setType(Chest.Type.LEFT);
-                    chestData4.setType(Chest.Type.RIGHT);
+                    chestData1.setType(Chest.Type.LEFT);
+                    chestData2.setType(Chest.Type.RIGHT);
                 } else {
-                    chestData3.setType(Chest.Type.RIGHT);
-                    chestData4.setType(Chest.Type.LEFT);
+                    chestData1.setType(Chest.Type.RIGHT);
+                    chestData2.setType(Chest.Type.LEFT);
                 }
-                getActualBlock(x, y, z).setBlockData(chestData3);
-                getActualBlock(x + 1, y, z).setBlockData(chestData4);
+                getActualBlock(x, y, z).setBlockData(chestData1);
+                getActualBlock(x + 1, y, z).setBlockData(chestData2);
                 break;
         }
     }
