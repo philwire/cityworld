@@ -77,10 +77,10 @@ public class WoodworksLot extends ConstructLot {
             case 6:
             case 7:
                 if (chunkOdds.flipCoin())
-                    chunk.setBlocks(x + 1, x + 5, y, y + chunkOdds.getRandomInt(1, 2), z - 1, z, Material.SPRUCE_WOOD);
-                chunk.setBlocks(x + 1, x + 5, y, y + chunkOdds.getRandomInt(1, 2), z, z + 1, Material.SPRUCE_WOOD);
+                    chunk.setBlocks(x + 1, x + 5, y, y + chunkOdds.getRandomInt(1, 2), z - 1, z, Material.SPRUCE_PLANKS);
+                chunk.setBlocks(x + 1, x + 5, y, y + chunkOdds.getRandomInt(1, 2), z, z + 1, Material.SPRUCE_PLANKS);
                 if (chunkOdds.flipCoin())
-                    chunk.setBlocks(x + 1, x + 5, y, y + chunkOdds.getRandomInt(1, 2), z + 1, z + 2, Material.SPRUCE_WOOD);
+                    chunk.setBlocks(x + 1, x + 5, y, y + chunkOdds.getRandomInt(1, 2), z + 1, z + 2, Material.SPRUCE_PLANKS);
                 break;
             case 8:
                 if (chunkOdds.flipCoin())
@@ -134,7 +134,7 @@ public class WoodworksLot extends ConstructLot {
 
     private void generateColumn(RealBlocks chunk, int x, int y, int z) {
 //		if (chunk.isEmpty(x, y - 1, z)) {
-        chunk.setBlock(x, y - floorHeight, z, Material.SPRUCE_WOOD);
+        chunk.setBlock(x, y - floorHeight, z, Material.SPRUCE_PLANKS);
         chunk.setBlocks(x, y - floorHeight + 1, y, z, Material.SPRUCE_FENCE);
 //		}
     }
