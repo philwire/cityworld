@@ -661,12 +661,12 @@ public abstract class SupportBlocks extends AbstractBlocks {
 
     public final void setChest(CityWorldGenerator generator, int x, int y, int z, BlockFace facing, Odds odds, LootProvider lootProvider, LootLocation lootLocation) {
         Block block = setBlock(x, y, z, Material.CHEST, facing);
+        connectDoubleChest(x, y, z, facing);
         if (isType(block, Material.CHEST))
             lootProvider.setLoot(generator, odds, world.getName(), lootLocation, block);
     }
 
     public final void setDoubleChest(CityWorldGenerator generator, int x, int y, int z, BlockFace facing, Odds odds, LootProvider lootProvider, LootLocation lootLocation) {
-        Chest chestData1, chestData2;
         switch (facing) {
             default:
             case EAST:
@@ -675,18 +675,6 @@ public abstract class SupportBlocks extends AbstractBlocks {
                     z = 14;
                 setChest(generator, x, y, z, facing, odds, lootProvider, lootLocation);
                 setChest(generator, x, y, z + 1, facing, odds, lootProvider, lootLocation);
-                // Connect chest
-                chestData1 = (Chest) getActualBlock(x, y, z).getBlockData();
-                chestData2 = (Chest) getActualBlock(x, y, z + 1).getBlockData();
-                if (facing == BlockFace.EAST) {
-                    chestData1.setType(Chest.Type.LEFT);
-                    chestData2.setType(Chest.Type.RIGHT);
-                } else {
-                    chestData1.setType(Chest.Type.RIGHT);
-                    chestData2.setType(Chest.Type.LEFT);
-                }
-                getActualBlock(x, y, z).setBlockData(chestData1);
-                getActualBlock(x, y, z + 1).setBlockData(chestData2);
                 break;
             case NORTH:
             case SOUTH:
@@ -694,19 +682,53 @@ public abstract class SupportBlocks extends AbstractBlocks {
                     x = 14;
                 setChest(generator, x, y, z, facing, odds, lootProvider, lootLocation);
                 setChest(generator, x + 1, y, z, facing, odds, lootProvider, lootLocation);
-                // Connect chest
-                chestData1 = (Chest) getActualBlock(x, y, z).getBlockData();
-                chestData2 = (Chest) getActualBlock(x + 1, y, z).getBlockData();
-                if (facing == BlockFace.NORTH) {
-                    chestData1.setType(Chest.Type.LEFT);
-                    chestData2.setType(Chest.Type.RIGHT);
-                } else {
-                    chestData1.setType(Chest.Type.RIGHT);
-                    chestData2.setType(Chest.Type.LEFT);
-                }
-                getActualBlock(x, y, z).setBlockData(chestData1);
-                getActualBlock(x + 1, y, z).setBlockData(chestData2);
                 break;
+        }
+    }
+
+    public final void connectDoubleChest(int x, int y, int z, BlockFace facing) {
+        Block block = getActualBlock(x, y, z);
+        if (!isType(block, Material.CHEST)) {
+            return;
+        }
+        if (((Chest) block.getBlockData()).getType() != Chest.Type.SINGLE) {
+            return;
+        }
+        Block checkLeftBlock, checkRightBlock;
+        switch (facing) {
+            default:
+            case EAST:
+                checkLeftBlock = z > 0 ? getActualBlock(x, y, z - 1) : null;
+                checkRightBlock = z < 15 ? getActualBlock(x, y, z + 1) : null;
+                break;
+            case SOUTH:
+                checkLeftBlock = x < 15 ? getActualBlock(x + 1, y, z) : null;
+                checkRightBlock = x > 0 ? getActualBlock(x - 1, y, z) : null;
+                break;
+            case WEST:
+                checkLeftBlock = z < 15 ? getActualBlock(x, y, z + 1) : null;
+                checkRightBlock = z > 0 ? getActualBlock(x, y, z - 1) : null;
+                break;
+            case NORTH:
+                checkLeftBlock = x > 0 ? getActualBlock(x - 1, y, z) : null;
+                checkRightBlock = x < 15 ? getActualBlock(x + 1, y, z) : null;
+                break;
+        }
+        Chest blockData;
+        if (checkLeftBlock != null && isType(checkLeftBlock, Material.CHEST) && ((Chest) checkLeftBlock.getBlockData()).getFacing() == facing) {
+            blockData = (Chest) block.getBlockData();
+            Chest checkLeftBlockData = (Chest) checkLeftBlock.getBlockData();
+            blockData.setType(Chest.Type.RIGHT);
+            checkLeftBlockData.setType(Chest.Type.LEFT);
+            block.setBlockData(blockData);
+            checkLeftBlock.setBlockData(checkLeftBlockData);
+        } else if (checkRightBlock != null && isType(checkRightBlock, Material.CHEST) && ((Chest) checkRightBlock.getBlockData()).getFacing() == facing) {
+            blockData = (Chest) block.getBlockData();
+            Chest checkRightBlockData = (Chest) checkRightBlock.getBlockData();
+            blockData.setType(Chest.Type.LEFT);
+            checkRightBlockData.setType(Chest.Type.RIGHT);
+            block.setBlockData(blockData);
+            checkRightBlock.setBlockData(checkRightBlockData);
         }
     }
 
