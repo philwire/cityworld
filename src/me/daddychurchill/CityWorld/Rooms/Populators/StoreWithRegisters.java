@@ -9,14 +9,14 @@ import me.daddychurchill.CityWorld.Rooms.StorageSingleRowRoom;
 
 public class StoreWithRegisters extends RoomProvider {
 
-	public StoreWithRegisters() {
-		super();
+    public StoreWithRegisters() {
+        super();
 
-		roomTypes.add(new StorageSingleRowRoom(Material.BOOKSHELF));
-		roomTypes.add(new EmptyRoom());
-		roomTypes.add(new EmptyRoom());
-		roomTypes.add(new RegisterRoom());
-		roomTypes.add(new RegisterRoom());
-	}
+        roomTypes.add(new StorageSingleRowRoom(Material.BOOKSHELF));
+        roomTypes.add(new EmptyRoom());
+        roomTypes.add(new EmptyRoom());
+        roomTypes.add(new RegisterRoom());
+        roomTypes.add(new RegisterRoom());
+    }
 
 }

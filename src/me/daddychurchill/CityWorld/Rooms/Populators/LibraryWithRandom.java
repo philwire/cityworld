@@ -13,19 +13,19 @@ import me.daddychurchill.CityWorld.Rooms.LoungeTrioRoom;
 
 public class LibraryWithRandom extends RoomProvider {
 
-	public LibraryWithRandom() {
-		super();
-		
-		roomTypes.add(new LibrarySingleRoom());
-		roomTypes.add(new LibraryDoubleRoom());
-		roomTypes.add(new LibraryStudyRoom());
-		
-		roomTypes.add(new LoungeEllCouchRoom());
-		roomTypes.add(new LoungeTrioRoom());
-		roomTypes.add(new LoungeQuadRoom());
-		roomTypes.add(new LoungeChairsRoom());
-		roomTypes.add(new LoungeGameRoom());
-		roomTypes.add(new LoungeCouchRoom());
-	}
+    public LibraryWithRandom() {
+        super();
+
+        roomTypes.add(new LibrarySingleRoom());
+        roomTypes.add(new LibraryDoubleRoom());
+        roomTypes.add(new LibraryStudyRoom());
+
+        roomTypes.add(new LoungeEllCouchRoom());
+        roomTypes.add(new LoungeTrioRoom());
+        roomTypes.add(new LoungeQuadRoom());
+        roomTypes.add(new LoungeChairsRoom());
+        roomTypes.add(new LoungeGameRoom());
+        roomTypes.add(new LoungeCouchRoom());
+    }
 
 }

@@ -12,59 +12,59 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class CommandCityInfo implements CommandExecutor {
-	// This class was created by Sablednah
-	// https://github.com/echurchill/CityWorld/pull/4
-	// Modified a bit by DaddyChurchill
-	
-	private final CityWorld	plugin;
+    // This class was created by Sablednah
+    // https://github.com/echurchill/CityWorld/pull/4
+    // Modified a bit by DaddyChurchill
 
-	public CommandCityInfo(CityWorld plugin) {
-		this.plugin = plugin;
-	}
+    private final CityWorld plugin;
 
-	public CityWorld getWorld() {
-		return plugin;
-	}
+    public CommandCityInfo(CityWorld plugin) {
+        this.plugin = plugin;
+    }
 
-	@Override
-	public boolean onCommand(CommandSender sender, Command command, String label, String[] split) {
-		if (sender instanceof Player) {
-			Player player = (Player) sender;
+    public CityWorld getWorld() {
+        return plugin;
+    }
 
-			if (player.hasPermission("cityinfo.command")) {
+    @Override
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] split) {
+        if (sender instanceof Player) {
+            Player player = (Player) sender;
 
-				// find ourselves
-				World world = player.getWorld();
-				Location location = player.getLocation();
-				Chunk chunk = world.getChunkAt(location);
+            if (player.hasPermission("cityinfo.command")) {
 
-				// get API instance
-				CityWorldAPI api = new CityWorldAPI(plugin);
-				
-				// fetch full info hash
-				HashMap<String, String> info = api.getFullInfo(chunk);
-				if (info == null) {
-					return false;
-				} else {
-				
-					// write a message to player for each line
-					for (Entry<String, String> entry : info.entrySet()) {
-						String message = entry.getKey() + ": " + entry.getValue();
-						player.sendMessage(message);
-						CityWorld.log.info(message); // tweaked to match the docs
-					}
-	
-					// all done
-					return true;
-				}
+                // find ourselves
+                World world = player.getWorld();
+                Location location = player.getLocation();
+                Chunk chunk = world.getChunkAt(location);
 
-			} else {
-				sender.sendMessage("You do not have permission to use this command");
-				return false;
-			}
-		} else {
-			sender.sendMessage("This command is only usable by a player");
-			return false;
-		}
-	}
+                // get API instance
+                CityWorldAPI api = new CityWorldAPI(plugin);
+
+                // fetch full info hash
+                HashMap<String, String> info = api.getFullInfo(chunk);
+                if (info == null) {
+                    return false;
+                } else {
+
+                    // write a message to player for each line
+                    for (Entry<String, String> entry : info.entrySet()) {
+                        String message = entry.getKey() + ": " + entry.getValue();
+                        player.sendMessage(message);
+                        CityWorld.log.info(message); // tweaked to match the docs
+                    }
+
+                    // all done
+                    return true;
+                }
+
+            } else {
+                sender.sendMessage("You do not have permission to use this command");
+                return false;
+            }
+        } else {
+            sender.sendMessage("This command is only usable by a player");
+            return false;
+        }
+    }
 }

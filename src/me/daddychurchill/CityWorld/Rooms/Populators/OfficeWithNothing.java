@@ -5,10 +5,10 @@ import me.daddychurchill.CityWorld.Rooms.EmptyRoom;
 
 public class OfficeWithNothing extends RoomProvider {
 
-	public OfficeWithNothing() {
-		super();
+    public OfficeWithNothing() {
+        super();
 
-		roomTypes.add(new EmptyRoom());
-	}
+        roomTypes.add(new EmptyRoom());
+    }
 
 }

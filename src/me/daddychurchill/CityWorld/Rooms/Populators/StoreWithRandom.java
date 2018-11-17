@@ -10,18 +10,18 @@ import me.daddychurchill.CityWorld.Rooms.StorageSingleRowRoom;
 
 public class StoreWithRandom extends RoomProvider {
 
-	public StoreWithRandom() {
-		super();
-		
-		roomTypes.add(new StorageDoubleShelvesRoom());
-		roomTypes.add(new StorageDoubleShelvesRoom());
-		roomTypes.add(new StorageSingleRowRoom(Material.BOOKSHELF));
-		roomTypes.add(new StorageSingleRowRoom(Material.BOOKSHELF));
-		roomTypes.add(new EmptyRoom());
-		roomTypes.add(new EmptyRoom());
-		roomTypes.add(new EmptyRoom());
-		roomTypes.add(new EmptyRoom());
-		roomTypes.add(new RegisterRoom());
-	}
+    public StoreWithRandom() {
+        super();
+
+        roomTypes.add(new StorageDoubleShelvesRoom());
+        roomTypes.add(new StorageDoubleShelvesRoom());
+        roomTypes.add(new StorageSingleRowRoom(Material.BOOKSHELF));
+        roomTypes.add(new StorageSingleRowRoom(Material.BOOKSHELF));
+        roomTypes.add(new EmptyRoom());
+        roomTypes.add(new EmptyRoom());
+        roomTypes.add(new EmptyRoom());
+        roomTypes.add(new EmptyRoom());
+        roomTypes.add(new RegisterRoom());
+    }
 
 }

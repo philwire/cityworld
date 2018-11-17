@@ -7,18 +7,18 @@ import me.daddychurchill.CityWorld.Rooms.StorageDoubleShelvesRoom;
 
 public class StoreWithNothing extends RoomProvider {
 
-	public StoreWithNothing() {
-		super();
+    public StoreWithNothing() {
+        super();
 
-		roomTypes.add(new StorageDoubleShelvesRoom());
-		roomTypes.add(new StorageDoubleShelvesRoom());
-		roomTypes.add(new StorageDoubleShelvesRoom());
-		roomTypes.add(new StorageDoubleShelvesRoom());
-		roomTypes.add(new EmptyRoom());
-		roomTypes.add(new EmptyRoom());
-		roomTypes.add(new EmptyRoom());
-		roomTypes.add(new EmptyRoom());
-		roomTypes.add(new RegisterRoom());
-	}
+        roomTypes.add(new StorageDoubleShelvesRoom());
+        roomTypes.add(new StorageDoubleShelvesRoom());
+        roomTypes.add(new StorageDoubleShelvesRoom());
+        roomTypes.add(new StorageDoubleShelvesRoom());
+        roomTypes.add(new EmptyRoom());
+        roomTypes.add(new EmptyRoom());
+        roomTypes.add(new EmptyRoom());
+        roomTypes.add(new EmptyRoom());
+        roomTypes.add(new RegisterRoom());
+    }
 
 }

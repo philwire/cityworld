@@ -12,27 +12,27 @@ import me.daddychurchill.CityWorld.Support.RealBlocks;
 
 public class SnowDunesNatureLot extends NatureLot {
 
-	public SnowDunesNatureLot(PlatMap platmap, int chunkX, int chunkZ) {
-		super(platmap, chunkX, chunkZ);
-		// TODO Auto-generated constructor stub
-	}
+    public SnowDunesNatureLot(PlatMap platmap, int chunkX, int chunkZ) {
+        super(platmap, chunkX, chunkZ);
+        // TODO Auto-generated constructor stub
+    }
 
-	@Override
-	public PlatLot newLike(PlatMap platmap, int chunkX, int chunkZ) {
-		return new SnowDunesNatureLot(platmap, chunkX, chunkZ);
-	}
+    @Override
+    public PlatLot newLike(PlatMap platmap, int chunkX, int chunkZ) {
+        return new SnowDunesNatureLot(platmap, chunkX, chunkZ);
+    }
 
-	@Override
-	protected void generateActualChunk(CityWorldGenerator generator, PlatMap platmap, InitialBlocks chunk, BiomeGrid biomes, DataContext context, int platX, int platZ) {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    protected void generateActualChunk(CityWorldGenerator generator, PlatMap platmap, InitialBlocks chunk, BiomeGrid biomes, DataContext context, int platX, int platZ) {
+        // TODO Auto-generated method stub
 
-	@Override
-	protected void generateActualBlocks(CityWorldGenerator generator, PlatMap platmap, RealBlocks chunk, DataContext context, int platX, int platZ) {
-		generateSurface(generator, chunk, true);
+    }
 
-		generateEntities(generator, chunk);
-	}
+    @Override
+    protected void generateActualBlocks(CityWorldGenerator generator, PlatMap platmap, RealBlocks chunk, DataContext context, int platX, int platZ) {
+        generateSurface(generator, chunk, true);
+
+        generateEntities(generator, chunk);
+    }
 
 }

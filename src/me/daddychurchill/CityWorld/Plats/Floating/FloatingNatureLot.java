@@ -13,39 +13,39 @@ import org.bukkit.generator.ChunkGenerator.BiomeGrid;
 
 public class FloatingNatureLot extends IsolatedLot {
 
-	public FloatingNatureLot(PlatMap platmap, int chunkX, int chunkZ) {
-		super(platmap, chunkX, chunkZ);
-		
-		style = LotStyle.NATURE;
-	}
+    public FloatingNatureLot(PlatMap platmap, int chunkX, int chunkZ) {
+        super(platmap, chunkX, chunkZ);
 
-	@Override
-	public PlatLot newLike(PlatMap platmap, int chunkX, int chunkZ) {
-		return new FloatingNatureLot(platmap, chunkX, chunkZ);
-	}
+        style = LotStyle.NATURE;
+    }
 
-	@Override
-	public int getBottomY(CityWorldGenerator generator) {
-		return 0;
-	}
+    @Override
+    public PlatLot newLike(PlatMap platmap, int chunkX, int chunkZ) {
+        return new FloatingNatureLot(platmap, chunkX, chunkZ);
+    }
 
-	@Override
-	public int getTopY(CityWorldGenerator generator, CachedYs blockYs, int x, int z) {
-		return generator.streetLevel;
-	}
+    @Override
+    public int getBottomY(CityWorldGenerator generator) {
+        return 0;
+    }
 
-	@Override
-	protected void generateActualChunk(CityWorldGenerator generator,
-			PlatMap platmap, InitialBlocks chunk, BiomeGrid biomes,
-			DataContext context, int platX, int platZ) {
+    @Override
+    public int getTopY(CityWorldGenerator generator, CachedYs blockYs, int x, int z) {
+        return generator.streetLevel;
+    }
 
-	}
+    @Override
+    protected void generateActualChunk(CityWorldGenerator generator,
+                                       PlatMap platmap, InitialBlocks chunk, BiomeGrid biomes,
+                                       DataContext context, int platX, int platZ) {
 
-	@Override
-	protected void generateActualBlocks(CityWorldGenerator generator,
-			PlatMap platmap, RealBlocks chunk, DataContext context, int platX,
-			int platZ) {
-		
-	}
+    }
+
+    @Override
+    protected void generateActualBlocks(CityWorldGenerator generator,
+                                        PlatMap platmap, RealBlocks chunk, DataContext context, int platX,
+                                        int platZ) {
+
+    }
 
 }

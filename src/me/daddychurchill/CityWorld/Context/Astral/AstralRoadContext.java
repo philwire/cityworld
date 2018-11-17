@@ -8,14 +8,14 @@ import me.daddychurchill.CityWorld.Support.PlatMap;
 
 public class AstralRoadContext extends RoadContext {
 
-	public AstralRoadContext(CityWorldGenerator generator) {
-		super(generator);
-		// TODO Auto-generated constructor stub
-	}
+    public AstralRoadContext(CityWorldGenerator generator) {
+        super(generator);
+        // TODO Auto-generated constructor stub
+    }
 
-	@Override
-	public PlatLot createRoadLot(CityWorldGenerator generator, PlatMap platmap, int x, int z, boolean roundaboutPart, PlatLot oldLot) {
-		return new AstralRoadLot(platmap, platmap.originX + x, platmap.originZ + z, generator.connectedKeyForPavedRoads, roundaboutPart);
-	}
+    @Override
+    public PlatLot createRoadLot(CityWorldGenerator generator, PlatMap platmap, int x, int z, boolean roundaboutPart, PlatLot oldLot) {
+        return new AstralRoadLot(platmap, platmap.originX + x, platmap.originZ + z, generator.connectedKeyForPavedRoads, roundaboutPart);
+    }
 
 }

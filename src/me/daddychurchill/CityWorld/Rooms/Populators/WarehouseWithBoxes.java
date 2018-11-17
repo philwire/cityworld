@@ -7,10 +7,10 @@ import me.daddychurchill.CityWorld.Rooms.StorageDoubleRowRoom;
 
 public class WarehouseWithBoxes extends RoomProvider {
 
-	public WarehouseWithBoxes() {
-		super();
+    public WarehouseWithBoxes() {
+        super();
 
-		roomTypes.add(new StorageDoubleRowRoom(Material.PISTON));
-	}
+        roomTypes.add(new StorageDoubleRowRoom(Material.PISTON));
+    }
 
 }

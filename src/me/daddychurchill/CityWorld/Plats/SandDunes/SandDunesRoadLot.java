@@ -9,25 +9,25 @@ import me.daddychurchill.CityWorld.Support.PlatMap;
 
 public class SandDunesRoadLot extends RoadLot {
 
-	public SandDunesRoadLot(PlatMap platmap, int chunkX, int chunkZ,
-			long globalconnectionkey, boolean roundaboutPart) {
-		super(platmap, chunkX, chunkZ, globalconnectionkey, roundaboutPart);
-		// TODO Auto-generated constructor stub
-	}
+    public SandDunesRoadLot(PlatMap platmap, int chunkX, int chunkZ,
+                            long globalconnectionkey, boolean roundaboutPart) {
+        super(platmap, chunkX, chunkZ, globalconnectionkey, roundaboutPart);
+        // TODO Auto-generated constructor stub
+    }
 
 
-	@Override
-	public PlatLot newLike(PlatMap platmap, int chunkX, int chunkZ) {
-		return new SandDunesRoadLot(platmap, chunkX, chunkZ, connectedkey, roundaboutRoad);
-	}
-	
-	@Override
-	protected Material getSidewalkMaterial() {
-		return Material.STONE;
-	}
-	
-	@Override
-	protected int getSidewalkLevel(CityWorldGenerator generator) {
-		return super.getSidewalkLevel(generator);
-	}
+    @Override
+    public PlatLot newLike(PlatMap platmap, int chunkX, int chunkZ) {
+        return new SandDunesRoadLot(platmap, chunkX, chunkZ, connectedkey, roundaboutRoad);
+    }
+
+    @Override
+    protected Material getSidewalkMaterial() {
+        return Material.STONE;
+    }
+
+    @Override
+    protected int getSidewalkLevel(CityWorldGenerator generator) {
+        return super.getSidewalkLevel(generator);
+    }
 }

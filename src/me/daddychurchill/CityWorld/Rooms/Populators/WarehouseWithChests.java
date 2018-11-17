@@ -6,13 +6,13 @@ import me.daddychurchill.CityWorld.Rooms.StorageFilledChestsRoom;
 
 public class WarehouseWithChests extends RoomProvider {
 
-	public WarehouseWithChests() {
-		super();
+    public WarehouseWithChests() {
+        super();
 
-		roomTypes.add(new StorageFilledChestsRoom());
-		roomTypes.add(new StorageFilledChestsRoom());
-		roomTypes.add(new StorageFilledChestsRoom());
-		roomTypes.add(new StorageEmptyChestsRoom());
-	}
+        roomTypes.add(new StorageFilledChestsRoom());
+        roomTypes.add(new StorageFilledChestsRoom());
+        roomTypes.add(new StorageFilledChestsRoom());
+        roomTypes.add(new StorageEmptyChestsRoom());
+    }
 
 }

@@ -5,11 +5,11 @@ import me.daddychurchill.CityWorld.Rooms.EmptyRoom;
 
 public class HouseKitchens extends RoomProvider {
 
-	public HouseKitchens() {
-		super();
+    public HouseKitchens() {
+        super();
 
-		roomTypes.add(new EmptyRoom());
+        roomTypes.add(new EmptyRoom());
 
-	}
+    }
 
 }

@@ -5,10 +5,10 @@ import me.daddychurchill.CityWorld.Rooms.StorageDoubleShelvesRoom;
 
 public class LibraryWithNoBooks extends RoomProvider {
 
-	public LibraryWithNoBooks() {
-		super();
+    public LibraryWithNoBooks() {
+        super();
 
-		roomTypes.add(new StorageDoubleShelvesRoom());
-	}
+        roomTypes.add(new StorageDoubleShelvesRoom());
+    }
 
 }

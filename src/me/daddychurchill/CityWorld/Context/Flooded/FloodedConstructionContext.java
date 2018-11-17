@@ -11,23 +11,23 @@ import me.daddychurchill.CityWorld.Support.PlatMap;
 
 public class FloodedConstructionContext extends ConstructionContext {
 
-	public FloodedConstructionContext(CityWorldGenerator generator) {
-		super(generator);
-		// TODO Auto-generated constructor stub
-	}
+    public FloodedConstructionContext(CityWorldGenerator generator) {
+        super(generator);
+        // TODO Auto-generated constructor stub
+    }
 
-	@Override
-	protected PlatLot getPark(CityWorldGenerator generator, PlatMap platmap, Odds odds, int chunkX, int chunkZ, int waterDepth) {
-		return new FloodedParkLot(platmap, chunkX, chunkZ, generator.connectedKeyForParks, waterDepth);
-	}
-	
-	@Override
-	protected PlatLot getUnfinishedBuilding(CityWorldGenerator generator, PlatMap platmap, Odds odds, int chunkX, int chunkZ) {
-		return new FloodedUnfinishedBuildingLot(platmap, chunkX, chunkZ);
-	}
-	
-	@Override
-	protected PlatLot getBuilding(CityWorldGenerator generator, PlatMap platmap, Odds odds, int chunkX, int chunkZ) {
-		return new FloodedOfficeBuildingLot(platmap, chunkX, chunkZ);
-	}
+    @Override
+    protected PlatLot getPark(CityWorldGenerator generator, PlatMap platmap, Odds odds, int chunkX, int chunkZ, int waterDepth) {
+        return new FloodedParkLot(platmap, chunkX, chunkZ, generator.connectedKeyForParks, waterDepth);
+    }
+
+    @Override
+    protected PlatLot getUnfinishedBuilding(CityWorldGenerator generator, PlatMap platmap, Odds odds, int chunkX, int chunkZ) {
+        return new FloodedUnfinishedBuildingLot(platmap, chunkX, chunkZ);
+    }
+
+    @Override
+    protected PlatLot getBuilding(CityWorldGenerator generator, PlatMap platmap, Odds odds, int chunkX, int chunkZ) {
+        return new FloodedOfficeBuildingLot(platmap, chunkX, chunkZ);
+    }
 }

@@ -14,24 +14,24 @@ import org.bukkit.block.BlockFace;
 
 public abstract class RoomProvider extends Provider {
 
-	protected List<PlatRoom> roomTypes;
-	
-	public RoomProvider() {
-		super();
-		roomTypes = new ArrayList<PlatRoom>();
-	}
-	
-	private PlatRoom getRandomRoomGenerator(Odds odds) {
-		int index = odds.getRandomInt(roomTypes.size());
-		return roomTypes.get(index);
-	}
+    protected List<PlatRoom> roomTypes;
 
-	public void drawFixtures(CityWorldGenerator generator, RealBlocks chunk, 
-			Odds odds, int floor, int x, int y, int z, int width,
-			int height, int depth, BlockFace sideWithWall, Material materialWall, Material materialGlass) {
-		
-		PlatRoom roomGen = getRandomRoomGenerator(odds);
-		if (roomGen != null)
-			roomGen.drawFixture(generator, chunk, odds, floor, x, y, z, width, height, depth, sideWithWall, materialWall, materialGlass);
-	}
+    public RoomProvider() {
+        super();
+        roomTypes = new ArrayList<PlatRoom>();
+    }
+
+    private PlatRoom getRandomRoomGenerator(Odds odds) {
+        int index = odds.getRandomInt(roomTypes.size());
+        return roomTypes.get(index);
+    }
+
+    public void drawFixtures(CityWorldGenerator generator, RealBlocks chunk,
+                             Odds odds, int floor, int x, int y, int z, int width,
+                             int height, int depth, BlockFace sideWithWall, Material materialWall, Material materialGlass) {
+
+        PlatRoom roomGen = getRandomRoomGenerator(odds);
+        if (roomGen != null)
+            roomGen.drawFixture(generator, chunk, odds, floor, x, y, z, width, height, depth, sideWithWall, materialWall, materialGlass);
+    }
 }

@@ -6,33 +6,33 @@ import me.daddychurchill.CityWorld.Support.Odds;
 
 public class ConstructionContext extends UrbanContext {
 
-	public ConstructionContext(CityWorldGenerator generator) {
-		super(generator);
+    public ConstructionContext(CityWorldGenerator generator) {
+        super(generator);
 
 
-		oddsOfParks = Odds.oddsUnlikely;
-		oddsOfIsolatedLots = Odds.oddsLikely;
-		oddsOfIdenticalBuildingHeights = Odds.oddsExtremelyLikely;
-		oddsOfSimilarBuildingHeights = Odds.oddsExtremelyLikely;
-		oddsOfSimilarBuildingRounding = Odds.oddsExtremelyLikely;
-		//oddsOfMissingRoad = oddsLikely;
-		//oddsOfRoundAbouts = Odds.oddsSomewhatLikely;
-		 
-		oddsOfUnfinishedBuildings = Odds.oddsVeryLikely;
-		oddsOfOnlyUnfinishedBasements = Odds.oddsLikely;
-		oddsOfCranes = Odds.oddsExtremelyLikely;
-		
-		oddsOfStairWallMaterialIsWallMaterial = Odds.oddsExtremelyLikely;
-		oddsOfBuildingWallInset = Odds.oddsExtremelyLikely;
-		oddsOfFlatWalledBuildings = Odds.oddsExtremelyLikely;
-		oddsOfSimilarInsetBuildings = Odds.oddsExtremelyLikely;
-		rangeOfWallInset = 2;
-		
-		setSchematicFamily(SchematicFamily.CONSTRUCTION);
-		
-		minSizeOfBuilding = 2;
+        oddsOfParks = Odds.oddsUnlikely;
+        oddsOfIsolatedLots = Odds.oddsLikely;
+        oddsOfIdenticalBuildingHeights = Odds.oddsExtremelyLikely;
+        oddsOfSimilarBuildingHeights = Odds.oddsExtremelyLikely;
+        oddsOfSimilarBuildingRounding = Odds.oddsExtremelyLikely;
+        //oddsOfMissingRoad = oddsLikely;
+        //oddsOfRoundAbouts = Odds.oddsSomewhatLikely;
 
-		maximumFloorsAbove = absoluteMaximumFloorsAbove;
-		maximumFloorsBelow = 3;
-	}
+        oddsOfUnfinishedBuildings = Odds.oddsVeryLikely;
+        oddsOfOnlyUnfinishedBasements = Odds.oddsLikely;
+        oddsOfCranes = Odds.oddsExtremelyLikely;
+
+        oddsOfStairWallMaterialIsWallMaterial = Odds.oddsExtremelyLikely;
+        oddsOfBuildingWallInset = Odds.oddsExtremelyLikely;
+        oddsOfFlatWalledBuildings = Odds.oddsExtremelyLikely;
+        oddsOfSimilarInsetBuildings = Odds.oddsExtremelyLikely;
+        rangeOfWallInset = 2;
+
+        setSchematicFamily(SchematicFamily.CONSTRUCTION);
+
+        minSizeOfBuilding = 2;
+
+        maximumFloorsAbove = absoluteMaximumFloorsAbove;
+        maximumFloorsBelow = 3;
+    }
 }

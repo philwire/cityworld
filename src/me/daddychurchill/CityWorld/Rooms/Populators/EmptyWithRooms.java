@@ -7,13 +7,13 @@ import me.daddychurchill.CityWorld.Rooms.EmptyRoom;
 
 public class EmptyWithRooms extends RoomProvider {
 
-	public EmptyWithRooms() {
-		super();
-		
-		roomTypes.add(new EmptyRoom());
+    public EmptyWithRooms() {
+        super();
 
-		roomTypes.add(new DividedSingleRoom());
-		roomTypes.add(new DividedEllRoom());
-	}
-	
+        roomTypes.add(new EmptyRoom());
+
+        roomTypes.add(new DividedSingleRoom());
+        roomTypes.add(new DividedEllRoom());
+    }
+
 }

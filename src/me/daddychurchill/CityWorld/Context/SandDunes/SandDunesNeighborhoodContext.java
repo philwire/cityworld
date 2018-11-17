@@ -9,13 +9,13 @@ import me.daddychurchill.CityWorld.Support.PlatMap;
 
 public class SandDunesNeighborhoodContext extends NeighborhoodContext {
 
-	public SandDunesNeighborhoodContext(CityWorldGenerator generator) {
-		super(generator);
-		// TODO Auto-generated constructor stub
-	}
+    public SandDunesNeighborhoodContext(CityWorldGenerator generator) {
+        super(generator);
+        // TODO Auto-generated constructor stub
+    }
 
-	@Override
-	protected PlatLot getHouseLot(CityWorldGenerator generator, PlatMap platmap, Odds odds, int chunkX, int chunkZ) {
-		return new SandDunesHouseLot(platmap, chunkX, chunkZ);
-	}
+    @Override
+    protected PlatLot getHouseLot(CityWorldGenerator generator, PlatMap platmap, Odds odds, int chunkX, int chunkZ) {
+        return new SandDunesHouseLot(platmap, chunkX, chunkZ);
+    }
 }

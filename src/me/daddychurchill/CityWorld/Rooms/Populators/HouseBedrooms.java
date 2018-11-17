@@ -5,11 +5,11 @@ import me.daddychurchill.CityWorld.Rooms.EmptyRoom;
 
 public class HouseBedrooms extends RoomProvider {
 
-	public HouseBedrooms() {
-		super();
+    public HouseBedrooms() {
+        super();
 
-		roomTypes.add(new EmptyRoom());
+        roomTypes.add(new EmptyRoom());
 
-	}
+    }
 
 }

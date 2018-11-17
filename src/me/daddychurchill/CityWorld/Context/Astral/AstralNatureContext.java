@@ -9,25 +9,25 @@ import me.daddychurchill.CityWorld.Support.Odds;
 import me.daddychurchill.CityWorld.Support.PlatMap;
 
 public class AstralNatureContext extends AstralDataContext {
-	
-	public AstralNatureContext(CityWorldGenerator generator) {
-		super(generator);
-		
-		oddsOfIsolatedConstructs = Odds.oddsPrettyUnlikely;
-	}
-	
-	@Override
-	public PlatLot createNaturalLot(CityWorldGenerator generator, PlatMap platmap, int x, int z) {
-		return new AstralNatureLot(platmap, platmap.originX + x, platmap.originZ + z, Odds.oddsAlwaysGoingToHappen);
-	}
-	
-	@Override
-	public void populateMap(CityWorldGenerator generator, PlatMap platmap) {
-		
-		//TODO, This doesn't handle schematics quite right yet
-		// let the user add their stuff first, then plug any remaining holes with our stuff
-		//mapsSchematics.populate(generator, platmap);
-		
+
+    public AstralNatureContext(CityWorldGenerator generator) {
+        super(generator);
+
+        oddsOfIsolatedConstructs = Odds.oddsPrettyUnlikely;
+    }
+
+    @Override
+    public PlatLot createNaturalLot(CityWorldGenerator generator, PlatMap platmap, int x, int z) {
+        return new AstralNatureLot(platmap, platmap.originX + x, platmap.originZ + z, Odds.oddsAlwaysGoingToHappen);
+    }
+
+    @Override
+    public void populateMap(CityWorldGenerator generator, PlatMap platmap) {
+
+        //TODO, This doesn't handle schematics quite right yet
+        // let the user add their stuff first, then plug any remaining holes with our stuff
+        //mapsSchematics.populate(generator, platmap);
+
 //		// random fluff
 //		ShapeProvider shapeProvider = generator.shapeProvider;
 //		
@@ -69,17 +69,17 @@ public class AstralNatureContext extends AstralDataContext {
 //				}
 //			}
 //		}
-	}
+    }
 
-	@Override
-	public void validateMap(CityWorldGenerator generator, PlatMap platmap) {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	@Override
-	public Material getMapRepresentation() {
-		return Material.GLASS;
-	}
+    @Override
+    public void validateMap(CityWorldGenerator generator, PlatMap platmap) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public Material getMapRepresentation() {
+        return Material.GLASS;
+    }
 
 }

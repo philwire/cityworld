@@ -4,10 +4,10 @@ import me.daddychurchill.CityWorld.CityWorldGenerator;
 
 public abstract class RuralContext extends CivilizedContext {
 
-	public RuralContext(CityWorldGenerator generator) {
-		super(generator);
+    public RuralContext(CityWorldGenerator generator) {
+        super(generator);
 
-		maximumFloorsAbove = 1;
-		maximumFloorsBelow = 1;
-	}
+        maximumFloorsAbove = 1;
+        maximumFloorsBelow = 1;
+    }
 }
