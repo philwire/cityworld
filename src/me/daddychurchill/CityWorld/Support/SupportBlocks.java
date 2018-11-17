@@ -4,6 +4,7 @@ import me.daddychurchill.CityWorld.CityWorldGenerator;
 import me.daddychurchill.CityWorld.Context.DataContext;
 import me.daddychurchill.CityWorld.Plugins.LootProvider;
 import me.daddychurchill.CityWorld.Plugins.LootProvider.LootLocation;
+import org.bukkit.Axis;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -450,8 +451,22 @@ public abstract class SupportBlocks extends AbstractBlocks {
         block.setType(material, false);
         BlockData data = block.getBlockData();
         try {
-            if (data instanceof Directional)
+            if (data instanceof Directional) {
                 ((Directional) data).setFacing(facing);
+            } else if (data instanceof Orientable) {
+                switch (facing) {
+                    case NORTH:
+                    case SOUTH:
+                        ((Orientable) data).setAxis(Axis.Z);
+                        break;
+                    case EAST:
+                    case WEST:
+                        ((Orientable) data).setAxis(Axis.X);
+                        break;
+                    default:
+                        ((Orientable) data).setAxis(Axis.Y);
+                }
+            }
         } finally {
             block.setBlockData(data, doPhysics);
         }
