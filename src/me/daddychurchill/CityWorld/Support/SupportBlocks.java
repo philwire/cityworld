@@ -10,16 +10,9 @@ import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.block.BlockState;
 import org.bukkit.block.Sign;
-import org.bukkit.block.data.Ageable;
-import org.bukkit.block.data.Bisected;
+import org.bukkit.block.data.*;
 import org.bukkit.block.data.Bisected.Half;
-import org.bukkit.block.data.BlockData;
-import org.bukkit.block.data.Directional;
-import org.bukkit.block.data.Levelled;
-import org.bukkit.block.data.Powerable;
-import org.bukkit.block.data.Rail;
 import org.bukkit.block.data.Rail.Shape;
-import org.bukkit.block.data.Rotatable;
 import org.bukkit.block.data.type.Leaves;
 import org.bukkit.block.data.type.Slab;
 import org.bukkit.block.data.type.Snow;
@@ -492,77 +485,54 @@ public abstract class SupportBlocks extends AbstractBlocks {
         setBlock(x, y + 1, z, tableTop);
     }
 
-    //@@	public void setDoor(int x, int y, int z, Material material, BadMagic.Door direction) {
     public void setDoor(int x, int y, int z, Material material, BlockFace facing) {
         clearBlock(x, y, z);
         clearBlock(x, y + 1, z);
 
-//		Block blockBottom = getActualBlock(x, y, z);
-//		Block blockTop = getActualBlock(x, y + 1, z);sssss
-//		
-//		blockBottom.setType(material, false);
-//		blockTop.setType(material, false);
-//		
-//		BlockData dataBottom = blockBottom.getBlockData();
-//		BlockData dataTop = blockTop.getBlockData();
-//		try {
-//			if (dataBottom instanceof Door)
-//			if (dataBottom instanceof Directional)
-//				((Directional)dataBottom).setFacing(facing);
-//			if (dataTop instanceof Directional)
-//				((Directional)dataTop).setFacing(facing);
-//			
-//			if (dataBottom instanceof Bisected)
-//				((Bisected)dataBottom).setHalf(Half.BOTTOM);
-//			if (dataTop instanceof Bisected)
-//				((Bisected)dataTop).setHalf(Half.TOP);
-//		} finally {
-//			blockBottom.setBlockData(dataBottom, false);
-//			blockTop.setBlockData(dataTop, true);
-//		}
+        Block blockBottom = getActualBlock(x, y, z);
+        Block blockTop = getActualBlock(x, y + 1, z);
 
-//		byte orentation = 0;
-//		byte hinge = 0; // org.bukkit.block.data.type.Door (hinge), org.bukkit.block.data.Directional, org.bukkit.block.data.Bisected (top/bottom)
-//		
-//		// orientation
-//		switch (direction) {
-//		case NORTHBYNORTHEAST:
-//		case NORTH_NORTH_WEST:
-//			orentation = 1;
-//			break;
-//		case SOUTH_SOUTH_EAST:
-//		case SOUTHBYSOUTHWEST:
-//			orentation = 3;
-//			break;
-//		case WEST_NORTH_WEST:
-//		case WESTBYSOUTHWEST:
-//			orentation = 0;
-//			break;
-//		case EAST_NORTH_EAST:
-//		case EASTBYSOUTHEAST:
-//			orentation = 2;
-//			break;
-//		}
-//		
-//		// hinge?
-//		switch (direction) {
-//		case SOUTH_SOUTH_EAST:
-//		case NORTH_NORTH_WEST:
-//		case WESTBYSOUTHWEST:
-//		case EAST_NORTH_EAST:
-//			hinge = 8 + 0;
-//			break;
-//		case NORTHBYNORTHEAST:
-//		case SOUTHBYSOUTHWEST:
-//		case WEST_NORTH_WEST:
-//		case EASTBYSOUTHEAST:
-//			hinge = 8 + 1;
-//			break;
-//		}
-//		
-//		// set the door
-//		BlackMagic.setBlockType(getActualBlock(x, y    , z), material, orentation, true, false);
-//		BlackMagic.setBlockType(getActualBlock(x, y + 1, z), material, hinge, true, true);
+        blockBottom.setType(material, false);
+        blockTop.setType(material, false);
+
+        BlockData dataBottom = blockBottom.getBlockData();
+        BlockData dataTop = blockTop.getBlockData();
+
+        // Fix facing
+        switch (facing) {
+            case WEST_NORTH_WEST:
+            case WEST_SOUTH_WEST:
+                facing = BlockFace.WEST;
+                break;
+            case NORTH_NORTH_WEST:
+            case NORTH_NORTH_EAST:
+                facing = BlockFace.NORTH;
+                break;
+            case EAST_NORTH_EAST:
+            case EAST_SOUTH_EAST:
+                facing = BlockFace.EAST;
+                break;
+            case SOUTH_SOUTH_EAST:
+            case SOUTH_SOUTH_WEST:
+                facing = BlockFace.SOUTH;
+                break;
+        }
+        facing = facing.getOppositeFace();
+
+        try {
+            if (dataBottom instanceof Directional)
+                ((Directional) dataBottom).setFacing(facing);
+            if (dataTop instanceof Directional)
+                ((Directional) dataTop).setFacing(facing);
+
+            if (dataBottom instanceof Bisected)
+                ((Bisected) dataBottom).setHalf(Half.BOTTOM);
+            if (dataTop instanceof Bisected)
+                ((Bisected) dataTop).setHalf(Half.TOP);
+        } finally {
+            blockBottom.setBlockData(dataBottom, false);
+            blockTop.setBlockData(dataTop, true);
+        }
     }
 
     public final void setLadder(int x, int y1, int y2, int z, BlockFace direction) {
