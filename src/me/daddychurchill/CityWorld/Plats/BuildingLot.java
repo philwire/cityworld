@@ -421,8 +421,8 @@ public abstract class BuildingLot extends ConnectedLot {
                             chunk.setBlocks(at.X, at.X + 1, y1, y2, at.Z, at.Z + 4, wallMaterial);
                             chunk.setBlocks(at.X + 3, at.X + 4, y1, y2, at.Z, at.Z + 4, wallMaterial);
                             if (isTopFloor) {
-                                chunk.setBlock(at.X + 2, y1 - 1, at.Z, Material.BIRCH_TRAPDOOR, BlockFace.NORTH, Half.TOP);
-                                chunk.setBlock(at.X + 1, y1 - 1, at.Z + 3, Material.BIRCH_TRAPDOOR, BlockFace.SOUTH, Half.TOP);
+                                chunk.setBlock(at.X + 2, y1 - 1, at.Z, Material.BIRCH_TRAPDOOR, BlockFace.SOUTH, Half.TOP);
+                                chunk.setBlock(at.X + 1, y1 - 1, at.Z + 3, Material.BIRCH_TRAPDOOR, BlockFace.NORTH, Half.TOP);
                                 chunk.setBlocks(at.X + 2, y1, y2, at.Z, wallMaterial);
                                 chunk.setBlocks(at.X + 1, y1, y2, at.Z + 3, wallMaterial);
                             }
@@ -433,8 +433,8 @@ public abstract class BuildingLot extends ConnectedLot {
                             chunk.setBlocks(at.X, at.X + 4, y1, y2, at.Z, at.Z + 1, wallMaterial);
                             chunk.setBlocks(at.X, at.X + 4, y1, y2, at.Z + 3, at.Z + 4, wallMaterial);
                             if (isTopFloor) {
-                                chunk.setBlock(at.X, y1 - 1, at.Z + 2, Material.BIRCH_TRAPDOOR, BlockFace.WEST, Half.TOP);
-                                chunk.setBlock(at.X + 3, y1 - 1, at.Z + 1, Material.BIRCH_TRAPDOOR, BlockFace.EAST, Half.TOP);
+                                chunk.setBlock(at.X, y1 - 1, at.Z + 2, Material.BIRCH_TRAPDOOR, BlockFace.EAST, Half.TOP);
+                                chunk.setBlock(at.X + 3, y1 - 1, at.Z + 1, Material.BIRCH_TRAPDOOR, BlockFace.WEST, Half.TOP);
                                 chunk.setBlocks(at.X, y1, y2, at.Z + 2, wallMaterial);
                                 chunk.setBlocks(at.X + 3, y1, y2, at.Z + 1, wallMaterial);
                             }
@@ -453,7 +453,7 @@ public abstract class BuildingLot extends ConnectedLot {
                             chunk.setBlocks(at.X + 3, at.X + 4, y1, y2, at.Z, at.Z + 4, wallMaterial);
                             chunk.setBlocks(at.X + 1, at.X + 3, y1, y2, at.Z + 3, at.Z + 4, wallMaterial);
                             if (isTopFloor) {
-                                chunk.setBlock(at.X + 1, y1 - 1, at.Z, Material.BIRCH_TRAPDOOR, BlockFace.NORTH, Half.TOP);
+                                chunk.setBlock(at.X + 1, y1 - 1, at.Z, Material.BIRCH_TRAPDOOR, BlockFace.SOUTH, Half.TOP);
                                 chunk.setBlocks(at.X + 1, y1, y2, at.Z, wallMaterial);
                             }
                             break;
@@ -463,7 +463,7 @@ public abstract class BuildingLot extends ConnectedLot {
                             chunk.setBlocks(at.X + 3, at.X + 4, y1, y2, at.Z, at.Z + 4, wallMaterial);
                             chunk.setBlocks(at.X + 1, at.X + 3, y1, y2, at.Z, at.Z + 1, wallMaterial);
                             if (isTopFloor) {
-                                chunk.setBlock(at.X + 2, y1 - 1, at.Z + 3, Material.BIRCH_TRAPDOOR, BlockFace.SOUTH, Half.TOP);
+                                chunk.setBlock(at.X + 2, y1 - 1, at.Z + 3, Material.BIRCH_TRAPDOOR, BlockFace.NORTH, Half.TOP);
                                 chunk.setBlocks(at.X + 2, y1, y2, at.Z + 3, wallMaterial);
                             }
                             break;
@@ -473,7 +473,7 @@ public abstract class BuildingLot extends ConnectedLot {
                             chunk.setBlocks(at.X, at.X + 4, y1, y2, at.Z + 3, at.Z + 4, wallMaterial);
                             chunk.setBlocks(at.X + 3, at.X + 4, y1, y2, at.Z + 1, at.Z + 3, wallMaterial);
                             if (isTopFloor) {
-                                chunk.setBlock(at.X, y1 - 1, at.Z + 2, Material.BIRCH_TRAPDOOR, BlockFace.WEST, Half.TOP);
+                                chunk.setBlock(at.X, y1 - 1, at.Z + 2, Material.BIRCH_TRAPDOOR, BlockFace.EAST, Half.TOP);
                                 chunk.setBlocks(at.X, y1, y2, at.Z + 2, wallMaterial);
                             }
                             break;
@@ -483,7 +483,7 @@ public abstract class BuildingLot extends ConnectedLot {
                             chunk.setBlocks(at.X, at.X + 4, y1, y2, at.Z + 3, at.Z + 4, wallMaterial);
                             chunk.setBlocks(at.X, at.X + 1, y1, y2, at.Z + 1, at.Z + 3, wallMaterial);
                             if (isTopFloor) {
-                                chunk.setBlock(at.X + 3, y1 - 1, at.Z + 1, Material.BIRCH_TRAPDOOR, BlockFace.EAST, Half.TOP);
+                                chunk.setBlock(at.X + 3, y1 - 1, at.Z + 1, Material.BIRCH_TRAPDOOR, BlockFace.WEST, Half.TOP);
                                 chunk.setBlocks(at.X + 3, y1, y2, at.Z + 1, wallMaterial);
                             }
                             break;
@@ -500,7 +500,7 @@ public abstract class BuildingLot extends ConnectedLot {
                             emptyBlocks(generator, chunk, at.X + 1, at.X + 4, y1, yClear, at.Z + 1, at.Z + 2);
                             emptyBlocks(generator, chunk, at.X + 1, at.X + 2, y1, yClear, at.Z + 2, at.Z + 4);
                             if (isTopFloor) {
-                                chunk.setBlock(at.X + 3, y1 - 1, at.Z + 1, Material.BIRCH_TRAPDOOR, BlockFace.EAST, Half.TOP);
+                                chunk.setBlock(at.X + 3, y1 - 1, at.Z + 1, Material.BIRCH_TRAPDOOR, BlockFace.WEST, Half.TOP);
                                 chunk.setBlocks(at.X + 3, y1, y2, at.Z + 1, wallMaterial);
                             }
                             break;
@@ -508,7 +508,7 @@ public abstract class BuildingLot extends ConnectedLot {
                             emptyBlocks(generator, chunk, at.X, at.X + 3, y1, yClear, at.Z + 2, at.Z + 3);
                             emptyBlocks(generator, chunk, at.X + 2, at.X + 3, y1, yClear, at.Z, at.Z + 2);
                             if (isTopFloor) {
-                                chunk.setBlock(at.X, y1 - 1, at.Z + 2, Material.BIRCH_TRAPDOOR, BlockFace.WEST, Half.TOP);
+                                chunk.setBlock(at.X, y1 - 1, at.Z + 2, Material.BIRCH_TRAPDOOR, BlockFace.EAST, Half.TOP);
                                 chunk.setBlocks(at.X, y1, y2, at.Z + 2, wallMaterial);
                             }
                             break;
@@ -516,7 +516,7 @@ public abstract class BuildingLot extends ConnectedLot {
                             emptyBlocks(generator, chunk, at.X + 1, at.X + 2, y1, yClear, at.Z, at.Z + 3);
                             emptyBlocks(generator, chunk, at.X + 2, at.X + 4, y1, yClear, at.Z + 2, at.Z + 3);
                             if (isTopFloor) {
-                                chunk.setBlock(at.X + 1, y1 - 1, at.Z, Material.BIRCH_TRAPDOOR, BlockFace.NORTH, Half.TOP);
+                                chunk.setBlock(at.X + 1, y1 - 1, at.Z, Material.BIRCH_TRAPDOOR, BlockFace.SOUTH, Half.TOP);
                                 chunk.setBlocks(at.X + 1, y1, y2, at.Z, wallMaterial);
                             }
                             break;
@@ -524,7 +524,7 @@ public abstract class BuildingLot extends ConnectedLot {
                             emptyBlocks(generator, chunk, at.X, at.X + 3, y1, yClear, at.Z + 1, at.Z + 2);
                             emptyBlocks(generator, chunk, at.X + 2, at.X + 3, y1, yClear, at.Z + 2, at.Z + 4);
                             if (isTopFloor) {
-                                chunk.setBlock(at.X + 2, y1 - 1, at.Z + 3, Material.BIRCH_TRAPDOOR, BlockFace.SOUTH, Half.TOP);
+                                chunk.setBlock(at.X + 2, y1 - 1, at.Z + 3, Material.BIRCH_TRAPDOOR, BlockFace.NORTH, Half.TOP);
                                 chunk.setBlocks(at.X + 2, y1, y2, at.Z + 3, wallMaterial);
                             }
                             break;
@@ -545,8 +545,8 @@ public abstract class BuildingLot extends ConnectedLot {
                 chunk.setBlocks(at.X, at.X + 1, y1, y2, at.Z, at.Z + floorHeight, wallMaterial);
                 chunk.setBlocks(at.X + 3, at.X + 4, y1, y2, at.Z, at.Z + floorHeight, wallMaterial);
                 if (isTopFloor) {
-                    chunk.setBlock(at.X + 1, y1 - 1, at.Z, Material.BIRCH_TRAPDOOR, BlockFace.NORTH, Half.TOP);
-                    chunk.setBlock(at.X + 2, y1 - 1, at.Z, Material.BIRCH_TRAPDOOR, BlockFace.NORTH, Half.TOP);
+                    chunk.setBlock(at.X + 1, y1 - 1, at.Z, Material.BIRCH_TRAPDOOR, BlockFace.SOUTH, Half.TOP);
+                    chunk.setBlock(at.X + 2, y1 - 1, at.Z, Material.BIRCH_TRAPDOOR, BlockFace.SOUTH, Half.TOP);
                     chunk.setBlocks(at.X + 1, at.X + 3, y1, y2, at.Z, at.Z + 1, wallMaterial);
                 }
                 if (isBottomFloor) {
@@ -559,8 +559,8 @@ public abstract class BuildingLot extends ConnectedLot {
                 chunk.setBlocks(at.X, at.X + 1, y1, y2, at.Z, at.Z + floorHeight, wallMaterial);
                 chunk.setBlocks(at.X + 3, at.X + 4, y1, y2, at.Z, at.Z + floorHeight, wallMaterial);
                 if (isTopFloor) {
-                    chunk.setBlock(at.X + 1, y1 - 1, at.Z + floorHeight - 1, Material.BIRCH_TRAPDOOR, BlockFace.SOUTH, Half.TOP);
-                    chunk.setBlock(at.X + 2, y1 - 1, at.Z + floorHeight - 1, Material.BIRCH_TRAPDOOR, BlockFace.SOUTH, Half.TOP);
+                    chunk.setBlock(at.X + 1, y1 - 1, at.Z + floorHeight - 1, Material.BIRCH_TRAPDOOR, BlockFace.NORTH, Half.TOP);
+                    chunk.setBlock(at.X + 2, y1 - 1, at.Z + floorHeight - 1, Material.BIRCH_TRAPDOOR, BlockFace.NORTH, Half.TOP);
                     chunk.setBlocks(at.X + 1, at.X + 3, y1, y2, at.Z + floorHeight - 1, at.Z + floorHeight, wallMaterial);
                 }
                 if (isBottomFloor) {
@@ -573,8 +573,8 @@ public abstract class BuildingLot extends ConnectedLot {
                 chunk.setBlocks(at.X, at.X + floorHeight, y1, y2, at.Z, at.Z + 1, wallMaterial);
                 chunk.setBlocks(at.X, at.X + floorHeight, y1, y2, at.Z + 3, at.Z + 4, wallMaterial);
                 if (isTopFloor) {
-                    chunk.setBlock(at.X, y1 - 1, at.Z + 1, Material.BIRCH_TRAPDOOR, BlockFace.WEST, Half.TOP);
-                    chunk.setBlock(at.X, y1 - 1, at.Z + 2, Material.BIRCH_TRAPDOOR, BlockFace.WEST, Half.TOP);
+                    chunk.setBlock(at.X, y1 - 1, at.Z + 1, Material.BIRCH_TRAPDOOR, BlockFace.EAST, Half.TOP);
+                    chunk.setBlock(at.X, y1 - 1, at.Z + 2, Material.BIRCH_TRAPDOOR, BlockFace.EAST, Half.TOP);
                     chunk.setBlocks(at.X, at.X + 1, y1, y2, at.Z + 1, at.Z + 3, wallMaterial);
                 }
                 if (isBottomFloor) {
@@ -587,8 +587,8 @@ public abstract class BuildingLot extends ConnectedLot {
                 chunk.setBlocks(at.X, at.X + floorHeight, y1, y2, at.Z, at.Z + 1, wallMaterial);
                 chunk.setBlocks(at.X, at.X + floorHeight, y1, y2, at.Z + 3, at.Z + 4, wallMaterial);
                 if (isTopFloor) {
-                    chunk.setBlock(at.X + floorHeight - 1, y1 - 1, at.Z + 1, Material.BIRCH_TRAPDOOR, BlockFace.EAST, Half.TOP);
-                    chunk.setBlock(at.X + floorHeight - 1, y1 - 1, at.Z + 2, Material.BIRCH_TRAPDOOR, BlockFace.EAST, Half.TOP);
+                    chunk.setBlock(at.X + floorHeight - 1, y1 - 1, at.Z + 1, Material.BIRCH_TRAPDOOR, BlockFace.WEST, Half.TOP);
+                    chunk.setBlock(at.X + floorHeight - 1, y1 - 1, at.Z + 2, Material.BIRCH_TRAPDOOR, BlockFace.WEST, Half.TOP);
                     chunk.setBlocks(at.X + floorHeight - 1, at.X + floorHeight, y1, y2, at.Z + 1, at.Z + 3, wallMaterial);
                 }
                 if (isBottomFloor) {
