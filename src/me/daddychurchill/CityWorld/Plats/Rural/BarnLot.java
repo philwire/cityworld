@@ -1,21 +1,15 @@
 package me.daddychurchill.CityWorld.Plats.Rural;
 
-import org.bukkit.Material;
-import org.bukkit.block.BlockFace;
-import org.bukkit.entity.EntityType;
-import org.bukkit.generator.ChunkGenerator.BiomeGrid;
-
 import me.daddychurchill.CityWorld.CityWorldGenerator;
 import me.daddychurchill.CityWorld.Context.DataContext;
 import me.daddychurchill.CityWorld.Plats.IsolatedLot;
 import me.daddychurchill.CityWorld.Plats.PlatLot;
 import me.daddychurchill.CityWorld.Plugins.LootProvider.LootLocation;
-import me.daddychurchill.CityWorld.Support.CachedYs;
-import me.daddychurchill.CityWorld.Support.InitialBlocks;
-import me.daddychurchill.CityWorld.Support.Odds;
-import me.daddychurchill.CityWorld.Support.PlatMap;
-import me.daddychurchill.CityWorld.Support.RealBlocks;
-import me.daddychurchill.CityWorld.Support.SupportBlocks;
+import me.daddychurchill.CityWorld.Support.*;
+import org.bukkit.Material;
+import org.bukkit.block.BlockFace;
+import org.bukkit.entity.EntityType;
+import org.bukkit.generator.ChunkGenerator.BiomeGrid;
 
 public class BarnLot extends IsolatedLot {
 
@@ -322,7 +316,7 @@ public class BarnLot extends IsolatedLot {
     }
 
     private void punchWindows(RealBlocks chunk, int x, int y, int z) {
-        chunk.setBlocks(x, y, y + 2, z, windowsMat);
+        chunk.setBlocksWithPhysics(x, y, y + 2, z, windowsMat);
     }
 
     private void hayLoft(RealBlocks chunk, int x1, int x2, int y, int z1, int z2) {
