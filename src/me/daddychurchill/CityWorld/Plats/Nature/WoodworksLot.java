@@ -1,19 +1,17 @@
 package me.daddychurchill.CityWorld.Plats.Nature;
 
-import org.bukkit.Material;
-import org.bukkit.block.BlockFace;
-import org.bukkit.generator.ChunkGenerator.BiomeGrid;
-
 import me.daddychurchill.CityWorld.CityWorldGenerator;
 import me.daddychurchill.CityWorld.Context.DataContext;
 import me.daddychurchill.CityWorld.Plats.ConstructLot;
 import me.daddychurchill.CityWorld.Plats.PlatLot;
 import me.daddychurchill.CityWorld.Plugins.CoverProvider.CoverageType;
 import me.daddychurchill.CityWorld.Plugins.LootProvider.LootLocation;
-
+import me.daddychurchill.CityWorld.Support.InitialBlocks;
 import me.daddychurchill.CityWorld.Support.PlatMap;
 import me.daddychurchill.CityWorld.Support.RealBlocks;
-import me.daddychurchill.CityWorld.Support.InitialBlocks;
+import org.bukkit.Material;
+import org.bukkit.block.BlockFace;
+import org.bukkit.generator.ChunkGenerator.BiomeGrid;
 
 public class WoodworksLot extends ConstructLot {
 
@@ -69,18 +67,18 @@ public class WoodworksLot extends ConstructLot {
                 int logL = chunkOdds.getRandomInt(3, 3);
                 int logX = x + 6 - logL;
                 if (chunkOdds.flipCoin())
-                    chunk.setBlocks(logX, chunk.clampXZ(logX + logL), y, z - 1, z, Material.SPRUCE_LOG); //@@, 4);
-                chunk.setBlocks(logX, logX + logL, y, z, z + 1, Material.SPRUCE_LOG); //@@, 4);
+                    chunk.setBlocks(logX, chunk.clampXZ(logX + logL), y, z - 1, z, Material.OAK_LOG, BlockFace.EAST);
+                chunk.setBlocks(logX, logX + logL, y, z, z + 1, Material.OAK_LOG, BlockFace.EAST);
                 if (chunkOdds.flipCoin())
-                    chunk.setBlocks(logX, chunk.clampXZ(logX + logL), y, z + 1, z + 2, Material.SPRUCE_LOG); //@@, 4);
+                    chunk.setBlocks(logX, chunk.clampXZ(logX + logL), y, z + 1, z + 2, Material.OAK_LOG, BlockFace.EAST);
                 break;
             case 6:
             case 7:
                 if (chunkOdds.flipCoin())
-                    chunk.setBlocks(x + 1, x + 5, y, y + chunkOdds.getRandomInt(1, 2), z - 1, z, Material.SPRUCE_PLANKS);
-                chunk.setBlocks(x + 1, x + 5, y, y + chunkOdds.getRandomInt(1, 2), z, z + 1, Material.SPRUCE_PLANKS);
+                    chunk.setBlocks(x + 1, x + 5, y, y + chunkOdds.getRandomInt(1, 2), z - 1, z, Material.OAK_PLANKS);
+                chunk.setBlocks(x + 1, x + 5, y, y + chunkOdds.getRandomInt(1, 2), z, z + 1, Material.OAK_PLANKS);
                 if (chunkOdds.flipCoin())
-                    chunk.setBlocks(x + 1, x + 5, y, y + chunkOdds.getRandomInt(1, 2), z + 1, z + 2, Material.SPRUCE_PLANKS);
+                    chunk.setBlocks(x + 1, x + 5, y, y + chunkOdds.getRandomInt(1, 2), z + 1, z + 2, Material.OAK_PLANKS);
                 break;
             case 8:
                 if (chunkOdds.flipCoin())
