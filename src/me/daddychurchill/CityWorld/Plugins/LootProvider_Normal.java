@@ -2,7 +2,6 @@ package me.daddychurchill.CityWorld.Plugins;
 
 import me.daddychurchill.CityWorld.CityWorldGenerator;
 import me.daddychurchill.CityWorld.Support.Odds;
-
 import org.bukkit.block.Block;
 import org.bukkit.block.Chest;
 import org.bukkit.inventory.Inventory;
@@ -13,7 +12,7 @@ public class LootProvider_Normal extends LootProvider {
     @Override
     public void setLoot(CityWorldGenerator generator, Odds odds, String worldPrefix, LootLocation lootLocation, Block block) {
         Chest chest = (Chest) block.getState();
-        Inventory inv = chest.getInventory();
+        Inventory inv = chest.getSnapshotInventory();
         inv.clear();
         ItemStack[] items = getLoot(generator, odds, lootLocation, block);
         if (items != null)
