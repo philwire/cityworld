@@ -12,12 +12,11 @@ public class LootProvider_Normal extends LootProvider {
     @Override
     public void setLoot(CityWorldGenerator generator, Odds odds, String worldPrefix, LootLocation lootLocation, Block block) {
         Chest chest = (Chest) block.getState();
-        Inventory inv = chest.getSnapshotInventory();
+        Inventory inv = chest.getInventory();
         inv.clear();
         ItemStack[] items = getLoot(generator, odds, lootLocation, block);
         if (items != null)
             inv.addItem(items);
-        chest.update(true);
     }
 
     @Override
