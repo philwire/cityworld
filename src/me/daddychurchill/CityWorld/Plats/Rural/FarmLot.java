@@ -587,8 +587,10 @@ public class FarmLot extends ConnectedLot {
     private void buildVineyard(SupportBlocks chunk, int cropLevel) {
         if (directionNorthSouth) {
             for (int x = 1; x < 15; x += stepVineRowDelta) {
-                chunk.setBlocks(x, cropLevel, cropLevel + 4, 1, poleMaterial);
-                chunk.setBlocks(x, cropLevel, cropLevel + 4, 14, poleMaterial);
+                chunk.setBlocks(x, cropLevel, cropLevel + 3, 1, poleMaterial);
+                chunk.setBlock(x, cropLevel + 3, 1, poleMaterial, BlockFace.SOUTH);
+                chunk.setBlocks(x, cropLevel, cropLevel + 3, 14, poleMaterial);
+                chunk.setBlock(x, cropLevel + 3, 14, poleMaterial, BlockFace.NORTH);
                 chunk.setBlocks(x, x + 1, cropLevel + 3, cropLevel + 4, 2, 14, trellisMaterial);
 //				chunk.setBlocks(x, cropLevel, cropLevel + 3, 1, poleMaterial);
 //				chunk.setBlock(x, cropLevel + 3, 1, trellisMaterial);
@@ -598,8 +600,10 @@ public class FarmLot extends ConnectedLot {
             }
         } else {
             for (int z = 1; z < 15; z += stepVineRowDelta) {
-                chunk.setBlocks(1, cropLevel, cropLevel + 4, z, poleMaterial);
-                chunk.setBlocks(14, cropLevel, cropLevel + 4, z, poleMaterial);
+                chunk.setBlocks(1, cropLevel, cropLevel + 3, z, poleMaterial);
+                chunk.setBlock(1, cropLevel + 3, z, poleMaterial, BlockFace.EAST);
+                chunk.setBlocks(14, cropLevel, cropLevel + 3, z, poleMaterial);
+                chunk.setBlock(14, cropLevel + 3, z, poleMaterial, BlockFace.WEST);
                 chunk.setBlocks(2, 14, cropLevel + 3, cropLevel + 4, z, z + 1, trellisMaterial);
 //				chunk.setBlocks(1, cropLevel, cropLevel + 3, z, poleMaterial);
 //				chunk.setBlock(1, cropLevel + 3, z, trellisMaterial);

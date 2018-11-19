@@ -452,6 +452,8 @@ public abstract class SupportBlocks extends AbstractBlocks {
         try {
             if (data instanceof Directional) {
                 ((Directional) data).setFacing(facing);
+            } else if (data instanceof MultipleFacing) {
+                ((MultipleFacing) data).setFace(facing, true);
             } else if (data instanceof Orientable) {
                 switch (facing) {
                     case NORTH:
