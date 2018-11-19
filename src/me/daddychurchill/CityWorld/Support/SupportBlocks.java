@@ -15,7 +15,6 @@ import org.bukkit.block.data.*;
 import org.bukkit.block.data.Bisected.Half;
 import org.bukkit.block.data.Rail.Shape;
 import org.bukkit.block.data.type.*;
-import org.bukkit.material.Vine;
 import org.bukkit.util.noise.NoiseGenerator;
 
 public abstract class SupportBlocks extends AbstractBlocks {
@@ -383,10 +382,10 @@ public abstract class SupportBlocks extends AbstractBlocks {
         block.setType(Material.VINE, false);
         BlockData data = block.getBlockData();
         try {
-            if (data instanceof Vine) {
-                Vine vines = (Vine) data;
+            if (data instanceof MultipleFacing) {
+                MultipleFacing vines = (MultipleFacing) data;
                 for (BlockFace face : faces)
-                    vines.putOnFace(face);
+                    vines.setFace(face, true);
             }
         } finally {
             block.setBlockData(data, doPhysics);

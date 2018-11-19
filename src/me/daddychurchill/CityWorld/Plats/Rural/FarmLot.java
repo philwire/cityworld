@@ -1,22 +1,16 @@
 package me.daddychurchill.CityWorld.Plats.Rural;
 
-import org.bukkit.Material;
-import org.bukkit.World.Environment;
-import org.bukkit.block.BlockFace;
-import org.bukkit.generator.ChunkGenerator.BiomeGrid;
 import me.daddychurchill.CityWorld.CityWorldGenerator;
 import me.daddychurchill.CityWorld.Context.DataContext;
 import me.daddychurchill.CityWorld.Plats.ConnectedLot;
 import me.daddychurchill.CityWorld.Plats.PlatLot;
 import me.daddychurchill.CityWorld.Plugins.CoverProvider.CoverageSets;
 import me.daddychurchill.CityWorld.Plugins.CoverProvider.CoverageType;
-import me.daddychurchill.CityWorld.Support.CachedYs;
-import me.daddychurchill.CityWorld.Support.InitialBlocks;
-import me.daddychurchill.CityWorld.Support.Odds;
-import me.daddychurchill.CityWorld.Support.PlatMap;
-import me.daddychurchill.CityWorld.Support.RealBlocks;
-import me.daddychurchill.CityWorld.Support.SupportBlocks;
-import me.daddychurchill.CityWorld.Support.SurroundingLots;
+import me.daddychurchill.CityWorld.Support.*;
+import org.bukkit.Material;
+import org.bukkit.World.Environment;
+import org.bukkit.block.BlockFace;
+import org.bukkit.generator.ChunkGenerator.BiomeGrid;
 
 
 public class FarmLot extends ConnectedLot {
@@ -621,8 +615,8 @@ public class FarmLot extends ConnectedLot {
             for (int x = 1; x < 15; x += stepVineRowDelta) {
                 if (chunkOdds.playOdds(oddsOfCrop)) {
                     for (int z = 2; z < 14; z++) {
-                        chunk.setVines(x - 1, cropLevel + 1 + chunkOdds.getRandomInt(3), cropLevel + 4, z, BlockFace.SOUTH);
-                        chunk.setVines(x + 1, cropLevel + 1 + chunkOdds.getRandomInt(3), cropLevel + 4, z, BlockFace.NORTH);
+                        chunk.setVines(x - 1, cropLevel + 1 + chunkOdds.getRandomInt(3), cropLevel + 4, z, BlockFace.EAST);
+                        chunk.setVines(x + 1, cropLevel + 1 + chunkOdds.getRandomInt(3), cropLevel + 4, z, BlockFace.WEST);
 //						chunk.setWool(x - 1, x, cropLevel + 1 + chunkOdds.getRandomInt(3), cropLevel + 4, z, z + 1, DyeColor.BLACK);
 //						chunk.setWool(x + 1, x + 2, cropLevel + 1 + chunkOdds.getRandomInt(3), cropLevel + 4, z, z + 1, DyeColor.BLUE);
                     }
@@ -632,8 +626,8 @@ public class FarmLot extends ConnectedLot {
             for (int z = 1; z < 15; z += stepVineRowDelta) {
                 if (chunkOdds.playOdds(oddsOfCrop)) {
                     for (int x = 2; x < 14; x++) {
-                        chunk.setVines(x, cropLevel + 1 + chunkOdds.getRandomInt(3), cropLevel + 4, z - 1, BlockFace.EAST);
-                        chunk.setVines(x, cropLevel + 1 + chunkOdds.getRandomInt(3), cropLevel + 4, z + 1, BlockFace.WEST);
+                        chunk.setVines(x, cropLevel + 1 + chunkOdds.getRandomInt(3), cropLevel + 4, z - 1, BlockFace.SOUTH);
+                        chunk.setVines(x, cropLevel + 1 + chunkOdds.getRandomInt(3), cropLevel + 4, z + 1, BlockFace.NORTH);
 //						chunk.setWool(x, x + 1, cropLevel + 1 + chunkOdds.getRandomInt(3), cropLevel + 4, z - 1, z, DyeColor.RED);
 //						chunk.setWool(x, x + 1, cropLevel + 1 + chunkOdds.getRandomInt(3), cropLevel + 4, z + 1, z + 2, DyeColor.GREEN);
                     }
