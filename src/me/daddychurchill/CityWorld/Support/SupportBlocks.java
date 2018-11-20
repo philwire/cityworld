@@ -495,6 +495,27 @@ public abstract class SupportBlocks extends AbstractBlocks {
         return block;
     }
 
+    public final Block setStair(int x, int y, int z, Material material, BlockFace facing) {
+        return setStair(x, y, z, material, facing, Stairs.Shape.STRAIGHT);
+    }
+
+    public final Block setStair(int x, int y, int z, Material material, BlockFace facing, Stairs.Shape shape) {
+        Block block = getActualBlock(x, y, z);
+        block.setType(material, false);
+        BlockData data = block.getBlockData();
+        try {
+            if (data instanceof Directional) {
+                ((Directional) data).setFacing(facing);
+            }
+            if (data instanceof Stairs) {
+                ((Stairs) data).setShape(shape);
+            }
+        } finally {
+            block.setBlockData(data, doPhysics);
+        }
+        return block;
+    }
+
     public final Block setBlockWithPhysics(int x, int y, int z, Material material, BlockFace facing) {
         boolean was = setDoPhysics(true);
         Block block = setBlock(x, y, z, material, facing);

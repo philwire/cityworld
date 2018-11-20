@@ -11,6 +11,7 @@ import org.bukkit.Material;
 import org.bukkit.TreeSpecies;
 import org.bukkit.block.BlockFace;
 import org.bukkit.block.data.Bisected.Half;
+import org.bukkit.block.data.type.Stairs;
 import org.bukkit.generator.ChunkGenerator.BiomeGrid;
 
 public class ParkLot extends ConnectedLot {
@@ -708,25 +709,42 @@ public class ParkLot extends ConnectedLot {
         if (chunkOdds.flipCoin())
             benchEnd--;
 
+        if (benchStart == 3) {
+            // cornet bit
+            if (NW) {
+                chunk.setStair(3, surfaceY, 3, stairs, BlockFace.NORTH, Stairs.Shape.INNER_LEFT);
+            }
+            if (NE) {
+                chunk.setStair(12, surfaceY, 3, stairs, BlockFace.NORTH, Stairs.Shape.INNER_RIGHT);
+            }
+            if (SW) {
+                chunk.setStair(3, surfaceY, 12, stairs, BlockFace.SOUTH, Stairs.Shape.INNER_RIGHT);
+            }
+            if (SE) {
+                chunk.setStair(12, surfaceY, 12, stairs, BlockFace.SOUTH, Stairs.Shape.INNER_LEFT);
+            }
+        }
         for (int i = benchStart; i < benchEnd; i++) {
-            if (NW)
-                chunk.setBlock(i, surfaceY, 3, stairs, BlockFace.NORTH);
-            if (NE)
-                chunk.setBlock(15 - i, surfaceY, 3, stairs, BlockFace.NORTH);
-            if (SW)
-                chunk.setBlock(i, surfaceY, 12, stairs, BlockFace.SOUTH);
-            if (SE)
-                chunk.setBlock(15 - i, surfaceY, 12, stairs, BlockFace.SOUTH);
+            // corner bit
+            if (i == 3) {
+                continue;
+            }
 
-            if (i != 3) { // corner bit needs to be skipped
-                if (NW)
-                    chunk.setBlock(3, surfaceY, i, stairs, BlockFace.WEST);
-                if (SW)
-                    chunk.setBlock(3, surfaceY, 15 - i, stairs, BlockFace.WEST);
-                if (NE)
-                    chunk.setBlock(12, surfaceY, i, stairs, BlockFace.EAST);
-                if (SE)
-                    chunk.setBlock(12, surfaceY, 15 - i, stairs, BlockFace.EAST);
+            if (NW) {
+                chunk.setBlock(i, surfaceY, 3, stairs, BlockFace.NORTH);
+                chunk.setBlock(3, surfaceY, i, stairs, BlockFace.WEST);
+            }
+            if (NE) {
+                chunk.setBlock(15 - i, surfaceY, 3, stairs, BlockFace.NORTH);
+                chunk.setBlock(3, surfaceY, 15 - i, stairs, BlockFace.WEST);
+            }
+            if (SW) {
+                chunk.setBlock(i, surfaceY, 12, stairs, BlockFace.SOUTH);
+                chunk.setBlock(12, surfaceY, i, stairs, BlockFace.EAST);
+            }
+            if (SE) {
+                chunk.setBlock(15 - i, surfaceY, 12, stairs, BlockFace.SOUTH);
+                chunk.setBlock(12, surfaceY, 15 - i, stairs, BlockFace.EAST);
             }
         }
 
