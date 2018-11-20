@@ -1,8 +1,10 @@
 package me.daddychurchill.CityWorld.Support;
 
 import me.daddychurchill.CityWorld.CityWorldGenerator;
-
 import org.bukkit.Material;
+import org.bukkit.block.BlockFace;
+import org.bukkit.block.data.BlockData;
+import org.bukkit.block.data.MultipleFacing;
 import org.bukkit.generator.ChunkGenerator.ChunkData;
 
 public final class InitialBlocks extends AbstractBlocks {
@@ -47,6 +49,16 @@ public final class InitialBlocks extends AbstractBlocks {
         chunkData.setBlock(x, y, z, material);
     }
 
+    public void setBlock(int x, int y, int z, Material material, BlockFace... facing) {
+        BlockData blockData = material.createBlockData();
+        if (blockData instanceof MultipleFacing) {
+            for (BlockFace face : facing) {
+                ((MultipleFacing) blockData).setFace(face, true);
+            }
+        }
+        chunkData.setBlock(x, y, z, blockData);
+    }
+
     @Override
     public void setBlockIfEmpty(int x, int y, int z, Material material) {
         if (isEmpty(x, y, z) && !isEmpty(x, y - 1, z))
@@ -65,6 +77,11 @@ public final class InitialBlocks extends AbstractBlocks {
             setBlock(x, y, z, material);
     }
 
+    public void setBlocks(int x, int y1, int y2, int z, Material material, BlockFace... facing) {
+        for (int y = y1; y < y2; y++)
+            setBlock(x, y, z, material, facing);
+    }
+
     //================ x1, x2, y1, y2, z1, z2
     @Override
     public void setBlocks(int x1, int x2, int y1, int y2, int z1, int z2, Material material) {
@@ -72,6 +89,15 @@ public final class InitialBlocks extends AbstractBlocks {
             for (int z = z1; z < z2; z++) {
                 for (int y = y1; y < y2; y++)
                     setBlock(x, y, z, material);
+            }
+        }
+    }
+
+    public void setBlocks(int x1, int x2, int y1, int y2, int z1, int z2, Material material, BlockFace... facing) {
+        for (int x = x1; x < x2; x++) {
+            for (int z = z1; z < z2; z++) {
+                for (int y = y1; y < y2; y++)
+                    setBlock(x, y, z, material, facing);
             }
         }
     }
