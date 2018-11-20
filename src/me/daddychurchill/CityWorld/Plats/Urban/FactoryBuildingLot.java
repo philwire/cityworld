@@ -281,7 +281,7 @@ public class FactoryBuildingLot extends IndustrialBuildingLot {
                                     Material officeMat) {
         // bottom floor
         chunk.setWalls(3, 13, groundY, groundY + 1, 3, 13, officeMat);
-        chunk.setWallsWithPhysics(3, 13, groundY + 1, groundY + 2, 3, 13, Material.GLASS_PANE);
+        chunk.setWalls(3, 13, groundY + 1, groundY + 2, 3, 13, Material.GLASS_PANE);
         chunk.setWalls(3, 13, groundY + 2, skywalkAt, 3, 13, officeMat);
         chunk.setBlocks(3, 13, skywalkAt, 3, 13, officeMat);
         generateOpenings(chunk, groundY);
@@ -291,12 +291,12 @@ public class FactoryBuildingLot extends IndustrialBuildingLot {
         if (groundY + aboveFloorHeight <= skywalkAt - aboveFloorHeight) {
             int secondY = groundY + aboveFloorHeight;
             chunk.setBlocks(3, 13, secondY, 3, 13, officeMat);
-            chunk.setWallsWithPhysics(3, 13, secondY + 2, secondY + 3, 3, 13, Material.GLASS_PANE);
+            chunk.setWalls(3, 13, secondY + 2, secondY + 3, 3, 13, Material.GLASS_PANE);
         }
 
         // top floor at skywalk level
         chunk.setWalls(3, 13, skywalkAt + 1, skywalkAt + 2, 3, 13, officeMat);
-        chunk.setWallsWithPhysics(3, 13, skywalkAt + 2, skywalkAt + 3, 3, 13, Material.GLASS_PANE);
+        chunk.setWalls(3, 13, skywalkAt + 2, skywalkAt + 3, 3, 13, Material.GLASS_PANE);
         chunk.setWalls(3, 13, skywalkAt + 3, skywalkAt + 4, 3, 13, officeMat);
         chunk.setBlocks(3, 13, skywalkAt + 4, 3, 13, officeMat);
         generateOpenings(chunk, skywalkAt + 1);

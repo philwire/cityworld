@@ -198,16 +198,21 @@ public abstract class SupportBlocks extends AbstractBlocks {
 
     @Override
     public final void setWalls(int x1, int x2, int y1, int y2, int z1, int z2, Material material) {
-        setBlocks(x1, x2, y1, y2, z1, z1 + 1, material);
-        setBlocks(x1, x2, y1, y2, z2 - 1, z2, material);
-        setBlocks(x1, x1 + 1, y1, y2, z1 + 1, z2 - 1, material);
-        setBlocks(x2 - 1, x2, y1, y2, z1 + 1, z2 - 1, material);
-    }
-
-    public final void setWallsWithPhysics(int x1, int x2, int y1, int y2, int z1, int z2, Material material) {
-        boolean was = setDoPhysics(true);
-        setWalls(x1, x2, y1, y2, z1, z2, material);
-        setDoPhysics(was);
+        if (material.createBlockData() instanceof MultipleFacing) {
+            setBlocks(x1, x2, y1, y2, z1, z1 + 1, material, BlockFace.EAST, BlockFace.WEST);                    // N
+            setBlocks(x1, x2, y1, y2, z2 - 1, z2, material, BlockFace.EAST, BlockFace.WEST);                    // S
+            setBlocks(x1, x1 + 1, y1, y2, z1 + 1, z2 - 1, material, BlockFace.SOUTH, BlockFace.NORTH);  // W
+            setBlocks(x2 - 1, x2, y1, y2, z1 + 1, z2 - 1, material, BlockFace.SOUTH, BlockFace.NORTH);  // E
+            setBlock(x1, y1, z1, material, BlockFace.SOUTH, BlockFace.EAST);                // NW
+            setBlock(x1, y1, z2 - 1, material, BlockFace.NORTH, BlockFace.EAST);         // SW
+            setBlock(x2 - 1, y1, z1, material, BlockFace.SOUTH, BlockFace.WEST);         // NE
+            setBlock(x2 - 1, y1, z2 - 1, material, BlockFace.NORTH, BlockFace.WEST);  // SE
+        } else {
+            setBlocks(x1, x2, y1, y2, z1, z1 + 1, material);                    // N
+            setBlocks(x1, x2, y1, y2, z2 - 1, z2, material);                    // S
+            setBlocks(x1, x1 + 1, y1, y2, z1 + 1, z2 - 1, material);    // W
+            setBlocks(x2 - 1, x2, y1, y2, z1 + 1, z2 - 1, material);    // E
+        }
     }
 
     @Override
@@ -474,6 +479,22 @@ public abstract class SupportBlocks extends AbstractBlocks {
         return block;
     }
 
+    public final Block setBlock(int x, int y, int z, Material material, BlockFace... facing) {
+        Block block = getActualBlock(x, y, z);
+        block.setType(material, false);
+        BlockData data = block.getBlockData();
+        try {
+            if (data instanceof MultipleFacing) {
+                for (BlockFace face : facing) {
+                    ((MultipleFacing) data).setFace(face, true);
+                }
+            }
+        } finally {
+            block.setBlockData(data, doPhysics);
+        }
+        return block;
+    }
+
     public final Block setBlockWithPhysics(int x, int y, int z, Material material, BlockFace facing) {
         boolean was = setDoPhysics(true);
         Block block = setBlock(x, y, z, material, facing);
@@ -486,6 +507,16 @@ public abstract class SupportBlocks extends AbstractBlocks {
     }
 
     public final void setBlocks(int x1, int x2, int y1, int y2, int z1, int z2, Material material, BlockFace facing) {
+        for (int x = x1; x < x2; x++) {
+            for (int y = y1; y < y2; y++) {
+                for (int z = z1; z < z2; z++) {
+                    setBlock(x, y, z, material, facing);
+                }
+            }
+        }
+    }
+
+    public final void setBlocks(int x1, int x2, int y1, int y2, int z1, int z2, Material material, BlockFace... facing) {
         for (int x = x1; x < x2; x++) {
             for (int y = y1; y < y2; y++) {
                 for (int z = z1; z < z2; z++) {
