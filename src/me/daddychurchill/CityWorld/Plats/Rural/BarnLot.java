@@ -185,10 +185,10 @@ public class BarnLot extends IsolatedLot {
             chunk.setBlocks(5, 11, y3 + 2, 14, 15, wallMat);
 
             // a few more windows
-            punchWindows(chunk, 7, y3 + 2, 1);
-            punchWindows(chunk, 8, y3 + 2, 1);
-            punchWindows(chunk, 7, y3 + 2, 14);
-            punchWindows(chunk, 8, y3 + 2, 14);
+            punchWindows(chunk, 7, y3 + 2, 1, BlockFace.EAST, BlockFace.WEST);
+            punchWindows(chunk, 8, y3 + 2, 1, BlockFace.EAST, BlockFace.WEST);
+            punchWindows(chunk, 7, y3 + 2, 14, BlockFace.EAST, BlockFace.WEST);
+            punchWindows(chunk, 8, y3 + 2, 14, BlockFace.EAST, BlockFace.WEST);
         } else {
             // bottom stuff
             if (firstPaddock) {
@@ -286,10 +286,10 @@ public class BarnLot extends IsolatedLot {
             chunk.setBlocks(14, 15, y3 + 2, 5, 11, wallMat);
 
             // a few more windows
-            punchWindows(chunk, 1, y3 + 2, 7);
-            punchWindows(chunk, 1, y3 + 2, 8);
-            punchWindows(chunk, 14, y3 + 2, 7);
-            punchWindows(chunk, 14, y3 + 2, 8);
+            punchWindows(chunk, 1, y3 + 2, 7, BlockFace.SOUTH, BlockFace.NORTH);
+            punchWindows(chunk, 1, y3 + 2, 8, BlockFace.SOUTH, BlockFace.NORTH);
+            punchWindows(chunk, 14, y3 + 2, 7, BlockFace.SOUTH, BlockFace.NORTH);
+            punchWindows(chunk, 14, y3 + 2, 8, BlockFace.SOUTH, BlockFace.NORTH);
         }
 
         // not a happy place?
@@ -305,18 +305,18 @@ public class BarnLot extends IsolatedLot {
     }
 
     private void punchWindows(RealBlocks chunk, int y) {
-        punchWindows(chunk, 3, y, 1);
-        punchWindows(chunk, 1, y, 3);
-        punchWindows(chunk, 12, y, 1);
-        punchWindows(chunk, 1, y, 12);
-        punchWindows(chunk, 14, y, 3);
-        punchWindows(chunk, 3, y, 14);
-        punchWindows(chunk, 12, y, 14);
-        punchWindows(chunk, 14, y, 12);
+        punchWindows(chunk, 3, y, 1, BlockFace.EAST, BlockFace.WEST);
+        punchWindows(chunk, 1, y, 3, BlockFace.SOUTH, BlockFace.NORTH);
+        punchWindows(chunk, 12, y, 1, BlockFace.EAST, BlockFace.WEST);
+        punchWindows(chunk, 1, y, 12, BlockFace.SOUTH, BlockFace.NORTH);
+        punchWindows(chunk, 14, y, 3, BlockFace.SOUTH, BlockFace.NORTH);
+        punchWindows(chunk, 3, y, 14, BlockFace.EAST, BlockFace.WEST);
+        punchWindows(chunk, 12, y, 14, BlockFace.EAST, BlockFace.WEST);
+        punchWindows(chunk, 14, y, 12, BlockFace.SOUTH, BlockFace.NORTH);
     }
 
-    private void punchWindows(RealBlocks chunk, int x, int y, int z) {
-        chunk.setBlocksWithPhysics(x, y, y + 2, z, windowsMat);
+    private void punchWindows(RealBlocks chunk, int x, int y, int z, BlockFace... facing) {
+        chunk.setBlocks(x, y, y + 2, z, windowsMat, facing);
     }
 
     private void hayLoft(RealBlocks chunk, int x1, int x2, int y, int z1, int z2) {
