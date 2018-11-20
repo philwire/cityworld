@@ -67,6 +67,9 @@ public abstract class SupportBlocks extends AbstractBlocks {
         setActualBlock(getActualBlock(x, y, z), material);
     }
 
+    /**
+     * @deprecated May cause lag
+     */
     public final void setBlockWithPhysics(int x, int y, int z, Material material) {
         // Prevent to trigger physics event on chunk border
         if (x == 0 || x == 15 || z == 0 || z == 15) {
@@ -150,6 +153,9 @@ public abstract class SupportBlocks extends AbstractBlocks {
             setBlock(x, y, z, material);
     }
 
+    /**
+     * @deprecated May cause lag
+     */
     public final void setBlocksWithPhysics(int x, int y1, int y2, int z, Material material) {
         // Prevent to trigger physics event on chunk border
         if (x == 0 || x == 15 || z == 0 || z == 15) {
@@ -174,6 +180,9 @@ public abstract class SupportBlocks extends AbstractBlocks {
         }
     }
 
+    /**
+     * @deprecated May cause lag
+     */
     public final void setBlocksWithPhysics(int x1, int x2, int y1, int y2, int z1, int z2, Material material) {
         // Prevent to trigger physics event on chunk border
         if (x1 == 0 || x2 == 16 || z1 == 0 || z2 == 16) {
@@ -196,6 +205,9 @@ public abstract class SupportBlocks extends AbstractBlocks {
         }
     }
 
+    /**
+     * @deprecated May cause lag
+     */
     public final void setBlocksWithPhysics(int x1, int x2, int y, int z1, int z2, Material material) {
         // Prevent to trigger physics event on chunk border
         if (x1 == 0 || x2 == 16 || z1 == 0 || z2 == 16) {
@@ -208,6 +220,9 @@ public abstract class SupportBlocks extends AbstractBlocks {
         setDoPhysics(was);
     }
 
+    /**
+     * @deprecated May cause lag
+     */
     public final void setBlocksUpwardWithPhysics(int x, int y1, int z, int maxY, Material material) {
         // Prevent to trigger physics event on chunk border
         if (x == 0 || x == 15 || z == 0 || z == 15) {
@@ -540,6 +555,9 @@ public abstract class SupportBlocks extends AbstractBlocks {
         return block;
     }
 
+    /**
+     * @deprecated May cause lag
+     */
     public final Block setBlockWithPhysics(int x, int y, int z, Material material, BlockFace facing) {
         boolean was = setDoPhysics(true);
         Block block = setBlock(x, y, z, material, facing);
