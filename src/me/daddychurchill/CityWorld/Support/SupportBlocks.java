@@ -182,13 +182,7 @@ public abstract class SupportBlocks extends AbstractBlocks {
             return;
         }
         boolean was = setDoPhysics(true);
-        for (int x = x1; x < x2; x++) {
-            for (int y = y1; y < y2; y++) {
-                for (int z = z1; z < z2; z++) {
-                    setBlock(x, y, z, material);
-                }
-            }
-        }
+        setBlocks(x1, x2, y1, y2, z1, z2, material);
         setDoPhysics(was);
     }
 
