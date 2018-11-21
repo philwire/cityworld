@@ -242,10 +242,10 @@ public abstract class SupportBlocks extends AbstractBlocks {
             setBlocks(x1, x2, y1, y2, z2 - 1, z2, material, BlockFace.EAST, BlockFace.WEST);                    // S
             setBlocks(x1, x1 + 1, y1, y2, z1 + 1, z2 - 1, material, BlockFace.SOUTH, BlockFace.NORTH);  // W
             setBlocks(x2 - 1, x2, y1, y2, z1 + 1, z2 - 1, material, BlockFace.SOUTH, BlockFace.NORTH);  // E
-            setBlock(x1, y1, z1, material, BlockFace.SOUTH, BlockFace.EAST);                // NW
-            setBlock(x1, y1, z2 - 1, material, BlockFace.NORTH, BlockFace.EAST);         // SW
-            setBlock(x2 - 1, y1, z1, material, BlockFace.SOUTH, BlockFace.WEST);         // NE
-            setBlock(x2 - 1, y1, z2 - 1, material, BlockFace.NORTH, BlockFace.WEST);  // SE
+            setBlocks(x1, y1, y2, z1, material, BlockFace.SOUTH, BlockFace.EAST);                // NW
+            setBlocks(x1, y1, y2, z2 - 1, material, BlockFace.NORTH, BlockFace.EAST);         // SW
+            setBlocks(x2 - 1, y1, y2, z1, material, BlockFace.SOUTH, BlockFace.WEST);         // NE
+            setBlocks(x2 - 1, y1, y2, z2 - 1, material, BlockFace.NORTH, BlockFace.WEST);  // SE
         } else {
             setBlocks(x1, x2, y1, y2, z1, z1 + 1, material);                    // N
             setBlocks(x1, x2, y1, y2, z2 - 1, z2, material);                    // S
