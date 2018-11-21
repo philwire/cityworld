@@ -661,6 +661,17 @@ public abstract class SupportBlocks extends AbstractBlocks {
         }
     }
 
+    public void setFenceDoor(int x, int y1, int y2, int z, Material material, BlockFace facing) {
+
+        facing = fixFacing(facing);
+
+        if (facing == BlockFace.NORTH || facing == BlockFace.SOUTH) {
+            setBlocks(x, y1, y2, z, material, BlockFace.EAST, BlockFace.WEST);
+        } else if (facing == BlockFace.EAST || facing == BlockFace.WEST) {
+            setBlocks(x, y1, y2, z, material, BlockFace.NORTH, BlockFace.SOUTH);
+        }
+    }
+
     public final void setLadder(int x, int y1, int y2, int z, BlockFace direction) {
 
         // this calculates which wall the ladder is on
