@@ -1,9 +1,5 @@
 package me.daddychurchill.CityWorld.Plats.Nature;
 
-import org.bukkit.Material;
-import org.bukkit.block.BlockFace;
-import org.bukkit.generator.ChunkGenerator.BiomeGrid;
-
 import me.daddychurchill.CityWorld.CityWorldGenerator;
 import me.daddychurchill.CityWorld.Context.DataContext;
 import me.daddychurchill.CityWorld.Plats.ConstructLot;
@@ -12,6 +8,9 @@ import me.daddychurchill.CityWorld.Support.CachedYs;
 import me.daddychurchill.CityWorld.Support.InitialBlocks;
 import me.daddychurchill.CityWorld.Support.PlatMap;
 import me.daddychurchill.CityWorld.Support.RealBlocks;
+import org.bukkit.Material;
+import org.bukkit.block.BlockFace;
+import org.bukkit.generator.ChunkGenerator.BiomeGrid;
 
 public class OilPlatformLot extends ConstructLot {
 
@@ -134,11 +133,11 @@ public class OilPlatformLot extends ConstructLot {
         chunk.clearBlock(2, y4 - 1, 2);
         chunk.clearBlock(2, y4 - 1, 3);
         chunk.setBlock(3, y4 - 1, 3, topperMaterial, BlockFace.NORTH);
-        chunk.setBlocksWithPhysics(2, y4 - 2, y4, 2, Material.IRON_BARS);
+        chunk.setBlocks(2, y4 - 2, y4, 2, Material.IRON_BARS, BlockFace.EAST);
         chunk.drawCrane(context, chunkOdds, 3, y4, 2);
 
         // bleed off
-        chunk.setBlocksWithPhysics(12, 14, y4 + 3, y4 + 8, 12, 14, Material.IRON_BARS);
+        chunk.setWalls(12, 14, y4 + 3, y4 + 8, 12, 14, Material.IRON_BARS);
         chunk.setBlocks(12, 14, y4 + 8, 12, 14, Material.NETHERRACK);
         chunk.setBlocks(12, 14, y4 + 9, 12, 14, Material.FIRE);
 
