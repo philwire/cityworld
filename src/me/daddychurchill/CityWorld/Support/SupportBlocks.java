@@ -238,8 +238,8 @@ public abstract class SupportBlocks extends AbstractBlocks {
     @Override
     public final void setWalls(int x1, int x2, int y1, int y2, int z1, int z2, Material material) {
         if (material.createBlockData() instanceof MultipleFacing) {
-            setBlocks(x1, x2, y1, y2, z1, z1 + 1, material, BlockFace.EAST, BlockFace.WEST);                    // N
-            setBlocks(x1, x2, y1, y2, z2 - 1, z2, material, BlockFace.EAST, BlockFace.WEST);                    // S
+            setBlocks(x1 + 1, x2 - 1, y1, y2, z1, z1 + 1, material, BlockFace.EAST, BlockFace.WEST);    // N
+            setBlocks(x1 + 1, x2 - 1, y1, y2, z2 - 1, z2, material, BlockFace.EAST, BlockFace.WEST);    // S
             setBlocks(x1, x1 + 1, y1, y2, z1 + 1, z2 - 1, material, BlockFace.SOUTH, BlockFace.NORTH);  // W
             setBlocks(x2 - 1, x2, y1, y2, z1 + 1, z2 - 1, material, BlockFace.SOUTH, BlockFace.NORTH);  // E
             setBlocks(x1, y1, y2, z1, material, BlockFace.SOUTH, BlockFace.EAST);                // NW
