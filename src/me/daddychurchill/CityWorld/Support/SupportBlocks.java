@@ -597,15 +597,16 @@ public abstract class SupportBlocks extends AbstractBlocks {
         Colors colors = new Colors(odds);
 
         // vertical bit
-        setBlocksWithPhysics(x, y, y + 8, z, Material.IRON_BARS);
-        setBlocksWithPhysics(x - 1, y, y + 8, z, Material.IRON_BARS); // 1.9 shows iron fences very thin now
+        setBlocks(x, y, y + 8, z, Material.IRON_BARS, BlockFace.WEST);
+        setBlocks(x - 1, y, y + 8, z, Material.IRON_BARS, BlockFace.EAST); // 1.9 shows iron fences very thin now
         setBlocks(x, y + 8, y + 10, z, Material.STONE);
         setBlocks(x - 1, y + 8, y + 10, z, Material.STONE_SLAB);
         setBlock(x, y + 10, z, context.torchMat, BlockFace.UP);
 
         // horizontal bit
         setBlock(x + 1, y + 8, z, Material.GLASS);
-        setBlocksWithPhysics(x + 2, x + 11, y + 8, y + 9, z, z + 1, Material.IRON_BARS);
+        setBlocks(x + 2, x + 10, y + 8, y + 9, z, z + 1, Material.IRON_BARS, BlockFace.EAST, BlockFace.WEST);
+        setBlock(x + 10, y + 8, z, Material.IRON_BARS, BlockFace.WEST);
         setBlocks(x + 1, x + 10, y + 9, y + 10, z, z + 1, Material.STONE_SLAB);
         setBlock(x + 10, y + 9, z, Material.STONE_BRICK_STAIRS, BlockFace.WEST);
 
