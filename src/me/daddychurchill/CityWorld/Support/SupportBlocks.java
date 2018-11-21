@@ -642,25 +642,7 @@ public abstract class SupportBlocks extends AbstractBlocks {
         BlockData dataBottom = blockBottom.getBlockData();
         BlockData dataTop = blockTop.getBlockData();
 
-        // Fix facing
-        switch (facing) {
-            case WEST_NORTH_WEST:
-            case WEST_SOUTH_WEST:
-                facing = BlockFace.WEST;
-                break;
-            case NORTH_NORTH_WEST:
-            case NORTH_NORTH_EAST:
-                facing = BlockFace.NORTH;
-                break;
-            case EAST_NORTH_EAST:
-            case EAST_SOUTH_EAST:
-                facing = BlockFace.EAST;
-                break;
-            case SOUTH_SOUTH_EAST:
-            case SOUTH_SOUTH_WEST:
-                facing = BlockFace.SOUTH;
-                break;
-        }
+        facing = fixFacing(facing);
         facing = facing.getOppositeFace();
 
         try {
@@ -675,7 +657,7 @@ public abstract class SupportBlocks extends AbstractBlocks {
                 ((Bisected) dataTop).setHalf(Half.TOP);
         } finally {
             blockBottom.setBlockData(dataBottom, false);
-            blockTop.setBlockData(dataTop, true);
+            blockTop.setBlockData(dataTop, false);
         }
     }
 
@@ -786,52 +768,6 @@ public abstract class SupportBlocks extends AbstractBlocks {
         }
     }
 
-    public final void connectDoubleChest(int x, int y, int z, BlockFace facing) {
-        Block block = getActualBlock(x, y, z);
-        if (!isType(block, Material.CHEST)) {
-            return;
-        }
-        if (((Chest) block.getBlockData()).getType() != Chest.Type.SINGLE) {
-            return;
-        }
-        Block checkLeftBlock, checkRightBlock;
-        switch (facing) {
-            default:
-            case EAST:
-                checkLeftBlock = z > 0 ? getActualBlock(x, y, z - 1) : null;
-                checkRightBlock = z < 15 ? getActualBlock(x, y, z + 1) : null;
-                break;
-            case SOUTH:
-                checkLeftBlock = x < 15 ? getActualBlock(x + 1, y, z) : null;
-                checkRightBlock = x > 0 ? getActualBlock(x - 1, y, z) : null;
-                break;
-            case WEST:
-                checkLeftBlock = z < 15 ? getActualBlock(x, y, z + 1) : null;
-                checkRightBlock = z > 0 ? getActualBlock(x, y, z - 1) : null;
-                break;
-            case NORTH:
-                checkLeftBlock = x > 0 ? getActualBlock(x - 1, y, z) : null;
-                checkRightBlock = x < 15 ? getActualBlock(x + 1, y, z) : null;
-                break;
-        }
-        Chest blockData;
-        if (checkLeftBlock != null && isType(checkLeftBlock, Material.CHEST) && ((Chest) checkLeftBlock.getBlockData()).getFacing() == facing) {
-            blockData = (Chest) block.getBlockData();
-            Chest checkLeftBlockData = (Chest) checkLeftBlock.getBlockData();
-            blockData.setType(Chest.Type.RIGHT);
-            checkLeftBlockData.setType(Chest.Type.LEFT);
-            block.setBlockData(blockData);
-            checkLeftBlock.setBlockData(checkLeftBlockData);
-        } else if (checkRightBlock != null && isType(checkRightBlock, Material.CHEST) && ((Chest) checkRightBlock.getBlockData()).getFacing() == facing) {
-            blockData = (Chest) block.getBlockData();
-            Chest checkRightBlockData = (Chest) checkRightBlock.getBlockData();
-            blockData.setType(Chest.Type.LEFT);
-            checkRightBlockData.setType(Chest.Type.RIGHT);
-            block.setBlockData(blockData);
-            checkRightBlock.setBlockData(checkRightBlockData);
-        }
-    }
-
     public final void setWallSign(int x, int y, int z, BlockFace facing, String... lines) {
         Block block = getActualBlock(x, y, z);
         block.setType(Material.WALL_SIGN, false);
@@ -922,4 +858,71 @@ public abstract class SupportBlocks extends AbstractBlocks {
         bedFootBlock.setBlockData(bedFootData);
     }
 
+    private void connectDoubleChest(int x, int y, int z, BlockFace facing) {
+        Block block = getActualBlock(x, y, z);
+        if (!isType(block, Material.CHEST)) {
+            return;
+        }
+        if (((Chest) block.getBlockData()).getType() != Chest.Type.SINGLE) {
+            return;
+        }
+        Block checkLeftBlock, checkRightBlock;
+        switch (facing) {
+            default:
+            case EAST:
+                checkLeftBlock = z > 0 ? getActualBlock(x, y, z - 1) : null;
+                checkRightBlock = z < 15 ? getActualBlock(x, y, z + 1) : null;
+                break;
+            case SOUTH:
+                checkLeftBlock = x < 15 ? getActualBlock(x + 1, y, z) : null;
+                checkRightBlock = x > 0 ? getActualBlock(x - 1, y, z) : null;
+                break;
+            case WEST:
+                checkLeftBlock = z < 15 ? getActualBlock(x, y, z + 1) : null;
+                checkRightBlock = z > 0 ? getActualBlock(x, y, z - 1) : null;
+                break;
+            case NORTH:
+                checkLeftBlock = x > 0 ? getActualBlock(x - 1, y, z) : null;
+                checkRightBlock = x < 15 ? getActualBlock(x + 1, y, z) : null;
+                break;
+        }
+        Chest blockData;
+        if (checkLeftBlock != null && isType(checkLeftBlock, Material.CHEST) && ((Chest) checkLeftBlock.getBlockData()).getFacing() == facing) {
+            blockData = (Chest) block.getBlockData();
+            Chest checkLeftBlockData = (Chest) checkLeftBlock.getBlockData();
+            blockData.setType(Chest.Type.RIGHT);
+            checkLeftBlockData.setType(Chest.Type.LEFT);
+            block.setBlockData(blockData);
+            checkLeftBlock.setBlockData(checkLeftBlockData);
+        } else if (checkRightBlock != null && isType(checkRightBlock, Material.CHEST) && ((Chest) checkRightBlock.getBlockData()).getFacing() == facing) {
+            blockData = (Chest) block.getBlockData();
+            Chest checkRightBlockData = (Chest) checkRightBlock.getBlockData();
+            blockData.setType(Chest.Type.LEFT);
+            checkRightBlockData.setType(Chest.Type.RIGHT);
+            block.setBlockData(blockData);
+            checkRightBlock.setBlockData(checkRightBlockData);
+        }
+    }
+
+    private BlockFace fixFacing(BlockFace facing) {
+        switch (facing) {
+            case WEST_NORTH_WEST:
+            case WEST_SOUTH_WEST:
+                facing = BlockFace.WEST;
+                break;
+            case NORTH_NORTH_WEST:
+            case NORTH_NORTH_EAST:
+                facing = BlockFace.NORTH;
+                break;
+            case EAST_NORTH_EAST:
+            case EAST_SOUTH_EAST:
+                facing = BlockFace.EAST;
+                break;
+            case SOUTH_SOUTH_EAST:
+            case SOUTH_SOUTH_WEST:
+                facing = BlockFace.SOUTH;
+                break;
+        }
+        return facing;
+    }
 }
