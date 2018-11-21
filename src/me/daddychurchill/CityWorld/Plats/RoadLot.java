@@ -1,24 +1,14 @@
 package me.daddychurchill.CityWorld.Plats;
 
+import me.daddychurchill.CityWorld.CityWorldGenerator;
+import me.daddychurchill.CityWorld.Context.DataContext;
+import me.daddychurchill.CityWorld.Plugins.LootProvider.LootLocation;
+import me.daddychurchill.CityWorld.Support.*;
 import org.bukkit.Material;
 import org.bukkit.block.BlockFace;
 import org.bukkit.block.data.Bisected.Half;
 import org.bukkit.block.data.type.Slab.Type;
 import org.bukkit.generator.ChunkGenerator.BiomeGrid;
-import me.daddychurchill.CityWorld.CityWorldGenerator;
-import me.daddychurchill.CityWorld.Context.DataContext;
-import me.daddychurchill.CityWorld.Plugins.LootProvider.LootLocation;
-import me.daddychurchill.CityWorld.Support.AbstractBlocks;
-import me.daddychurchill.CityWorld.Support.CachedYs;
-import me.daddychurchill.CityWorld.Support.InitialBlocks;
-import me.daddychurchill.CityWorld.Support.HeightInfo;
-import me.daddychurchill.CityWorld.Support.Odds;
-import me.daddychurchill.CityWorld.Support.PlatMap;
-import me.daddychurchill.CityWorld.Support.RealBlocks;
-import me.daddychurchill.CityWorld.Support.SupportBlocks;
-import me.daddychurchill.CityWorld.Support.SurroundingRoads;
-import me.daddychurchill.CityWorld.Support.Surroundings;
-import me.daddychurchill.CityWorld.Support.Trees;
 
 public class RoadLot extends ConnectedLot {
 
@@ -1419,7 +1409,7 @@ public class RoadLot extends ConnectedLot {
                 chunk.setBlocks(x, y, y + 2, z, Material.BRICKS);
                 break;
             case 2:
-                chunk.setBlocksWithPhysics(x, y, y + 2, z, Material.IRON_BARS);
+                chunk.setFenceDoor(x, y, y + 2, z, Material.IRON_BARS, direction);
                 break;
             case 3:
                 chunk.setBlocks(x, y, y + 2, z, Material.AIR);
