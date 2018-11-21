@@ -1,10 +1,5 @@
 package me.daddychurchill.CityWorld.Plugins;
 
-import org.bukkit.DyeColor;
-import org.bukkit.Material;
-import org.bukkit.block.BlockFace;
-import org.bukkit.block.data.Bisected.Half;
-
 import me.daddychurchill.CityWorld.CityWorldGenerator;
 import me.daddychurchill.CityWorld.Context.DataContext;
 import me.daddychurchill.CityWorld.Plugins.LootProvider.LootLocation;
@@ -13,6 +8,10 @@ import me.daddychurchill.CityWorld.Support.Colors.ColorSet;
 import me.daddychurchill.CityWorld.Support.Odds;
 import me.daddychurchill.CityWorld.Support.RealBlocks;
 import me.daddychurchill.CityWorld.Support.Trees;
+import org.bukkit.DyeColor;
+import org.bukkit.Material;
+import org.bukkit.block.BlockFace;
+import org.bukkit.block.data.Bisected.Half;
 
 public class StructureOnGroundProvider extends Provider {
 
@@ -156,7 +155,7 @@ public class StructureOnGroundProvider extends Provider {
             chunk.setBlock(5, baseY, 3, colors.getWool());
             chunk.setBlock(5, baseY + 1, 3, colors.getWool());
             chunk.setBlock(6, baseY, 3, colors.getWool());
-            chunk.setBlock(6, baseY + 1, 3, matWindow);
+            chunk.setBlock(6, baseY + 1, 3, matWindow, BlockFace.EAST, BlockFace.WEST);
             chunk.setBlock(6, baseY + 2, 3, colors.getWool());
             chunk.setBlock(7, baseY + 1, 3, colors.getWool());
             chunk.setBlock(7, baseY, 3, colors.getWool());
@@ -187,7 +186,7 @@ public class StructureOnGroundProvider extends Provider {
             chunk.setBlock(3, baseY, 5, colors.getWool());
             chunk.setBlock(3, baseY + 1, 5, colors.getWool());
             chunk.setBlock(3, baseY, 6, colors.getWool());
-            chunk.setBlock(3, baseY + 1, 6, matWindow);
+            chunk.setBlock(3, baseY + 1, 6, matWindow, BlockFace.NORTH, BlockFace.SOUTH);
             chunk.setBlock(3, baseY + 2, 6, colors.getWool());
             chunk.setBlock(3, baseY + 1, 7, colors.getWool());
             chunk.setBlock(3, baseY, 7, colors.getWool());
