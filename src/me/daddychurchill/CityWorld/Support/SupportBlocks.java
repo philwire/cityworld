@@ -747,6 +747,12 @@ public abstract class SupportBlocks extends AbstractBlocks {
                 setBlock(x, y, z, material, facing);
     }
 
+    public final void setBlocks(int x1, int x2, int y, int z1, int z2, Material material, BlockFace... facing) {
+        for (int x = x1; x < x2; x++)
+            for (int z = z1; z < z2; z++)
+                setBlock(x, y, z, material, facing);
+    }
+
     public final void setBlocks(int x1, int x2, int y, int z1, int z2, Material material, BlockFace facing, Half half) {
         for (int x = x1; x < x2; x++)
             for (int z = z1; z < z2; z++)
@@ -920,6 +926,29 @@ public abstract class SupportBlocks extends AbstractBlocks {
         bedFootData.setPart(Bed.Part.FOOT);
         bedHeadBlock.setBlockData(bedHeadData);
         bedFootBlock.setBlockData(bedFootData);
+    }
+
+    public final Block setGate(int x, int y, int z, Material material, BlockFace facing, boolean isOpen) {
+        Block block = getActualBlock(x, y, z);
+        block.setType(material, false);
+        BlockData data = block.getBlockData();
+        try {
+            if (data instanceof Directional) {
+                ((Directional) data).setFacing(facing);
+            }
+            if (data instanceof Openable) {
+                ((Openable) data).setOpen(isOpen);
+            }
+        } finally {
+            block.setBlockData(data, doPhysics);
+        }
+        return block;
+    }
+
+    public final void setGates(int x1, int x2, int y, int z1, int z2, Material material, BlockFace facing, boolean isOpen) {
+        for (int x = x1; x < x2; x++)
+            for (int z = z1; z < z2; z++)
+                setGate(x, y, z, material, facing, isOpen);
     }
 
 }
