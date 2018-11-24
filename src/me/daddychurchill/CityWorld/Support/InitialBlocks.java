@@ -40,6 +40,44 @@ public final class InitialBlocks extends AbstractBlocks {
         return chunkData.getType(x, y, z).equals(Material.AIR);
     }
 
+    @Override
+    public void setAtmosphereBlock(int x, int y, int z, Material material) {
+        chunkData.setBlock(x, y, z, material);
+        BlockData blockData;
+        // West
+        if (x > 0) {
+            blockData = chunkData.getBlockData(x - 1, y, z);
+            if (blockData instanceof MultipleFacing) {
+                ((MultipleFacing) blockData).setFace(BlockFace.EAST, false);
+                chunkData.setBlock(x - 1, y, z, blockData);
+            }
+        }
+        // East
+        if (x < 15) {
+            blockData = chunkData.getBlockData(x + 1, y, z);
+            if (blockData instanceof MultipleFacing) {
+                ((MultipleFacing) blockData).setFace(BlockFace.WEST, false);
+                chunkData.setBlock(x + 1, y, z, blockData);
+            }
+        }
+        // North
+        if (z > 0) {
+            blockData = chunkData.getBlockData(x, y, z - 1);
+            if (blockData instanceof MultipleFacing) {
+                ((MultipleFacing) blockData).setFace(BlockFace.SOUTH, false);
+                chunkData.setBlock(x, y, z - 1, blockData);
+            }
+        }
+        // South
+        if (z < 15) {
+            blockData = chunkData.getBlockData(x, y, z + 1);
+            if (blockData instanceof MultipleFacing) {
+                ((MultipleFacing) blockData).setFace(BlockFace.NORTH, false);
+                chunkData.setBlock(x, y, z + 1, blockData);
+            }
+        }
+    }
+
     public Material getBlock(int x, int y, int z) {
         return chunkData.getType(x, y, z);
     }

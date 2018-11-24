@@ -120,6 +120,8 @@ public abstract class AbstractBlocks {
 
     public abstract boolean isEmpty(int x, int y, int z);
 
+    public abstract void setAtmosphereBlock(int x, int y, int z, Material material);
+
     public abstract void clearBlock(int x, int y, int z);
 
     public abstract boolean setEmptyBlock(int x, int y, int z, Material material);
@@ -318,7 +320,7 @@ public abstract class AbstractBlocks {
 
     public final void airoutBlock(CityWorldGenerator generator, int x, int y, int z, boolean forceIt) {
         if (forceIt || generator.shapeProvider.clearAtmosphere(generator))
-            setBlock(x, y, z, generator.shapeProvider.findAtmosphereMaterialAt(generator, y));
+            setAtmosphereBlock(x, y, z, generator.shapeProvider.findAtmosphereMaterialAt(generator, y));
     }
 
     public final void airoutBlocks(CityWorldGenerator generator, int x, int y1, int y2, int z) {
@@ -328,7 +330,7 @@ public abstract class AbstractBlocks {
     public final void airoutBlocks(CityWorldGenerator generator, int x, int y1, int y2, int z, boolean forceIt) {
         if (forceIt || generator.shapeProvider.clearAtmosphere(generator))
             for (int y = y1; y < y2; y++)
-                setBlock(x, y, z, generator.shapeProvider.findAtmosphereMaterialAt(generator, y));
+                setAtmosphereBlock(x, y, z, generator.shapeProvider.findAtmosphereMaterialAt(generator, y));
     }
 
     public final void airoutBlocks(CityWorldGenerator generator, int x1, int x2, int y, int z1, int z2) {
@@ -340,7 +342,7 @@ public abstract class AbstractBlocks {
             Material air = generator.shapeProvider.findAtmosphereMaterialAt(generator, y);
             for (int x = x1; x < x2; x++)
                 for (int z = z1; z < z2; z++)
-                    setBlock(x, y, z, air);
+                    setAtmosphereBlock(x, y, z, air);
         }
     }
 
@@ -354,7 +356,7 @@ public abstract class AbstractBlocks {
                 Material air = generator.shapeProvider.findAtmosphereMaterialAt(generator, y);
                 for (int x = x1; x < x2; x++)
                     for (int z = z1; z < z2; z++)
-                        setBlock(x, y, z, air);
+                        setAtmosphereBlock(x, y, z, air);
             }
     }
 

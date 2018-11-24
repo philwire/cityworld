@@ -142,6 +142,44 @@ public abstract class SupportBlocks extends AbstractBlocks {
     }
 
     @Override
+    public final void setAtmosphereBlock(int x, int y, int z, Material material) {
+        getActualBlock(x, y, z).setType(material);
+        BlockData blockData;
+        // West
+        if (x > 0) {
+            blockData = getActualBlock(x - 1, y, z).getBlockData();
+            if (blockData instanceof MultipleFacing) {
+                ((MultipleFacing) blockData).setFace(BlockFace.EAST, false);
+                getActualBlock(x - 1, y, z).setBlockData(blockData, false);
+            }
+        }
+        // East
+        if (x < 15) {
+            blockData = getActualBlock(x + 1, y, z).getBlockData();
+            if (blockData instanceof MultipleFacing) {
+                ((MultipleFacing) blockData).setFace(BlockFace.WEST, false);
+                getActualBlock(x + 1, y, z).setBlockData(blockData, false);
+            }
+        }
+        // North
+        if (z > 0) {
+            blockData = getActualBlock(x, y, z - 1).getBlockData();
+            if (blockData instanceof MultipleFacing) {
+                ((MultipleFacing) blockData).setFace(BlockFace.SOUTH, false);
+                getActualBlock(x, y, z - 1).setBlockData(blockData, false);
+            }
+        }
+        // South
+        if (z < 15) {
+            blockData = getActualBlock(x, y, z + 1).getBlockData();
+            if (blockData instanceof MultipleFacing) {
+                ((MultipleFacing) blockData).setFace(BlockFace.NORTH, false);
+                getActualBlock(x, y, z + 1).setBlockData(blockData, false);
+            }
+        }
+    }
+
+    @Override
     public final void clearBlock(int x, int y, int z) {
         getActualBlock(x, y, z).setType(Material.AIR);
     }
