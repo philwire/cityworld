@@ -508,9 +508,17 @@ public class ParkLot extends ConnectedLot {
                     if (fenceNorth && fenceWest) {
                         chunk.setBlock(0, surfaceY + 1, 0, fenceMaterial, BlockFace.EAST, BlockFace.SOUTH);
                     } else if (fenceNorth) {
-                        chunk.setBlock(0, surfaceY + 1, 0, fenceMaterial, BlockFace.EAST);
-                    } else {
-                        chunk.setBlock(0, surfaceY + 1, 0, fenceMaterial, BlockFace.SOUTH);
+                        if (neighbors.toWest()) {
+                            chunk.setBlock(0, surfaceY + 1, 0, fenceMaterial, BlockFace.EAST, BlockFace.WEST);
+                        } else {
+                            chunk.setBlock(0, surfaceY + 1, 0, fenceMaterial, BlockFace.EAST);
+                        }
+                    } else { // fenceWest
+                        if (neighbors.toNorth()) {
+                            chunk.setBlock(0, surfaceY + 1, 0, fenceMaterial, BlockFace.NORTH, BlockFace.SOUTH);
+                        } else {
+                            chunk.setBlock(0, surfaceY + 1, 0, fenceMaterial, BlockFace.SOUTH);
+                        }
                     }
                 }
 
@@ -522,9 +530,17 @@ public class ParkLot extends ConnectedLot {
                     if (fenceSouth && fenceWest) {
                         chunk.setBlock(0, surfaceY + 1, 15, fenceMaterial, BlockFace.EAST, BlockFace.NORTH);
                     } else if (fenceSouth) {
-                        chunk.setBlock(0, surfaceY + 1, 15, fenceMaterial, BlockFace.EAST);
-                    } else {
-                        chunk.setBlock(0, surfaceY + 1, 15, fenceMaterial, BlockFace.NORTH);
+                        if (neighbors.toWest()) {
+                            chunk.setBlock(0, surfaceY + 1, 15, fenceMaterial, BlockFace.EAST, BlockFace.WEST);
+                        } else {
+                            chunk.setBlock(0, surfaceY + 1, 15, fenceMaterial, BlockFace.EAST);
+                        }
+                    } else { // fenceWest
+                        if (neighbors.toSouthWest()) {
+                            chunk.setBlock(0, surfaceY + 1, 15, fenceMaterial, BlockFace.NORTH, BlockFace.SOUTH);
+                        } else {
+                            chunk.setBlock(0, surfaceY + 1, 15, fenceMaterial, BlockFace.NORTH);
+                        }
                     }
                 }
 
@@ -536,9 +552,17 @@ public class ParkLot extends ConnectedLot {
                     if (fenceNorth && fenceEast) {
                         chunk.setBlock(15, surfaceY + 1, 0, fenceMaterial, BlockFace.WEST, BlockFace.SOUTH);
                     } else if (fenceNorth) {
-                        chunk.setBlock(15, surfaceY + 1, 0, fenceMaterial, BlockFace.WEST);
-                    } else {
-                        chunk.setBlock(15, surfaceY + 1, 0, fenceMaterial, BlockFace.SOUTH);
+                        if (neighbors.toEast()) {
+                            chunk.setBlock(15, surfaceY + 1, 0, fenceMaterial, BlockFace.EAST, BlockFace.WEST);
+                        } else {
+                            chunk.setBlock(15, surfaceY + 1, 0, fenceMaterial, BlockFace.WEST);
+                        }
+                    } else { // fenceEast
+                        if (neighbors.toNorth()) {
+                            chunk.setBlock(15, surfaceY + 1, 0, fenceMaterial, BlockFace.NORTH, BlockFace.SOUTH);
+                        } else {
+                            chunk.setBlock(15, surfaceY + 1, 0, fenceMaterial, BlockFace.SOUTH);
+                        }
                     }
                 }
 
@@ -550,9 +574,17 @@ public class ParkLot extends ConnectedLot {
                     if (fenceSouth && fenceEast) {
                         chunk.setBlock(15, surfaceY + 1, 15, fenceMaterial, BlockFace.WEST, BlockFace.NORTH);
                     } else if (fenceSouth) {
-                        chunk.setBlock(15, surfaceY + 1, 15, fenceMaterial, BlockFace.WEST);
-                    } else {
-                        chunk.setBlock(15, surfaceY + 1, 15, fenceMaterial, BlockFace.NORTH);
+                        if (neighbors.toEast()) {
+                            chunk.setBlock(15, surfaceY + 1, 15, fenceMaterial, BlockFace.EAST, BlockFace.WEST);
+                        } else {
+                            chunk.setBlock(15, surfaceY + 1, 15, fenceMaterial, BlockFace.WEST);
+                        }
+                    } else { // fenceEast
+                        if (neighbors.toSouth()) {
+                            chunk.setBlock(15, surfaceY + 1, 15, fenceMaterial, BlockFace.NORTH, BlockFace.SOUTH);
+                        } else {
+                            chunk.setBlock(15, surfaceY + 1, 15, fenceMaterial, BlockFace.NORTH);
+                        }
                     }
                 }
 
