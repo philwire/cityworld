@@ -176,8 +176,8 @@ public class RoadLot extends ConnectedLot {
             chunk.setBlocks(x, x + 2, baseY, baseY + 1, 15, 16, bridgeEdgeMaterial);
 
             // rails
-            chunk.setBlocks(x, x + 2, baseY + 1, baseY + 2, 0, 1, bridgeRailMaterial);
-            chunk.setBlocks(x, x + 2, baseY + 1, baseY + 2, 15, 16, bridgeRailMaterial);
+            chunk.setBlocks(x, x + 2, baseY + 1, baseY + 2, 0, 1, bridgeRailMaterial, BlockFace.EAST, BlockFace.WEST);
+            chunk.setBlocks(x, x + 2, baseY + 1, baseY + 2, 15, 16, bridgeRailMaterial, BlockFace.EAST, BlockFace.WEST);
 
             // sidewalks
             chunk.setBlocks(x, x + 2, baseY, baseY + 1, 1, 3, bridgeSidewalk2Material);
@@ -188,7 +188,7 @@ public class RoadLot extends ConnectedLot {
         chunk.setBlocks(x, x + 2, baseY, baseY + 1, 3, 13, bridgePavement1Material);
     }
 
-    private void placeEWBridgePartB(AbstractBlocks chunk, int x, int baseY) {
+    private void placeEWBridgePartBE(AbstractBlocks chunk, int x, int baseY) {
         if (inACity) {
 
             // edges
@@ -196,8 +196,34 @@ public class RoadLot extends ConnectedLot {
             chunk.setBlocks(x, x + 2, baseY, baseY + 2, 15, 16, bridgeEdgeMaterial);
 
             // rails
-            chunk.setBlocks(x, x + 2, baseY + 2, baseY + 3, 0, 1, bridgeRailMaterial);
-            chunk.setBlocks(x, x + 2, baseY + 2, baseY + 3, 15, 16, bridgeRailMaterial);
+            chunk.setBlock(x, baseY + 2, 0, bridgeRailMaterial, BlockFace.EAST, BlockFace.WEST);
+            chunk.setBlock(x + 1, baseY + 2, 0, bridgeRailMaterial, BlockFace.WEST);
+            chunk.setBlock(x, baseY + 2, 15, bridgeRailMaterial, BlockFace.EAST, BlockFace.WEST);
+            chunk.setBlock(x + 1, baseY + 2, 15, bridgeRailMaterial, BlockFace.WEST);
+
+            // sidewalks
+            chunk.setBlocks(x, x + 2, baseY, baseY + 1, 1, 3, bridgeSidewalk2Material);
+            chunk.setBlocks(x, x + 2, baseY, baseY + 1, 13, 15, bridgeSidewalk2Material);
+            chunk.setBlocks(x, x + 2, baseY + 1, baseY + 2, 1, 3, bridgeSidewalk1Material);
+            chunk.setBlocks(x, x + 2, baseY + 1, baseY + 2, 13, 15, bridgeSidewalk1Material);
+        }
+
+        // pavement
+        chunk.setBlocks(x, x + 2, baseY, baseY + 1, 3, 13, bridgePavement2Material);
+    }
+
+    private void placeEWBridgePartBW(AbstractBlocks chunk, int x, int baseY) {
+        if (inACity) {
+
+            // edges
+            chunk.setBlocks(x, x + 2, baseY, baseY + 2, 0, 1, bridgeEdgeMaterial);
+            chunk.setBlocks(x, x + 2, baseY, baseY + 2, 15, 16, bridgeEdgeMaterial);
+
+            // rails
+            chunk.setBlock(x, baseY + 2, 0, bridgeRailMaterial, BlockFace.EAST);
+            chunk.setBlock(x + 1, baseY + 2, 0, bridgeRailMaterial, BlockFace.EAST, BlockFace.WEST);
+            chunk.setBlock(x, baseY + 2, 15, bridgeRailMaterial, BlockFace.EAST);
+            chunk.setBlock(x + 1, baseY + 2, 15, bridgeRailMaterial, BlockFace.EAST, BlockFace.WEST);
 
             // sidewalks
             chunk.setBlocks(x, x + 2, baseY, baseY + 1, 1, 3, bridgeSidewalk2Material);
@@ -237,8 +263,8 @@ public class RoadLot extends ConnectedLot {
             chunk.setBlocks(15, 16, baseY, baseY + 1, z, z + 2, bridgeEdgeMaterial);
 
             // rails
-            chunk.setBlocks(0, 1, baseY + 1, baseY + 2, z, z + 2, bridgeRailMaterial);
-            chunk.setBlocks(15, 16, baseY + 1, baseY + 2, z, z + 2, bridgeRailMaterial);
+            chunk.setBlocks(0, 1, baseY + 1, baseY + 2, z, z + 2, bridgeRailMaterial, BlockFace.NORTH, BlockFace.SOUTH);
+            chunk.setBlocks(15, 16, baseY + 1, baseY + 2, z, z + 2, bridgeRailMaterial, BlockFace.NORTH, BlockFace.SOUTH);
 
             // sidewalks
             chunk.setBlocks(1, 3, baseY, baseY + 1, z, z + 2, bridgeSidewalk2Material);
@@ -249,7 +275,7 @@ public class RoadLot extends ConnectedLot {
         chunk.setBlocks(3, 13, baseY, baseY + 1, z, z + 2, bridgePavement1Material);
     }
 
-    private void placeNSBridgePartB(AbstractBlocks chunk, int z, int baseY) {
+    private void placeNSBridgePartBN(AbstractBlocks chunk, int z, int baseY) {
         if (inACity) {
 
             // edges
@@ -257,8 +283,34 @@ public class RoadLot extends ConnectedLot {
             chunk.setBlocks(15, 16, baseY, baseY + 2, z, z + 2, bridgeEdgeMaterial);
 
             // rails
-            chunk.setBlocks(0, 1, baseY + 2, baseY + 3, z, z + 2, bridgeRailMaterial);
-            chunk.setBlocks(15, 16, baseY + 2, baseY + 3, z, z + 2, bridgeRailMaterial);
+            chunk.setBlock(0, baseY + 2, z, bridgeRailMaterial, BlockFace.SOUTH);
+            chunk.setBlock(0, baseY + 2, z + 1, bridgeRailMaterial, BlockFace.NORTH, BlockFace.SOUTH);
+            chunk.setBlock(15, baseY + 2, z, bridgeRailMaterial, BlockFace.SOUTH);
+            chunk.setBlock(15, baseY + 2, z + 1, bridgeRailMaterial, BlockFace.NORTH, BlockFace.SOUTH);
+
+            // sidewalks
+            chunk.setBlocks(1, 3, baseY, baseY + 1, z, z + 2, bridgeSidewalk2Material);
+            chunk.setBlocks(13, 15, baseY, baseY + 1, z, z + 2, bridgeSidewalk2Material);
+            chunk.setBlocks(1, 3, baseY + 1, baseY + 2, z, z + 2, bridgeSidewalk1Material);
+            chunk.setBlocks(13, 15, baseY + 1, baseY + 2, z, z + 2, bridgeSidewalk1Material);
+        }
+
+        // pavement
+        chunk.setBlocks(3, 13, baseY, baseY + 1, z, z + 2, bridgePavement2Material);
+    }
+
+    private void placeNSBridgePartBS(AbstractBlocks chunk, int z, int baseY) {
+        if (inACity) {
+
+            // edges
+            chunk.setBlocks(0, 1, baseY, baseY + 2, z, z + 2, bridgeEdgeMaterial);
+            chunk.setBlocks(15, 16, baseY, baseY + 2, z, z + 2, bridgeEdgeMaterial);
+
+            // rails
+            chunk.setBlock(0, baseY + 2, z, bridgeRailMaterial, BlockFace.NORTH, BlockFace.SOUTH);
+            chunk.setBlock(0, baseY + 2, z + 1, bridgeRailMaterial, BlockFace.NORTH);
+            chunk.setBlock(15, baseY + 2, z, bridgeRailMaterial, BlockFace.NORTH, BlockFace.SOUTH);
+            chunk.setBlock(15, baseY + 2, z + 1, bridgeRailMaterial, BlockFace.NORTH);
 
             // sidewalks
             chunk.setBlocks(1, 3, baseY, baseY + 1, z, z + 2, bridgeSidewalk2Material);
@@ -416,13 +468,13 @@ public class RoadLot extends ConnectedLot {
                     } else {
                         placeEWBridgeCap(chunk, 14, base1Y, pavementLevel + 1);
                         placeEWBridgePartA(chunk, 14, pavementLevel + 1);
-                        placeEWBridgePartB(chunk, 12, pavementLevel + 1);
+                        placeEWBridgePartBE(chunk, 12, pavementLevel + 1);
                         placeEWBridgePartA(chunk, 10, pavementLevel + 2);
-                        placeEWBridgePartB(chunk, 8, pavementLevel + 2);
+                        placeEWBridgePartBE(chunk, 8, pavementLevel + 2);
                         placeEWBridgePartA(chunk, 6, pavementLevel + 3);
-                        placeEWBridgePartB(chunk, 4, pavementLevel + 3);
+                        placeEWBridgePartBE(chunk, 4, pavementLevel + 3);
                         placeEWBridgePartA(chunk, 2, pavementLevel + 4);
-                        placeEWBridgePartB(chunk, 0, pavementLevel + 4);
+                        placeEWBridgePartBE(chunk, 0, pavementLevel + 4);
                         placeWBridgeColumns(chunk, pavementLevel + 4);
                     }
 
@@ -433,25 +485,25 @@ public class RoadLot extends ConnectedLot {
                     if (toEast) {
                         placeEWBridgeCap(chunk, 0, base1Y, pavementLevel + 1);
                         placeEWBridgePartA(chunk, 0, pavementLevel + 1);
-                        placeEWBridgePartB(chunk, 2, pavementLevel + 1);
+                        placeEWBridgePartBW(chunk, 2, pavementLevel + 1);
                         placeEWBridgePartA(chunk, 4, pavementLevel + 2);
-                        placeEWBridgePartB(chunk, 6, pavementLevel + 2);
+                        placeEWBridgePartBW(chunk, 6, pavementLevel + 2);
                         placeEWBridgePartA(chunk, 8, pavementLevel + 3);
-                        placeEWBridgePartB(chunk, 10, pavementLevel + 3);
+                        placeEWBridgePartBW(chunk, 10, pavementLevel + 3);
                         placeEWBridgePartA(chunk, 12, pavementLevel + 4);
-                        placeEWBridgePartB(chunk, 14, pavementLevel + 4);
+                        placeEWBridgePartBW(chunk, 14, pavementLevel + 4);
                         placeEBridgeColumns(chunk, pavementLevel + 4);
 
                         // short span
                     } else {
                         placeEWBridgeCap(chunk, 0, base1Y, pavementLevel + 1);
                         placeEWBridgePartA(chunk, 0, pavementLevel + 1);
-                        placeEWBridgePartB(chunk, 2, pavementLevel + 1);
+                        placeEWBridgePartBW(chunk, 2, pavementLevel + 1);
                         placeEWBridgePartA(chunk, 4, pavementLevel + 2);
                         placeEWBridgePartA(chunk, 6, pavementLevel + 2);
                         placeEWBridgePartA(chunk, 8, pavementLevel + 2);
                         placeEWBridgePartA(chunk, 10, pavementLevel + 2);
-                        placeEWBridgePartB(chunk, 12, pavementLevel + 1);
+                        placeEWBridgePartBW(chunk, 12, pavementLevel + 1);
                         placeEWBridgePartA(chunk, 14, pavementLevel + 1);
                         placeEWBridgeCap(chunk, 14, base1Y, pavementLevel + 1);
                     }
@@ -482,13 +534,13 @@ public class RoadLot extends ConnectedLot {
                     } else {
                         placeNSBridgeCap(chunk, 14, base1Y, pavementLevel + 1);
                         placeNSBridgePartA(chunk, 14, pavementLevel + 1);
-                        placeNSBridgePartB(chunk, 12, pavementLevel + 1);
+                        placeNSBridgePartBS(chunk, 12, pavementLevel + 1);
                         placeNSBridgePartA(chunk, 10, pavementLevel + 2);
-                        placeNSBridgePartB(chunk, 8, pavementLevel + 2);
+                        placeNSBridgePartBS(chunk, 8, pavementLevel + 2);
                         placeNSBridgePartA(chunk, 6, pavementLevel + 3);
-                        placeNSBridgePartB(chunk, 4, pavementLevel + 3);
+                        placeNSBridgePartBS(chunk, 4, pavementLevel + 3);
                         placeNSBridgePartA(chunk, 2, pavementLevel + 4);
-                        placeNSBridgePartB(chunk, 0, pavementLevel + 4);
+                        placeNSBridgePartBS(chunk, 0, pavementLevel + 4);
                         placeNBridgeColumns(chunk, pavementLevel + 4);
                     }
 
@@ -498,25 +550,25 @@ public class RoadLot extends ConnectedLot {
                     if (toSouth) {
                         placeNSBridgeCap(chunk, 0, base1Y, pavementLevel + 1);
                         placeNSBridgePartA(chunk, 0, pavementLevel + 1);
-                        placeNSBridgePartB(chunk, 2, pavementLevel + 1);
+                        placeNSBridgePartBN(chunk, 2, pavementLevel + 1);
                         placeNSBridgePartA(chunk, 4, pavementLevel + 2);
-                        placeNSBridgePartB(chunk, 6, pavementLevel + 2);
+                        placeNSBridgePartBN(chunk, 6, pavementLevel + 2);
                         placeNSBridgePartA(chunk, 8, pavementLevel + 3);
-                        placeNSBridgePartB(chunk, 10, pavementLevel + 3);
+                        placeNSBridgePartBN(chunk, 10, pavementLevel + 3);
                         placeNSBridgePartA(chunk, 12, pavementLevel + 4);
-                        placeNSBridgePartB(chunk, 14, pavementLevel + 4);
+                        placeNSBridgePartBN(chunk, 14, pavementLevel + 4);
                         placeSBridgeColumns(chunk, pavementLevel + 4);
 
                         // short span
                     } else {
                         placeNSBridgeCap(chunk, 0, base1Y, pavementLevel + 1);
                         placeNSBridgePartA(chunk, 0, pavementLevel + 1);
-                        placeNSBridgePartB(chunk, 2, pavementLevel + 1);
+                        placeNSBridgePartBN(chunk, 2, pavementLevel + 1);
                         placeNSBridgePartA(chunk, 4, pavementLevel + 2);
                         placeNSBridgePartA(chunk, 6, pavementLevel + 2);
                         placeNSBridgePartA(chunk, 8, pavementLevel + 2);
                         placeNSBridgePartA(chunk, 10, pavementLevel + 2);
-                        placeNSBridgePartB(chunk, 12, pavementLevel + 1);
+                        placeNSBridgePartBN(chunk, 12, pavementLevel + 1);
                         placeNSBridgePartA(chunk, 14, pavementLevel + 1);
                         placeNSBridgeCap(chunk, 14, base1Y, pavementLevel + 1);
                     }
