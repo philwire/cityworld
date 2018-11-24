@@ -1,9 +1,10 @@
 package me.daddychurchill.CityWorld.Support;
 
-import org.bukkit.Material;
-import org.bukkit.World;
 import me.daddychurchill.CityWorld.CityWorldGenerator;
 import me.daddychurchill.CityWorld.Factories.MaterialFactory;
+import org.bukkit.Material;
+import org.bukkit.World;
+import org.bukkit.block.BlockFace;
 
 public abstract class AbstractBlocks {
 
@@ -67,9 +68,20 @@ public abstract class AbstractBlocks {
 
     public abstract void setBlock(int x, int y, int z, Material material);
 
+    public abstract void setBlock(int x, int y, int z, Material material, BlockFace... facing);
+
     public abstract void setBlocks(int x, int y1, int y2, int z, Material material);
 
     public abstract void setBlocks(int x1, int x2, int y1, int y2, int z1, int z2, Material material);
+
+    public void setBlocks(int x1, int x2, int y1, int y2, int z1, int z2, Material material, BlockFace... facing) {
+        for (int x = x1; x < x2; x++) {
+            for (int z = z1; z < z2; z++) {
+                for (int y = y1; y < y2; y++)
+                    setBlock(x, y, z, material, facing);
+            }
+        }
+    }
 
     public abstract void setBlocks(int x1, int x2, int y, int z1, int z2, Material material);
 

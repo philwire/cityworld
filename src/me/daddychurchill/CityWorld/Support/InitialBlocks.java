@@ -49,6 +49,7 @@ public final class InitialBlocks extends AbstractBlocks {
         chunkData.setBlock(x, y, z, material);
     }
 
+    @Override
     public void setBlock(int x, int y, int z, Material material, BlockFace... facing) {
         BlockData blockData = material.createBlockData();
         if (blockData instanceof MultipleFacing) {
@@ -89,15 +90,6 @@ public final class InitialBlocks extends AbstractBlocks {
             for (int z = z1; z < z2; z++) {
                 for (int y = y1; y < y2; y++)
                     setBlock(x, y, z, material);
-            }
-        }
-    }
-
-    public void setBlocks(int x1, int x2, int y1, int y2, int z1, int z2, Material material, BlockFace... facing) {
-        for (int x = x1; x < x2; x++) {
-            for (int z = z1; z < z2; z++) {
-                for (int y = y1; y < y2; y++)
-                    setBlock(x, y, z, material, facing);
             }
         }
     }

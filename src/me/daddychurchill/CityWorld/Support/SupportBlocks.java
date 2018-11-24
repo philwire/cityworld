@@ -518,7 +518,8 @@ public abstract class SupportBlocks extends AbstractBlocks {
         return block;
     }
 
-    public final Block setBlock(int x, int y, int z, Material material, BlockFace... facing) {
+    @Override
+    public final void setBlock(int x, int y, int z, Material material, BlockFace... facing) {
         Block block = getActualBlock(x, y, z);
         block.setType(material, false);
         BlockData data = block.getBlockData();
@@ -531,7 +532,6 @@ public abstract class SupportBlocks extends AbstractBlocks {
         } finally {
             block.setBlockData(data, doPhysics);
         }
-        return block;
     }
 
     public final Block setStair(int x, int y, int z, Material material, BlockFace facing) {
@@ -574,16 +574,6 @@ public abstract class SupportBlocks extends AbstractBlocks {
     }
 
     public final void setBlocks(int x1, int x2, int y1, int y2, int z1, int z2, Material material, BlockFace facing) {
-        for (int x = x1; x < x2; x++) {
-            for (int y = y1; y < y2; y++) {
-                for (int z = z1; z < z2; z++) {
-                    setBlock(x, y, z, material, facing);
-                }
-            }
-        }
-    }
-
-    public final void setBlocks(int x1, int x2, int y1, int y2, int z1, int z2, Material material, BlockFace... facing) {
         for (int x = x1; x < x2; x++) {
             for (int y = y1; y < y2; y++) {
                 for (int z = z1; z < z2; z++) {
