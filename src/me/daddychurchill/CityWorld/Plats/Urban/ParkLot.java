@@ -536,7 +536,7 @@ public class ParkLot extends ConnectedLot {
                             chunk.setBlock(0, surfaceY + 1, 15, fenceMaterial, BlockFace.EAST);
                         }
                     } else { // fenceWest
-                        if (neighbors.toSouthWest()) {
+                        if (neighbors.toSouth()) {
                             chunk.setBlock(0, surfaceY + 1, 15, fenceMaterial, BlockFace.NORTH, BlockFace.SOUTH);
                         } else {
                             chunk.setBlock(0, surfaceY + 1, 15, fenceMaterial, BlockFace.NORTH);
