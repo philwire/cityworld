@@ -143,38 +143,54 @@ public abstract class SupportBlocks extends AbstractBlocks {
 
     @Override
     public final void setAtmosphereBlock(int x, int y, int z, Material material) {
-        getActualBlock(x, y, z).setType(material);
+        setBlock(x, y, z, material);
         BlockData blockData;
         // West
         if (x > 0) {
-            blockData = getActualBlock(x - 1, y, z).getBlockData();
-            if (blockData instanceof MultipleFacing) {
-                ((MultipleFacing) blockData).setFace(BlockFace.EAST, false);
-                getActualBlock(x - 1, y, z).setBlockData(blockData, false);
+            try {
+                blockData = getActualBlock(x - 1, y, z).getBlockData();
+                if (blockData instanceof MultipleFacing) {
+                    ((MultipleFacing) blockData).setFace(BlockFace.EAST, false);
+                    getActualBlock(x - 1, y, z).setBlockData(blockData, false);
+                }
+            } catch (Exception ignored) {
+
             }
         }
         // East
         if (x < 15) {
-            blockData = getActualBlock(x + 1, y, z).getBlockData();
-            if (blockData instanceof MultipleFacing) {
-                ((MultipleFacing) blockData).setFace(BlockFace.WEST, false);
-                getActualBlock(x + 1, y, z).setBlockData(blockData, false);
+            try {
+                blockData = getActualBlock(x + 1, y, z).getBlockData();
+                if (blockData instanceof MultipleFacing) {
+                    ((MultipleFacing) blockData).setFace(BlockFace.WEST, false);
+                    getActualBlock(x + 1, y, z).setBlockData(blockData, false);
+                }
+            } catch (Exception ignored) {
+
             }
         }
         // North
         if (z > 0) {
-            blockData = getActualBlock(x, y, z - 1).getBlockData();
-            if (blockData instanceof MultipleFacing) {
-                ((MultipleFacing) blockData).setFace(BlockFace.SOUTH, false);
-                getActualBlock(x, y, z - 1).setBlockData(blockData, false);
+            try {
+                blockData = getActualBlock(x, y, z - 1).getBlockData();
+                if (blockData instanceof MultipleFacing) {
+                    ((MultipleFacing) blockData).setFace(BlockFace.SOUTH, false);
+                    getActualBlock(x, y, z - 1).setBlockData(blockData, false);
+                }
+            } catch (Exception ignored) {
+
             }
         }
         // South
         if (z < 15) {
-            blockData = getActualBlock(x, y, z + 1).getBlockData();
-            if (blockData instanceof MultipleFacing) {
-                ((MultipleFacing) blockData).setFace(BlockFace.NORTH, false);
-                getActualBlock(x, y, z + 1).setBlockData(blockData, false);
+            try {
+                blockData = getActualBlock(x, y, z + 1).getBlockData();
+                if (blockData instanceof MultipleFacing) {
+                    ((MultipleFacing) blockData).setFace(BlockFace.NORTH, false);
+                    getActualBlock(x, y, z + 1).setBlockData(blockData, false);
+                }
+            } catch (Exception ignored) {
+
             }
         }
     }
