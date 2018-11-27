@@ -1,35 +1,22 @@
 package me.daddychurchill.CityWorld;
 
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.List;
-import java.util.Random;
-
 import me.daddychurchill.CityWorld.Clipboard.PasteProvider;
-import me.daddychurchill.CityWorld.Plugins.StructureInAirProvider;
-import me.daddychurchill.CityWorld.Plugins.ThingProvider;
-import me.daddychurchill.CityWorld.Plugins.CoverProvider;
-import me.daddychurchill.CityWorld.Plugins.TreeProvider;
-import me.daddychurchill.CityWorld.Plugins.StructureOnGroundProvider;
-import me.daddychurchill.CityWorld.Plugins.LootProvider;
-import me.daddychurchill.CityWorld.Plugins.MaterialProvider;
-import me.daddychurchill.CityWorld.Plugins.OdonymProvider;
-import me.daddychurchill.CityWorld.Plugins.OreProvider;
-import me.daddychurchill.CityWorld.Plugins.ShapeProvider;
-import me.daddychurchill.CityWorld.Plugins.SpawnProvider;
-import me.daddychurchill.CityWorld.Plugins.SurfaceProvider;
-import me.daddychurchill.CityWorld.Support.InitialBlocks;
-import me.daddychurchill.CityWorld.Support.Odds;
-import me.daddychurchill.CityWorld.Support.PlatMap;
-import me.daddychurchill.CityWorld.Support.RealBlocks;
-import me.daddychurchill.CityWorld.Support.WorldBlocks;
-
+import me.daddychurchill.CityWorld.Plugins.*;
+import me.daddychurchill.CityWorld.Support.*;
 import org.bukkit.Bukkit;
 import org.bukkit.Chunk;
 import org.bukkit.World;
 import org.bukkit.World.Environment;
+import org.bukkit.block.Block;
+import org.bukkit.block.data.BlockData;
+import org.bukkit.block.data.type.Leaves;
 import org.bukkit.generator.BlockPopulator;
 import org.bukkit.generator.ChunkGenerator;
+
+import java.util.Arrays;
+import java.util.Hashtable;
+import java.util.List;
+import java.util.Random;
 
 public class CityWorldGenerator extends ChunkGenerator {
 
@@ -448,6 +435,20 @@ public class CityWorldGenerator extends ChunkGenerator {
                     // Moved and modified a bit by DaddyChurchill
                     CityWorldEvent event = new CityWorldEvent(chunk, platmap, platmap.getMapLot(chunkX, chunkZ));
                     Bukkit.getServer().getPluginManager().callEvent(event);
+
+                    // Make leaves decayable
+                    for (int x = 0; x < 16; x++) {
+                        for (int y = 0; y < 256; y++) {
+                            for (int z = 0; z < 16; z++) {
+                                Block block = realChunk.getActualBlock(x, y, z);
+                                BlockData blockData = realChunk.getActualBlock(x, y, z).getBlockData();
+                                if (blockData instanceof Leaves) {
+                                    ((Leaves) blockData).setPersistent(false);
+                                    block.setBlockData(blockData);
+                                }
+                            }
+                        }
+                    }
                 }
             } catch (Exception e) {
                 reportException("BlockPopulator FAILED", e);
