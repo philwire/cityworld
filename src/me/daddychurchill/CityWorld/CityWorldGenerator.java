@@ -440,11 +440,15 @@ public class CityWorldGenerator extends ChunkGenerator {
                     for (int x = 0; x < 16; x++) {
                         for (int y = 0; y < 256; y++) {
                             for (int z = 0; z < 16; z++) {
-                                Block block = realChunk.getActualBlock(x, y, z);
-                                BlockData blockData = realChunk.getActualBlock(x, y, z).getBlockData();
-                                if (blockData instanceof Leaves) {
-                                    ((Leaves) blockData).setPersistent(false);
-                                    block.setBlockData(blockData);
+                                try {
+                                    Block block = realChunk.getActualBlock(x, y, z);
+                                    BlockData blockData = block.getBlockData();
+                                    if (blockData instanceof Leaves) {
+                                        ((Leaves) blockData).setPersistent(false);
+                                        block.setBlockData(blockData);
+                                    }
+                                } catch (Exception ignored) {
+
                                 }
                             }
                         }
