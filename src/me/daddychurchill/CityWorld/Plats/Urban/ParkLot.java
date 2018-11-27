@@ -520,6 +520,10 @@ public class ParkLot extends ConnectedLot {
                             chunk.setBlock(0, surfaceY + 1, 0, fenceMaterial, BlockFace.SOUTH);
                         }
                     }
+                } else if (!neighbors.toNorthWest() && neighbors.toNorth() && neighbors.toWest()) {
+                    // concave angle
+                    chunk.setBlock(0, surfaceY, 0, columnMaterial);
+                    chunk.setBlock(0, surfaceY + 1, 0, fenceMaterial, BlockFace.NORTH, BlockFace.WEST);
                 }
 
                 // [ ][ ][ ]
@@ -542,6 +546,10 @@ public class ParkLot extends ConnectedLot {
                             chunk.setBlock(0, surfaceY + 1, 15, fenceMaterial, BlockFace.NORTH);
                         }
                     }
+                } else if (!neighbors.toSouthWest() && neighbors.toSouth() && neighbors.toWest()) {
+                    // concave angle
+                    chunk.setBlock(0, surfaceY, 15, columnMaterial);
+                    chunk.setBlock(0, surfaceY + 1, 15, fenceMaterial, BlockFace.SOUTH, BlockFace.WEST);
                 }
 
                 // [ ][ ][X]
@@ -564,6 +572,10 @@ public class ParkLot extends ConnectedLot {
                             chunk.setBlock(15, surfaceY + 1, 0, fenceMaterial, BlockFace.SOUTH);
                         }
                     }
+                } else if (!neighbors.toNorthEast() && neighbors.toNorth() && neighbors.toEast()) {
+                    // concave angle
+                    chunk.setBlock(15, surfaceY, 0, columnMaterial);
+                    chunk.setBlock(15, surfaceY + 1, 0, fenceMaterial, BlockFace.NORTH, BlockFace.EAST);
                 }
 
                 // [ ][ ][ ]
@@ -586,6 +598,10 @@ public class ParkLot extends ConnectedLot {
                             chunk.setBlock(15, surfaceY + 1, 15, fenceMaterial, BlockFace.NORTH);
                         }
                     }
+                } else if (!neighbors.toSouthEast() && neighbors.toSouth() && neighbors.toEast()) {
+                    // concave angle
+                    chunk.setBlock(15, surfaceY, 15, columnMaterial);
+                    chunk.setBlock(15, surfaceY + 1, 15, fenceMaterial, BlockFace.SOUTH, BlockFace.EAST);
                 }
 
                 break;
