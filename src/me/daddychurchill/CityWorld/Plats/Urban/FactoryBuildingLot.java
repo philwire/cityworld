@@ -435,28 +435,28 @@ public class FactoryBuildingLot extends IndustrialBuildingLot {
         boolean doEastward = neighbors.toEast();
 
         if (doNorthward) {
-            generateSkyWalkBitsNS(chunk, 6, 0, skywalkAt);
+            generateSkyWalkBitsN(chunk, 6, 0, skywalkAt);
             if (wallStyle != WallStyle.BUILDING) {
                 chunk.setBlocks(7, 9, generator.structureLevel + 2, skywalkAt, 0, 1, wallMaterial);
                 generateLadder(chunk, 6, generator.structureLevel, skywalkAt, 0, BlockFace.WEST); // fixed
             }
         }
         if (doSouthward) {
-            generateSkyWalkBitsNS(chunk, 6, 12, skywalkAt);
+            generateSkyWalkBitsS(chunk, 6, 12, skywalkAt);
             if (wallStyle != WallStyle.BUILDING) {
                 chunk.setBlocks(7, 9, generator.structureLevel + 2, skywalkAt, 15, 16, wallMaterial);
                 generateLadder(chunk, 9, generator.structureLevel, skywalkAt, 15, BlockFace.EAST); // fixed
             }
         }
         if (doWestward) {
-            generateSkyWalkBitsWE(chunk, 0, 6, skywalkAt);
+            generateSkyWalkBitsW(chunk, 0, 6, skywalkAt);
             if (wallStyle != WallStyle.BUILDING) {
                 chunk.setBlocks(0, 1, generator.structureLevel + 2, skywalkAt, 7, 9, wallMaterial);
                 generateLadder(chunk, 0, generator.structureLevel, skywalkAt, 6, BlockFace.NORTH); // fixed
             }
         }
         if (doEastward) {
-            generateSkyWalkBitsWE(chunk, 12, 6, skywalkAt);
+            generateSkyWalkBitsE(chunk, 12, 6, skywalkAt);
             if (wallStyle != WallStyle.BUILDING) {
                 chunk.setBlocks(15, 16, generator.structureLevel + 2, skywalkAt, 7, 9, wallMaterial);
                 generateLadder(chunk, 15, generator.structureLevel, skywalkAt, 9, BlockFace.SOUTH); // fixed
@@ -464,18 +464,44 @@ public class FactoryBuildingLot extends IndustrialBuildingLot {
         }
     }
 
-    private void generateSkyWalkBitsNS(RealBlocks chunk, int x, int z, int skywalkAt) {
+    private void generateSkyWalkBitsN(RealBlocks chunk, int x, int z, int skywalkAt) {
         chunk.setBlocks(x, x + 4, skywalkAt, z, z + 4, roofMaterial);
-        chunk.setBlocksWithPhysics(x, x + 1, skywalkAt + 1, z, z + 4, Material.IRON_BARS);
-        chunk.setBlocksWithPhysics(x + 3, x + 4, skywalkAt + 1, z, z + 4, Material.IRON_BARS);
-        chunk.setBlocksWithPhysics(x + 1, x + 3, skywalkAt - 1, z, z + 4, Material.IRON_BARS);
+        chunk.setBlocks(x, x + 1, skywalkAt + 1, z, z + 3, Material.IRON_BARS, BlockFace.NORTH, BlockFace.SOUTH);
+        chunk.setBlock(x, skywalkAt + 1, z + 3, Material.IRON_BARS, BlockFace.NORTH);
+        chunk.setBlocks(x + 3, x + 4, skywalkAt + 1, z, z + 3, Material.IRON_BARS, BlockFace.NORTH, BlockFace.SOUTH);
+        chunk.setBlock(x + 3, skywalkAt + 1, z + 3, Material.IRON_BARS, BlockFace.NORTH);
+        chunk.setBlocks(x + 1, x + 2, skywalkAt - 1, z, z + 4, Material.IRON_BARS, BlockFace.NORTH, BlockFace.SOUTH, BlockFace.EAST);
+        chunk.setBlocks(x + 2, x + 3, skywalkAt - 1, z, z + 4, Material.IRON_BARS, BlockFace.NORTH, BlockFace.SOUTH, BlockFace.WEST);
     }
 
-    private void generateSkyWalkBitsWE(RealBlocks chunk, int x, int z, int skywalkAt) {
+    private void generateSkyWalkBitsS(RealBlocks chunk, int x, int z, int skywalkAt) {
         chunk.setBlocks(x, x + 4, skywalkAt, z, z + 4, roofMaterial);
-        chunk.setBlocksWithPhysics(x, x + 4, skywalkAt + 1, z, z + 1, Material.IRON_BARS);
-        chunk.setBlocksWithPhysics(x, x + 4, skywalkAt + 1, z + 3, z + 4, Material.IRON_BARS);
-        chunk.setBlocksWithPhysics(x, x + 4, skywalkAt - 1, z + 1, z + 3, Material.IRON_BARS);
+        chunk.setBlock(x, skywalkAt + 1, z, Material.IRON_BARS, BlockFace.SOUTH);
+        chunk.setBlocks(x, x + 1, skywalkAt + 1, z + 1, z + 4, Material.IRON_BARS, BlockFace.NORTH, BlockFace.SOUTH);
+        chunk.setBlock(x + 3, skywalkAt + 1, z, Material.IRON_BARS, BlockFace.SOUTH);
+        chunk.setBlocks(x + 3, x + 4, skywalkAt + 1, z + 1, z + 4, Material.IRON_BARS, BlockFace.NORTH, BlockFace.SOUTH);
+        chunk.setBlocks(x + 1, x + 2, skywalkAt - 1, z, z + 4, Material.IRON_BARS, BlockFace.NORTH, BlockFace.SOUTH, BlockFace.EAST);
+        chunk.setBlocks(x + 2, x + 3, skywalkAt - 1, z, z + 4, Material.IRON_BARS, BlockFace.NORTH, BlockFace.SOUTH, BlockFace.WEST);
+    }
+
+    private void generateSkyWalkBitsW(RealBlocks chunk, int x, int z, int skywalkAt) {
+        chunk.setBlocks(x, x + 4, skywalkAt, z, z + 4, roofMaterial);
+        chunk.setBlocks(x, x + 3, skywalkAt + 1, z, z + 1, Material.IRON_BARS, BlockFace.EAST, BlockFace.WEST);
+        chunk.setBlock(x + 3, skywalkAt + 1, z, Material.IRON_BARS, BlockFace.WEST);
+        chunk.setBlocks(x, x + 3, skywalkAt + 1, z + 3, z + 4, Material.IRON_BARS, BlockFace.EAST, BlockFace.WEST);
+        chunk.setBlock(x + 3, skywalkAt + 1, z + 3, Material.IRON_BARS, BlockFace.WEST);
+        chunk.setBlocks(x, x + 4, skywalkAt - 1, z + 1, z + 2, Material.IRON_BARS, BlockFace.EAST, BlockFace.WEST, BlockFace.SOUTH);
+        chunk.setBlocks(x, x + 4, skywalkAt - 1, z + 2, z + 3, Material.IRON_BARS, BlockFace.EAST, BlockFace.WEST, BlockFace.NORTH);
+    }
+
+    private void generateSkyWalkBitsE(RealBlocks chunk, int x, int z, int skywalkAt) {
+        chunk.setBlocks(x, x + 4, skywalkAt, z, z + 4, roofMaterial);
+        chunk.setBlock(x, skywalkAt + 1, z, Material.IRON_BARS, BlockFace.EAST);
+        chunk.setBlocks(x + 1, x + 4, skywalkAt + 1, z, z + 1, Material.IRON_BARS, BlockFace.EAST, BlockFace.WEST);
+        chunk.setBlock(x, skywalkAt + 1, z + 3, Material.IRON_BARS, BlockFace.EAST);
+        chunk.setBlocks(x + 1, x + 4, skywalkAt + 1, z + 3, z + 4, Material.IRON_BARS, BlockFace.EAST, BlockFace.WEST);
+        chunk.setBlocks(x, x + 4, skywalkAt - 1, z + 1, z + 2, Material.IRON_BARS, BlockFace.EAST, BlockFace.WEST, BlockFace.SOUTH);
+        chunk.setBlocks(x, x + 4, skywalkAt - 1, z + 2, z + 3, Material.IRON_BARS, BlockFace.EAST, BlockFace.WEST, BlockFace.NORTH);
     }
 
     protected void generateSkyWalkCross(CityWorldGenerator generator, RealBlocks chunk, Surroundings neighbors,
