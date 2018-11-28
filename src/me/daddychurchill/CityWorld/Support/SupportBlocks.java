@@ -67,21 +67,6 @@ public abstract class SupportBlocks extends AbstractBlocks {
         setActualBlock(getActualBlock(x, y, z), material);
     }
 
-    /**
-     * @deprecated May cause lag
-     */
-    public final void setBlockWithPhysics(int x, int y, int z, Material material) {
-        // Prevent to trigger physics event on chunk border
-        if (x == 0 || x == 15 || z == 0 || z == 15) {
-//            Bukkit.getServer().broadcastMessage("Border physics: " + this.sectionX + ", " + this.sectionZ + "(" + x + ", " + y + ", " + z + ")");
-            setBlock(x, y, z, material);
-            return;
-        }
-        boolean was = setDoPhysics(true);
-        setBlock(x, y, z, material);
-        setDoPhysics(was);
-    }
-
     protected final boolean isType(Block block, Material... types) {
         Material type = block.getType();
         for (Material test : types)
@@ -227,36 +212,6 @@ public abstract class SupportBlocks extends AbstractBlocks {
                 setBlock(x, y, z, material);
             }
         }
-    }
-
-    /**
-     * @deprecated May cause lag
-     */
-    public final void setBlocksWithPhysics(int x1, int x2, int y, int z1, int z2, Material material) {
-        // Prevent to trigger physics event on chunk border
-        if (x1 == 0 || x2 == 16 || z1 == 0 || z2 == 16) {
-//            Bukkit.getServer().broadcastMessage("Border physics: " + this.sectionX + ", " + this.sectionZ + "(" + x1 + ", " + y + ", " + z1 + ")");
-            setBlocks(x1, x2, y, z1, z2, material);
-            return;
-        }
-        boolean was = setDoPhysics(true);
-        setBlocks(x1, x2, y, z1, z2, material);
-        setDoPhysics(was);
-    }
-
-    /**
-     * @deprecated May cause lag
-     */
-    public final void setBlocksUpwardWithPhysics(int x, int y1, int z, int maxY, Material material) {
-        // Prevent to trigger physics event on chunk border
-        if (x == 0 || x == 15 || z == 0 || z == 15) {
-//            Bukkit.getServer().broadcastMessage("Border physics: " + this.sectionX + ", " + this.sectionZ + "(" + x + ", " + y1 + ", " + z + ")");
-            setBlocksUpward(x, y1, z, maxY, material);
-            return;
-        }
-        boolean was = setDoPhysics(true);
-        setBlocksUpward(x, y1, z, maxY, material);
-        setDoPhysics(was);
     }
 
     @Override
@@ -595,16 +550,6 @@ public abstract class SupportBlocks extends AbstractBlocks {
         } finally {
             block.setBlockData(data, doPhysics);
         }
-        return block;
-    }
-
-    /**
-     * @deprecated May cause lag
-     */
-    public final Block setBlockWithPhysics(int x, int y, int z, Material material, BlockFace facing) {
-        boolean was = setDoPhysics(true);
-        Block block = setBlock(x, y, z, material, facing);
-        setDoPhysics(was);
         return block;
     }
 

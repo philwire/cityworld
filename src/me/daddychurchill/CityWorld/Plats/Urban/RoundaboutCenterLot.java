@@ -312,7 +312,7 @@ public class RoundaboutCenterLot extends IsolatedLot {
 
                         // place a block
                         if (odds.flipCoin())
-                            chunk.setBlockWithPhysics(x, y, z, colors.getGlassPane());
+                            chunk.setBlock(x, y, z, colors.getGlassPane());
                         else if (woolArt)
                             chunk.setBlock(x, y, z, colors.getWool());
                         else
@@ -339,7 +339,7 @@ public class RoundaboutCenterLot extends IsolatedLot {
                     for (int y = atY; y < y2; y++)
                         chunk.setBlock(x, y, z, colors.getGlass());
                     for (int y = y2; y < y3; y++)
-                        chunk.setBlockWithPhysics(x, y, z, colors.getGlassPane());
+                        chunk.setBlock(x, y, z, colors.getGlassPane());
                 }
         }
     }

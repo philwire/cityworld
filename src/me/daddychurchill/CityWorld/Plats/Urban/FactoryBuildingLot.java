@@ -318,10 +318,10 @@ public class FactoryBuildingLot extends IndustrialBuildingLot {
         chunk.setBlocks(6, 10, groundY - 2, 6, 10, Material.NETHERRACK);
         chunk.setWalls(5, 11, groundY, groundY + 6, 5, 11, smokestackMat);
 
-        chunk.setBlockWithPhysics(8, groundY + 1, 5, Material.RED_STAINED_GLASS_PANE);
-        chunk.setBlockWithPhysics(7, groundY + 1, 10, Material.RED_STAINED_GLASS_PANE);
-        chunk.setBlockWithPhysics(5, groundY + 1, 8, Material.RED_STAINED_GLASS_PANE);
-        chunk.setBlockWithPhysics(10, groundY + 1, 7, Material.RED_STAINED_GLASS_PANE);
+        chunk.setBlock(8, groundY + 1, 5, Material.RED_STAINED_GLASS_PANE);
+        chunk.setBlock(7, groundY + 1, 10, Material.RED_STAINED_GLASS_PANE);
+        chunk.setBlock(5, groundY + 1, 8, Material.RED_STAINED_GLASS_PANE);
+        chunk.setBlock(10, groundY + 1, 7, Material.RED_STAINED_GLASS_PANE);
 
         // too bad I have to goof it up now
         if (generator.settings.includeDecayedBuildings) {

@@ -29,7 +29,7 @@ public class AstralCrystalSpiresLot extends AstralNatureLot {
                     if (y > 4 && y < generator.seaLevel) {
                         int topY = chunkOdds.getRandomInt(Math.max(2, NoiseGenerator.floor((generator.seaLevel - y) * populationChance))) + y;
                         chunk.setBlocks(x, y - 3, topY, z, Material.GLASS);
-                        chunk.setBlockWithPhysics(x, topY, z, Material.GLASS_PANE);
+                        chunk.setBlock(x, topY, z, Material.GLASS_PANE);
                     }
                 }
             }

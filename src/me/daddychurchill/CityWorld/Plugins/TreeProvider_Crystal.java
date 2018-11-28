@@ -28,7 +28,7 @@ public class TreeProvider_Crystal extends TreeProvider {
         if (material == Material.ACACIA_LEAVES) {
             if (chunk.isEmpty(x, y, z))
                 if (odds.playOdds(Odds.oddsExtremelyLikely))
-                    chunk.setBlockWithPhysics(x, y, z, Material.GLASS_PANE);
+                    chunk.setBlock(x, y, z, Material.GLASS_PANE);
                 else
                     chunk.setBlock(x, y, z, Material.GLASS);
         } else if (material == Material.BIRCH_LEAVES) {
@@ -39,11 +39,11 @@ public class TreeProvider_Crystal extends TreeProvider {
                 if (odds.playOdds(Odds.oddsExtremelyLikely))
                     chunk.setBlock(x, y, z, colors.getGlass());
                 else
-                    chunk.setBlockWithPhysics(x, y, z, colors.getGlassPane());
+                    chunk.setBlock(x, y, z, colors.getGlassPane());
         } else if (material == Material.JUNGLE_LEAVES) {
             if (chunk.isEmpty(x, y, z))
                 if (odds.playOdds(Odds.oddsExtremelyLikely))
-                    chunk.setBlockWithPhysics(x, y, z, colors.getGlassPane());
+                    chunk.setBlock(x, y, z, colors.getGlassPane());
                 else
                     chunk.setBlock(x, y, z, colors.getGlass());
         } else {
@@ -51,7 +51,7 @@ public class TreeProvider_Crystal extends TreeProvider {
                 if (odds.playOdds(Odds.oddsExtremelyLikely))
                     chunk.setBlock(x, y, z, Material.GLASS);
                 else
-                    chunk.setBlockWithPhysics(x, y, z, Material.GLASS_PANE);
+                    chunk.setBlock(x, y, z, Material.GLASS_PANE);
         }
     }
 }
