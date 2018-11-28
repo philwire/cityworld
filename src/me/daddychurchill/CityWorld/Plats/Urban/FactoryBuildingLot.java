@@ -495,9 +495,35 @@ public class FactoryBuildingLot extends IndustrialBuildingLot {
             generateSkyWalkWE(chunk, 10, 6, skywalkAt, roofAt);
 
         chunk.setBlocks(6, 10, skywalkAt, 6, 10, ceilingMaterial);
-        chunk.setBlocksWithPhysics(6, 10, skywalkAt - 1, 7, 9, Material.IRON_BARS);
-        chunk.setBlocksWithPhysics(7, 9, skywalkAt - 1, 6, 7, Material.IRON_BARS);
-        chunk.setBlocksWithPhysics(7, 9, skywalkAt - 1, 9, 10, Material.IRON_BARS);
+        chunk.setBlocks(7, 9, skywalkAt - 1, 7, 9, Material.IRON_BARS, BlockFace.NORTH, BlockFace.SOUTH, BlockFace.EAST, BlockFace.WEST);
+        if (doNorthward) {
+            chunk.setBlock(7, skywalkAt - 1, 6, Material.IRON_BARS, BlockFace.EAST, BlockFace.SOUTH, BlockFace.NORTH);
+            chunk.setBlock(8, skywalkAt - 1, 6, Material.IRON_BARS, BlockFace.WEST, BlockFace.SOUTH, BlockFace.NORTH);
+        } else {
+            chunk.setBlock(7, skywalkAt - 1, 6, Material.IRON_BARS, BlockFace.EAST, BlockFace.SOUTH);
+            chunk.setBlock(8, skywalkAt - 1, 6, Material.IRON_BARS, BlockFace.WEST, BlockFace.SOUTH);
+        }
+        if (doSouthward) {
+            chunk.setBlock(7, skywalkAt - 1, 9, Material.IRON_BARS, BlockFace.EAST, BlockFace.NORTH, BlockFace.SOUTH);
+            chunk.setBlock(8, skywalkAt - 1, 9, Material.IRON_BARS, BlockFace.WEST, BlockFace.NORTH, BlockFace.SOUTH);
+        } else {
+            chunk.setBlock(7, skywalkAt - 1, 9, Material.IRON_BARS, BlockFace.EAST, BlockFace.NORTH);
+            chunk.setBlock(8, skywalkAt - 1, 9, Material.IRON_BARS, BlockFace.WEST, BlockFace.NORTH);
+        }
+        if (doWestward) {
+            chunk.setBlock(6, skywalkAt - 1, 7, Material.IRON_BARS, BlockFace.SOUTH, BlockFace.EAST, BlockFace.WEST);
+            chunk.setBlock(6, skywalkAt - 1, 8, Material.IRON_BARS, BlockFace.NORTH, BlockFace.EAST, BlockFace.WEST);
+        } else {
+            chunk.setBlock(6, skywalkAt - 1, 7, Material.IRON_BARS, BlockFace.SOUTH, BlockFace.EAST);
+            chunk.setBlock(6, skywalkAt - 1, 8, Material.IRON_BARS, BlockFace.NORTH, BlockFace.EAST);
+        }
+        if (doEastward) {
+            chunk.setBlock(9, skywalkAt - 1, 7, Material.IRON_BARS, BlockFace.SOUTH, BlockFace.WEST, BlockFace.EAST);
+            chunk.setBlock(9, skywalkAt - 1, 8, Material.IRON_BARS, BlockFace.NORTH, BlockFace.WEST, BlockFace.EAST);
+        } else {
+            chunk.setBlock(9, skywalkAt - 1, 7, Material.IRON_BARS, BlockFace.SOUTH, BlockFace.WEST);
+            chunk.setBlock(9, skywalkAt - 1, 8, Material.IRON_BARS, BlockFace.NORTH, BlockFace.WEST);
+        }
 
         if (!doNorthward)
             chunk.setBlocksWithPhysics(7, 9, skywalkAt + 1, 6, 7, Material.IRON_BARS);
