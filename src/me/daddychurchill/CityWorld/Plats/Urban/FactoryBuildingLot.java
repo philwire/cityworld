@@ -1,19 +1,14 @@
 package me.daddychurchill.CityWorld.Plats.Urban;
 
-import org.bukkit.Material;
-import org.bukkit.block.BlockFace;
 import me.daddychurchill.CityWorld.CityWorldGenerator;
 import me.daddychurchill.CityWorld.Context.DataContext;
-import me.daddychurchill.CityWorld.Plats.PlatLot;
 import me.daddychurchill.CityWorld.Plats.Nature.BunkerLot;
+import me.daddychurchill.CityWorld.Plats.PlatLot;
 import me.daddychurchill.CityWorld.Plugins.RoomProvider;
 import me.daddychurchill.CityWorld.Rooms.Populators.FactoryWithStuff;
-import me.daddychurchill.CityWorld.Support.CachedYs;
-import me.daddychurchill.CityWorld.Support.InitialBlocks;
-import me.daddychurchill.CityWorld.Support.Odds;
-import me.daddychurchill.CityWorld.Support.PlatMap;
-import me.daddychurchill.CityWorld.Support.RealBlocks;
-import me.daddychurchill.CityWorld.Support.Surroundings;
+import me.daddychurchill.CityWorld.Support.*;
+import org.bukkit.Material;
+import org.bukkit.block.BlockFace;
 
 public class FactoryBuildingLot extends IndustrialBuildingLot {
 
@@ -575,23 +570,23 @@ public class FactoryBuildingLot extends IndustrialBuildingLot {
 
     private void generateSkyWalkNS(RealBlocks chunk, int x, int z, int skywalkAt, int roofAt) {
         chunk.setBlocks(x, x + 4, skywalkAt, z, z + 6, roofMaterial);
-        chunk.setBlocksWithPhysics(x, x + 1, skywalkAt + 1, z, z + 6, Material.IRON_BARS);
-        chunk.setBlocksWithPhysics(x + 3, x + 4, skywalkAt + 1, z, z + 6, Material.IRON_BARS);
-        chunk.setBlocksWithPhysics(x + 1, x + 3, skywalkAt - 1, z, z + 6, Material.IRON_BARS);
+        chunk.setBlocks(x, x + 1, skywalkAt + 1, z, z + 6, Material.IRON_BARS, BlockFace.NORTH, BlockFace.SOUTH);
+        chunk.setBlocks(x + 3, x + 4, skywalkAt + 1, z, z + 6, Material.IRON_BARS, BlockFace.NORTH, BlockFace.SOUTH);
+        chunk.fillBlocks(x + 1, x + 3, skywalkAt - 1, z, z + 6, Material.IRON_BARS);
         if (wallStyle == WallStyle.BUILDING) {
-            chunk.setBlocksUpwardWithPhysics(x, skywalkAt + 2, z + 2, roofAt, Material.IRON_BARS);
-            chunk.setBlocksUpwardWithPhysics(x + 3, skywalkAt + 2, z + 2, roofAt, Material.IRON_BARS);
+            chunk.setBlocksUpward(x, skywalkAt + 2, z + 2, roofAt, Material.IRON_BARS);
+            chunk.setBlocksUpward(x + 3, skywalkAt + 2, z + 2, roofAt, Material.IRON_BARS);
         }
     }
 
     private void generateSkyWalkWE(RealBlocks chunk, int x, int z, int skywalkAt, int roofAt) {
         chunk.setBlocks(x, x + 6, skywalkAt, z, z + 4, roofMaterial);
-        chunk.setBlocksWithPhysics(x, x + 6, skywalkAt + 1, z, z + 1, Material.IRON_BARS);
-        chunk.setBlocksWithPhysics(x, x + 6, skywalkAt + 1, z + 3, z + 4, Material.IRON_BARS);
-        chunk.setBlocksWithPhysics(x, x + 6, skywalkAt - 1, z + 1, z + 3, Material.IRON_BARS);
+        chunk.setBlocks(x, x + 6, skywalkAt + 1, z, z + 1, Material.IRON_BARS, BlockFace.EAST, BlockFace.WEST);
+        chunk.setBlocks(x, x + 6, skywalkAt + 1, z + 3, z + 4, Material.IRON_BARS, BlockFace.EAST, BlockFace.WEST);
+        chunk.fillBlocks(x, x + 6, skywalkAt - 1, z + 1, z + 3, Material.IRON_BARS);
         if (wallStyle == WallStyle.BUILDING) {
-            chunk.setBlocksUpwardWithPhysics(x + 2, skywalkAt + 2, z, roofAt, Material.IRON_BARS);
-            chunk.setBlocksUpwardWithPhysics(x + 2, skywalkAt + 2, z + 3, roofAt, Material.IRON_BARS);
+            chunk.setBlocksUpward(x + 2, skywalkAt + 2, z, roofAt, Material.IRON_BARS);
+            chunk.setBlocksUpward(x + 2, skywalkAt + 2, z + 3, roofAt, Material.IRON_BARS);
         }
     }
 }

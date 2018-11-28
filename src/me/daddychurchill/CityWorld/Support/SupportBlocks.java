@@ -207,21 +207,6 @@ public abstract class SupportBlocks extends AbstractBlocks {
             setBlock(x, y, z, material);
     }
 
-    /**
-     * @deprecated May cause lag
-     */
-    public final void setBlocksWithPhysics(int x, int y1, int y2, int z, Material material) {
-        // Prevent to trigger physics event on chunk border
-        if (x == 0 || x == 15 || z == 0 || z == 15) {
-//            Bukkit.getServer().broadcastMessage("Border physics: " + this.sectionX + ", " + this.sectionZ + "(" + x + ", " + y1 + ", " + z + ")");
-            setBlocks(x, y1, y2, z, material);
-            return;
-        }
-        boolean was = setDoPhysics(true);
-        setBlocks(x, y1, y2, z, material);
-        setDoPhysics(was);
-    }
-
     //================ x1, x2, y1, y2, z1, z2
     @Override
     public final void setBlocks(int x1, int x2, int y1, int y2, int z1, int z2, Material material) {
@@ -232,21 +217,6 @@ public abstract class SupportBlocks extends AbstractBlocks {
                 }
             }
         }
-    }
-
-    /**
-     * @deprecated May cause lag
-     */
-    public final void setBlocksWithPhysics(int x1, int x2, int y1, int y2, int z1, int z2, Material material) {
-        // Prevent to trigger physics event on chunk border
-        if (x1 == 0 || x2 == 16 || z1 == 0 || z2 == 16) {
-//            Bukkit.getServer().broadcastMessage("Border physics: " + this.sectionX + ", " + this.sectionZ + "(" + x1 + ", " + y1 + ", " + z1 + ")");
-            setBlocks(x1, x2, y1, y2, z1, z2, material);
-            return;
-        }
-        boolean was = setDoPhysics(true);
-        setBlocks(x1, x2, y1, y2, z1, z2, material);
-        setDoPhysics(was);
     }
 
     //================ x1, x2, y, z1, z2
@@ -306,6 +276,25 @@ public abstract class SupportBlocks extends AbstractBlocks {
             setBlocks(x1, x1 + 1, y1, y2, z1 + 1, z2 - 1, material);    // W
             setBlocks(x2 - 1, x2, y1, y2, z1 + 1, z2 - 1, material);    // E
         }
+    }
+
+    public final void fillBlocks(int x1, int x2, int y, int z1, int z2, Material material) {
+        fillBlocks(x1, x2, y, y + 1, z1, z2, material);
+    }
+
+    public final void fillBlocks(int x1, int x2, int y1, int y2, int z1, int z2, Material material) {
+        if (!(material.createBlockData() instanceof MultipleFacing)) {
+            setBlocks(x1, x2, y1, y2, z1, z2, material);
+        }
+        setBlocks(x1, x2, y1, y2, z1, z2, material, BlockFace.NORTH, BlockFace.SOUTH, BlockFace.EAST, BlockFace.WEST);
+        setBlocks(x1 + 1, x2 - 1, y1, y2, z1, z1 + 1, material, BlockFace.EAST, BlockFace.WEST, BlockFace.SOUTH);   // N
+        setBlocks(x1 + 1, x2 - 1, y1, y2, z2 - 1, z2, material, BlockFace.EAST, BlockFace.WEST, BlockFace.NORTH);   // S
+        setBlocks(x1, x1 + 1, y1, y2, z1 + 1, z2 - 1, material, BlockFace.SOUTH, BlockFace.NORTH, BlockFace.EAST);  // W
+        setBlocks(x2 - 1, x2, y1, y2, z1 + 1, z2 - 1, material, BlockFace.SOUTH, BlockFace.NORTH, BlockFace.WEST);  // E
+        setBlocks(x1, y1, y2, z1, material, BlockFace.SOUTH, BlockFace.EAST);                // NW
+        setBlocks(x1, y1, y2, z2 - 1, material, BlockFace.NORTH, BlockFace.EAST);         // SW
+        setBlocks(x2 - 1, y1, y2, z1, material, BlockFace.SOUTH, BlockFace.WEST);         // NE
+        setBlocks(x2 - 1, y1, y2, z2 - 1, material, BlockFace.NORTH, BlockFace.WEST);  // SE
     }
 
     @Override
