@@ -1156,30 +1156,49 @@ public class RoadLot extends ConnectedLot {
             Material fluidMaterial = generator.oreProvider.fluidFluidMaterial;
 
             // cardinal directions known walls and ditches
+            // static water (prevent cross-chunk domino effect)
+            if (superConnected || roads.toNorth()) {
+                chunk.setBlocks(7, 9, sewerY - 1, 0, 2, fluidMaterial);
+            }
+            if (superConnected || roads.toSouth()) {
+                chunk.setBlocks(7, 9, sewerY - 1, 14, 16, fluidMaterial);
+            }
+            if (superConnected || roads.toWest()) {
+                chunk.setBlocks(0, 2, sewerY - 1, 7, 9, fluidMaterial);
+            }
+            if (superConnected || roads.toEast()) {
+                chunk.setBlocks(14, 16, sewerY - 1, 7, 9, fluidMaterial);
+            }
+
+            // flowing water
             try {
                 chunk.setDoPhysics(true);
                 if (superConnected || roads.toNorth()) {
                     chunk.setBlock(8, sewerY - 1, 2, fluidMaterial);
-                    chunk.setBlock(7, sewerY - 1, 3, fluidMaterial);
-                    chunk.setBlock(8, sewerY - 1, 4, fluidMaterial);
+//                    chunk.setBlock(8, sewerY - 1, 2, fluidMaterial);
+//                    chunk.setBlock(7, sewerY - 1, 3, fluidMaterial);
+//                    chunk.setBlock(8, sewerY - 1, 4, fluidMaterial);
                     generateEntryVines(chunk, base2Y - 1, BlockFace.NORTH, 6, 1, 7, 1, 8, 1, 9, 1);
                 }
                 if (superConnected || roads.toSouth()) {
-                    chunk.setBlock(7, sewerY - 1, 11, fluidMaterial);
-                    chunk.setBlock(8, sewerY - 1, 12, fluidMaterial);
                     chunk.setBlock(7, sewerY - 1, 13, fluidMaterial);
+//                    chunk.setBlock(7, sewerY - 1, 11, fluidMaterial);
+//                    chunk.setBlock(8, sewerY - 1, 12, fluidMaterial);
+//                    chunk.setBlock(7, sewerY - 1, 13, fluidMaterial);
                     generateEntryVines(chunk, base2Y - 1, BlockFace.SOUTH, 6, 14, 7, 14, 8, 14, 9, 14);
                 }
                 if (superConnected || roads.toWest()) {
                     chunk.setBlock(2, sewerY - 1, 7, fluidMaterial);
-                    chunk.setBlock(3, sewerY - 1, 8, fluidMaterial);
-                    chunk.setBlock(4, sewerY - 1, 7, fluidMaterial);
+//                    chunk.setBlock(2, sewerY - 1, 7, fluidMaterial);
+//                    chunk.setBlock(3, sewerY - 1, 8, fluidMaterial);
+//                    chunk.setBlock(4, sewerY - 1, 7, fluidMaterial);
                     generateEntryVines(chunk, base2Y - 1, BlockFace.WEST, 1, 6, 1, 7, 1, 8, 1, 9);
                 }
                 if (superConnected || roads.toEast()) {
-                    chunk.setBlock(11, sewerY - 1, 8, fluidMaterial);
-                    chunk.setBlock(12, sewerY - 1, 7, fluidMaterial);
                     chunk.setBlock(13, sewerY - 1, 8, fluidMaterial);
+//                    chunk.setBlock(11, sewerY - 1, 8, fluidMaterial);
+//                    chunk.setBlock(12, sewerY - 1, 7, fluidMaterial);
+//                    chunk.setBlock(13, sewerY - 1, 8, fluidMaterial);
                     generateEntryVines(chunk, base2Y - 1, BlockFace.EAST, 14, 6, 14, 7, 14, 8, 14, 9);
                 }
             } finally {
