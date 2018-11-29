@@ -1,23 +1,16 @@
 package me.daddychurchill.CityWorld.Plats.Nature;
 
-import org.bukkit.Material;
-import org.bukkit.block.BlockFace;
-import org.bukkit.block.data.Bisected.Half;
-import org.bukkit.generator.ChunkGenerator.BiomeGrid;
-
 import me.daddychurchill.CityWorld.CityWorldGenerator;
 import me.daddychurchill.CityWorld.Context.DataContext;
 import me.daddychurchill.CityWorld.Plats.ConnectedLot;
 import me.daddychurchill.CityWorld.Plats.PlatLot;
 import me.daddychurchill.CityWorld.Plats.RoadLot;
 import me.daddychurchill.CityWorld.Plugins.LootProvider.LootLocation;
-import me.daddychurchill.CityWorld.Support.CachedYs;
-import me.daddychurchill.CityWorld.Support.Colors;
-import me.daddychurchill.CityWorld.Support.InitialBlocks;
-import me.daddychurchill.CityWorld.Support.Odds;
-import me.daddychurchill.CityWorld.Support.PlatMap;
-import me.daddychurchill.CityWorld.Support.RealBlocks;
-import me.daddychurchill.CityWorld.Support.SupportBlocks;
+import me.daddychurchill.CityWorld.Support.*;
+import org.bukkit.Material;
+import org.bukkit.block.BlockFace;
+import org.bukkit.block.data.Bisected.Half;
+import org.bukkit.generator.ChunkGenerator.BiomeGrid;
 
 public class BunkerLot extends ConnectedLot {
 
@@ -258,25 +251,45 @@ public class BunkerLot extends ConnectedLot {
         chunk.setBlocks(14, 16, yPlatform, 7, 9, materials.crosswalk);
 
         // draw railing
-        chunk.setBlocks(2, 7, yPlatform + 1, 2, 3, materials.railing);
-        chunk.setBlocks(9, 14, yPlatform + 1, 2, 3, materials.railing);
-        chunk.setBlocks(2, 7, yPlatform + 1, 13, 14, materials.railing);
-        chunk.setBlocks(9, 14, yPlatform + 1, 13, 14, materials.railing);
+        chunk.setBlock(2, yPlatform + 1, 2, materials.railing, BlockFace.EAST, BlockFace.SOUTH);
+        chunk.setBlocks(3, 6, yPlatform + 1, 2, 3, materials.railing, BlockFace.EAST, BlockFace.WEST);
+        chunk.setBlock(6, yPlatform + 1, 2, materials.railing, BlockFace.WEST, BlockFace.NORTH);
+        chunk.setBlock(9, yPlatform + 1, 2, materials.railing, BlockFace.EAST, BlockFace.NORTH);
+        chunk.setBlocks(10, 13, yPlatform + 1, 2, 3, materials.railing, BlockFace.EAST, BlockFace.WEST);
+        chunk.setBlock(13, yPlatform + 1, 2, materials.railing, BlockFace.WEST, BlockFace.SOUTH);
+        chunk.setBlock(2, yPlatform + 1, 13, materials.railing, BlockFace.EAST, BlockFace.NORTH);
+        chunk.setBlocks(3, 6, yPlatform + 1, 13, 14, materials.railing, BlockFace.EAST, BlockFace.WEST);
+        chunk.setBlock(6, yPlatform + 1, 13, materials.railing, BlockFace.WEST, BlockFace.SOUTH);
+        chunk.setBlock(9, yPlatform + 1, 13, materials.railing, BlockFace.EAST, BlockFace.SOUTH);
+        chunk.setBlocks(10, 13, yPlatform + 1, 13, 14, materials.railing, BlockFace.EAST, BlockFace.WEST);
+        chunk.setBlock(13, yPlatform + 1, 13, materials.railing, BlockFace.WEST, BlockFace.NORTH);
 
-        chunk.setBlocks(2, 3, yPlatform + 1, 3, 7, materials.railing);
-        chunk.setBlocks(13, 14, yPlatform + 1, 3, 7, materials.railing);
-        chunk.setBlocks(2, 3, yPlatform + 1, 9, 13, materials.railing);
-        chunk.setBlocks(13, 14, yPlatform + 1, 9, 13, materials.railing);
+        chunk.setBlocks(2, 3, yPlatform + 1, 3, 6, materials.railing, BlockFace.NORTH, BlockFace.SOUTH);
+        chunk.setBlock(2, yPlatform + 1, 6, materials.railing, BlockFace.NORTH, BlockFace.WEST);
+        chunk.setBlocks(13, 14, yPlatform + 1, 3, 6, materials.railing, BlockFace.NORTH, BlockFace.SOUTH);
+        chunk.setBlock(13, yPlatform + 1, 6, materials.railing, BlockFace.NORTH, BlockFace.EAST);
+        chunk.setBlock(2, yPlatform + 1, 9, materials.railing, BlockFace.SOUTH, BlockFace.WEST);
+        chunk.setBlocks(2, 3, yPlatform + 1, 10, 13, materials.railing, BlockFace.NORTH, BlockFace.SOUTH);
+        chunk.setBlock(13, yPlatform + 1, 9, materials.railing, BlockFace.EAST, BlockFace.SOUTH);
+        chunk.setBlocks(13, 14, yPlatform + 1, 10, 13, materials.railing, BlockFace.NORTH, BlockFace.SOUTH);
 
-        chunk.setBlocks(6, 7, yPlatform, yPlatform + 2, 0, 2, materials.railing);
-        chunk.setBlocks(9, 10, yPlatform, yPlatform + 2, 0, 2, materials.railing);
-        chunk.setBlocks(6, 7, yPlatform, yPlatform + 2, 14, 16, materials.railing);
-        chunk.setBlocks(9, 10, yPlatform, yPlatform + 2, 14, 16, materials.railing);
+        chunk.setBlocks(6, 7, yPlatform, 0, 2, materials.railing, BlockFace.NORTH, BlockFace.SOUTH, BlockFace.EAST);
+        chunk.setBlocks(6, 7, yPlatform + 1, 0, 2, materials.railing, BlockFace.NORTH, BlockFace.SOUTH);
+        chunk.setBlocks(9, 10, yPlatform, 0, 2, materials.railing, BlockFace.NORTH, BlockFace.SOUTH, BlockFace.WEST);
+        chunk.setBlocks(9, 10, yPlatform + 1, 0, 2, materials.railing, BlockFace.NORTH, BlockFace.SOUTH);
+        chunk.setBlocks(6, 7, yPlatform, 14, 16, materials.railing, BlockFace.NORTH, BlockFace.SOUTH, BlockFace.EAST);
+        chunk.setBlocks(6, 7, yPlatform + 1, 14, 16, materials.railing, BlockFace.NORTH, BlockFace.SOUTH);
+        chunk.setBlocks(9, 10, yPlatform, 14, 16, materials.railing, BlockFace.NORTH, BlockFace.SOUTH, BlockFace.WEST);
+        chunk.setBlocks(9, 10, yPlatform + 1, 14, 16, materials.railing, BlockFace.NORTH, BlockFace.SOUTH);
 
-        chunk.setBlocks(0, 2, yPlatform, yPlatform + 2, 6, 7, materials.railing);
-        chunk.setBlocks(0, 2, yPlatform, yPlatform + 2, 9, 10, materials.railing);
-        chunk.setBlocks(14, 16, yPlatform, yPlatform + 2, 6, 7, materials.railing);
-        chunk.setBlocks(14, 16, yPlatform, yPlatform + 2, 9, 10, materials.railing);
+        chunk.setBlocks(0, 2, yPlatform, 6, 7, materials.railing, BlockFace.EAST, BlockFace.WEST, BlockFace.SOUTH);
+        chunk.setBlocks(0, 2, yPlatform + 1, 6, 7, materials.railing, BlockFace.EAST, BlockFace.WEST);
+        chunk.setBlocks(0, 2, yPlatform, 9, 10, materials.railing, BlockFace.EAST, BlockFace.WEST, BlockFace.NORTH);
+        chunk.setBlocks(0, 2, yPlatform + 1, 9, 10, materials.railing, BlockFace.EAST, BlockFace.WEST);
+        chunk.setBlocks(14, 16, yPlatform, 6, 7, materials.railing, BlockFace.EAST, BlockFace.WEST, BlockFace.SOUTH);
+        chunk.setBlocks(14, 16, yPlatform + 1, 6, 7, materials.railing, BlockFace.EAST, BlockFace.WEST);
+        chunk.setBlocks(14, 16, yPlatform, 9, 10, materials.railing, BlockFace.EAST, BlockFace.WEST, BlockFace.NORTH);
+        chunk.setBlocks(14, 16, yPlatform + 1, 9, 10, materials.railing, BlockFace.EAST, BlockFace.WEST);
 
         // build a bunker
         switch (buildingType) {
