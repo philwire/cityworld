@@ -435,24 +435,6 @@ public class CityWorldGenerator extends ChunkGenerator {
                     // Moved and modified a bit by DaddyChurchill
                     CityWorldEvent event = new CityWorldEvent(chunk, platmap, platmap.getMapLot(chunkX, chunkZ));
                     Bukkit.getServer().getPluginManager().callEvent(event);
-
-                    // Make leaves decayable
-                    for (int x = 0; x < 16; x++) {
-                        for (int y = 0; y < 256; y++) {
-                            for (int z = 0; z < 16; z++) {
-                                try {
-                                    Block block = realChunk.getActualBlock(x, y, z);
-                                    BlockData blockData = block.getBlockData();
-                                    if (blockData instanceof Leaves) {
-                                        ((Leaves) blockData).setPersistent(false);
-                                        block.setBlockData(blockData);
-                                    }
-                                } catch (Exception ignored) {
-
-                                }
-                            }
-                        }
-                    }
                 }
             } catch (Exception e) {
                 reportException("BlockPopulator FAILED", e);
