@@ -1,9 +1,9 @@
 package me.daddychurchill.CityWorld.Factories;
 
-import org.bukkit.Material;
-
 import me.daddychurchill.CityWorld.Support.AbstractBlocks;
 import me.daddychurchill.CityWorld.Support.Odds;
+import org.bukkit.Material;
+import org.bukkit.block.BlockFace;
 
 public class OutsideWEWallFactory extends MaterialFactory {
 
@@ -16,7 +16,7 @@ public class OutsideWEWallFactory extends MaterialFactory {
     }
 
     @Override
-    public void placeMaterial(AbstractBlocks blocks, Material primary, Material secondary, int x, int y1, int y2, int z) {
-        super.placeMaterial(blocks, primary, secondary, pickMaterial(primary, secondary, x), x, y1, y2, z);
+    public void placeMaterial(AbstractBlocks blocks, Material primary, Material secondary, int x, int y1, int y2, int z, BlockFace... facing) {
+        super.placeMaterial(blocks, primary, secondary, pickMaterial(primary, secondary, x), x, y1, y2, z, facing);
     }
 }

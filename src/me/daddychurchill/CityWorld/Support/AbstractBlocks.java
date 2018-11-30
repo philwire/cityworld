@@ -72,6 +72,8 @@ public abstract class AbstractBlocks {
 
     public abstract void setBlocks(int x, int y1, int y2, int z, Material material);
 
+    public abstract void setBlocks(int x, int y1, int y2, int z, Material material, BlockFace... facing);
+
     public abstract void setBlocks(int x1, int x2, int y1, int y2, int z1, int z2, Material material);
 
     public void setBlocks(int x1, int x2, int y1, int y2, int z1, int z2, Material material, BlockFace... facing) {
@@ -263,14 +265,14 @@ public abstract class AbstractBlocks {
         setBlocks(x, y1, y2, z, material);
     }
 
-    public final void setBlocks(int x, int y1, int y2, int z, Material primary, Material secondary, MaterialFactory maker) {
-        maker.placeMaterial(this, primary, secondary, x, y1, y2, z);
+    public final void setBlocks(int x, int y1, int y2, int z, Material primary, Material secondary, MaterialFactory maker, BlockFace... facing) {
+        maker.placeMaterial(this, primary, secondary, x, y1, y2, z, facing);
     }
 
-    public final void setBlocks(int x1, int x2, int y1, int y2, int z1, int z2, Material primary, Material secondary, MaterialFactory maker) {
+    public final void setBlocks(int x1, int x2, int y1, int y2, int z1, int z2, Material primary, Material secondary, MaterialFactory maker, BlockFace... facing) {
         for (int x = x1; x < x2; x++) {
             for (int z = z1; z < z2; z++) {
-                maker.placeMaterial(this, primary, secondary, x, y1, y2, z);
+                maker.placeMaterial(this, primary, secondary, x, y1, y2, z, facing);
             }
         }
     }

@@ -982,11 +982,11 @@ public abstract class BuildingLot extends ConnectedLot {
                         chunk.setBlocks(0, inset, y1, y2, inset, inset + 1, primary);//D
                     }
                 } else {
-                    chunk.setBlocks(16 - inset - 1, 16 - inset, y1, y2, 0, zCenter, primary, secondary, maker);//A
-                    chunk.setBlocks(0, xCenter, y1, y2, 16 - inset - 1, 16 - inset, primary, secondary, maker);//B
+                    chunk.setBlocks(16 - inset - 1, 16 - inset, y1, y2, 0, zCenter, primary, secondary, maker, BlockFace.NORTH, BlockFace.SOUTH);//A
+                    chunk.setBlocks(0, xCenter, y1, y2, 16 - inset - 1, 16 - inset, primary, secondary, maker, BlockFace.EAST, BlockFace.WEST);//B
                     if (doInnerWall) {
-                        chunk.setBlocks(inset, inset + 1, y1, y2, 0, inset, primary, secondary, maker);//C
-                        chunk.setBlocks(0, inset, y1, y2, inset, inset + 1, primary, secondary, maker);//D
+                        chunk.setBlocks(inset, inset + 1, y1, y2, 0, inset, primary, secondary, maker, BlockFace.NORTH, BlockFace.SOUTH);//C
+                        chunk.setBlocks(0, inset, y1, y2, inset, inset + 1, primary, secondary, maker, BlockFace.EAST, BlockFace.WEST);//D
                     }
                 }
                 cornerBlocks.drawNWVerticals(cornerLotStyle, chunk, xCenter, y1, y2, zCenter, primary, secondary, outsetEffect, onRoof);
@@ -1025,11 +1025,11 @@ public abstract class BuildingLot extends ConnectedLot {
                         chunk.setBlocks(0, inset, y1, y2, 16 - inset - 1, 16 - inset, primary);//D
                     }
                 } else {
-                    chunk.setBlocks(16 - inset - 1, 16 - inset, y1, y2, zCenter, 16, primary, secondary, maker);//A
-                    chunk.setBlocks(0, xCenter, y1, y2, inset, inset + 1, primary, secondary, maker);//B
+                    chunk.setBlocks(16 - inset - 1, 16 - inset, y1, y2, zCenter, 16, primary, secondary, maker, BlockFace.NORTH, BlockFace.SOUTH);//A
+                    chunk.setBlocks(0, xCenter, y1, y2, inset, inset + 1, primary, secondary, maker, BlockFace.EAST, BlockFace.WEST);//B
                     if (doInnerWall) {
-                        chunk.setBlocks(inset, inset + 1, y1, y2, 16 - inset, 16, primary, secondary, maker);//C
-                        chunk.setBlocks(0, inset, y1, y2, 16 - inset - 1, 16 - inset, primary, secondary, maker);//D
+                        chunk.setBlocks(inset, inset + 1, y1, y2, 16 - inset, 16, primary, secondary, maker, BlockFace.NORTH, BlockFace.SOUTH);//C
+                        chunk.setBlocks(0, inset, y1, y2, 16 - inset - 1, 16 - inset, primary, secondary, maker, BlockFace.EAST, BlockFace.WEST);//D
                     }
                 }
                 cornerBlocks.drawSWVerticals(cornerLotStyle, chunk, xCenter, y1, y2, inset, primary, secondary, outsetEffect, onRoof);
@@ -1068,11 +1068,11 @@ public abstract class BuildingLot extends ConnectedLot {
                         chunk.setBlocks(16 - inset - 1, 16, y1, y2, inset, inset + 1, primary);//D
                     }
                 } else {
-                    chunk.setBlocks(inset, inset + 1, y1, y2, 0, zCenter, primary, secondary, maker);//A
+                    chunk.setBlocks(inset, inset + 1, y1, y2, 0, zCenter, primary, secondary, maker, BlockFace.NORTH, BlockFace.SOUTH);//A
                     chunk.setBlocks(xCenter, 16, y1, y2, 16 - inset - 1, 16 - inset, primary, secondary, maker);//B
                     if (doInnerWall) {
-                        chunk.setBlocks(16 - inset - 1, 16 - inset, y1, y2, 0, inset, primary, secondary, maker);//C
-                        chunk.setBlocks(16 - inset - 1, 16, y1, y2, inset, inset + 1, primary, secondary, maker);//D
+                        chunk.setBlocks(16 - inset - 1, 16 - inset, y1, y2, 0, inset, primary, secondary, maker, BlockFace.NORTH, BlockFace.SOUTH);//C
+                        chunk.setBlocks(16 - inset - 1, 16, y1, y2, inset, inset + 1, primary, secondary, maker, BlockFace.EAST, BlockFace.WEST);//D
                     }
                 }
                 cornerBlocks.drawNEVerticals(cornerLotStyle, chunk, inset, y1, y2, zCenter, primary, secondary, outsetEffect, onRoof);
@@ -1111,11 +1111,11 @@ public abstract class BuildingLot extends ConnectedLot {
                         chunk.setBlocks(16 - inset - 1, 16, y1, y2, 16 - inset - 1, 16 - inset, primary);//D
                     }
                 } else {
-                    chunk.setBlocks(inset, inset + 1, y1, y2, zCenter, 16, primary, secondary, maker);//A
-                    chunk.setBlocks(xCenter, 16, y1, y2, inset, inset + 1, primary, secondary, maker);//B
+                    chunk.setBlocks(inset, inset + 1, y1, y2, zCenter, 16, primary, secondary, maker, BlockFace.NORTH, BlockFace.SOUTH);//A
+                    chunk.setBlocks(xCenter, 16, y1, y2, inset, inset + 1, primary, secondary, maker, BlockFace.EAST, BlockFace.WEST);//B
                     if (doInnerWall) {
-                        chunk.setBlocks(16 - inset - 1, 16 - inset, y1, y2, 16 - inset - 1, 16, primary, secondary, maker);//C
-                        chunk.setBlocks(16 - inset - 1, 16, y1, y2, 16 - inset - 1, 16 - inset, primary, secondary, maker);//D
+                        chunk.setBlocks(16 - inset - 1, 16 - inset, y1, y2, 16 - inset - 1, 16, primary, secondary, maker, BlockFace.NORTH, BlockFace.SOUTH);//C
+                        chunk.setBlocks(16 - inset - 1, 16, y1, y2, 16 - inset - 1, 16 - inset, primary, secondary, maker, BlockFace.EAST, BlockFace.WEST);//D
                     }
                 }
                 cornerBlocks.drawSEVerticals(cornerLotStyle, chunk, inset, y1, y2, inset, primary, secondary, outsetEffect, onRoof);

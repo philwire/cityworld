@@ -132,6 +132,7 @@ public final class InitialBlocks extends AbstractBlocks {
             setBlock(x, y, z, material);
     }
 
+    @Override
     public void setBlocks(int x, int y1, int y2, int z, Material material, BlockFace... facing) {
         for (int y = y1; y < y2; y++)
             setBlock(x, y, z, material, facing);

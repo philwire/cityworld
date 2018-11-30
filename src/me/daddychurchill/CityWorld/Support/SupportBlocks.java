@@ -557,6 +557,7 @@ public abstract class SupportBlocks extends AbstractBlocks {
         setBlocks(x, x + 1, y1, y2, z, z + 1, material, facing);
     }
 
+    @Override
     public final void setBlocks(int x, int y1, int y2, int z, Material material, BlockFace... facing) {
         setBlocks(x, x + 1, y1, y2, z, z + 1, material, facing);
     }
