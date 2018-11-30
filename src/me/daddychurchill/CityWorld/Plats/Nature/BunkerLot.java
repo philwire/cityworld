@@ -347,10 +347,10 @@ public class BunkerLot extends ConnectedLot {
         chunk.setBlocks(10, 11, y1, y1 + 2, 7, 9, Material.AIR);
 
         // top doors
-        chunk.setBlocks(7, 9, surfaceY + 1, surfaceY + 3, 5, 6, materials.railing);
-        chunk.setBlocks(7, 9, surfaceY + 1, surfaceY + 3, 10, 11, materials.railing);
-        chunk.setBlocks(5, 6, surfaceY + 1, surfaceY + 3, 7, 9, materials.railing);
-        chunk.setBlocks(10, 11, surfaceY + 1, surfaceY + 3, 7, 9, materials.railing);
+        chunk.setBlocks(7, 9, surfaceY + 1, surfaceY + 3, 5, 6, materials.railing, BlockFace.EAST, BlockFace.WEST, BlockFace.SOUTH);
+        chunk.setBlocks(7, 9, surfaceY + 1, surfaceY + 3, 10, 11, materials.railing, BlockFace.EAST, BlockFace.WEST, BlockFace.NORTH);
+        chunk.setBlocks(5, 6, surfaceY + 1, surfaceY + 3, 7, 9, materials.railing, BlockFace.NORTH, BlockFace.SOUTH, BlockFace.EAST);
+        chunk.setBlocks(10, 11, surfaceY + 1, surfaceY + 3, 7, 9, materials.railing, BlockFace.NORTH, BlockFace.SOUTH, BlockFace.WEST);
 
         // put in some windows
         for (int y = y1 + 3; y < topOfBunker - 3; y = y + 3) {
