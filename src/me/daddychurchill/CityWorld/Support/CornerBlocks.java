@@ -503,7 +503,7 @@ public class CornerBlocks {
                 {FLR, FLR, FLR, FLR, FLR, WWW, WWW},
                 {FLR, FLR, FLR, FLR, FLR, WGG, non},
                 {FLR, FLR, FLR, FLR, WWW, WWW, WWW},
-                {FLR, FLR, FLR, BDD, BNN, BNN, BRR},
+                {FLR, FLR, FLR, BDD, BNN, BNN, BRR},    // FIXME: Strange door
                 {FLR, FLR, WWW, BNN, BNN, BNN, BRR},
                 {WWW, WGG, WWW, BNN, BNN, BNN, BRR},
                 {WWW, non, WWW, BRR, BRR, BRR, BRR},
@@ -523,7 +523,7 @@ public class CornerBlocks {
                 {FLR, FLR, FLR, FLR, FLR, WWW, WWW},
                 {FLR, FLR, FLR, FLR, FLR, Wgg, non},
                 {FLR, FLR, FLR, FLR, WWW, WWW, WWW},
-                {FLR, FLR, FLR, BDD, BNN, BNN, BRR},
+                {FLR, FLR, FLR, BDD, BNN, BNN, BRR},    // FIXME: Strange door
                 {FLR, FLR, WWW, BNN, BNN, BNN, BRR},
                 {WWW, Wgg, WWW, BNN, BNN, BNN, BRR},
                 {WWW, non, WWW, BRR, BRR, BRR, BRR},
@@ -573,7 +573,7 @@ public class CornerBlocks {
                 {FLR, FLR, FLR, FLR, FLR, WWW, WWW},
                 {FLR, FLR, FLR, FLR, FLR, WGG, non},
                 {FLR, FLR, FLR, FLR, WWW, WWW, WWW},
-                {FLR, FLR, FLR, BDD, BNN, BNN, Brr},
+                {FLR, FLR, FLR, BDD, BNN, BNN, Brr},    // FIXME: Strange door
                 {FLR, FLR, WWW, BNN, BNN, BNN, Brr},
                 {WWW, WGG, WWW, BNN, BNN, BNN, Brr},
                 {WWW, non, WWW, Brr, Brr, Brr, Brr},
@@ -603,7 +603,7 @@ public class CornerBlocks {
                 {FLR, FLR, FLR, FLR, FLR, WWW, WWW},
                 {FLR, FLR, FLR, FLR, FLR, Wgg, non},
                 {FLR, FLR, FLR, FLR, WWW, WWW, WWW},
-                {FLR, FLR, FLR, BDD, BNN, BNN, Brr},
+                {FLR, FLR, FLR, BDD, BNN, BNN, Brr},    // FIXME: Strange door
                 {FLR, FLR, WWW, BNN, BNN, BNN, Brr},
                 {WWW, Wgg, WWW, BNN, BNN, BNN, Brr},
                 {WWW, non, WWW, Brr, Brr, Brr, Brr},
@@ -664,7 +664,7 @@ public class CornerBlocks {
                 {FLR, FLR, FLR, FLR, FLR, WWW, WWW},
                 {FLR, FLR, FLR, FLR, FLR, WGG, non},
                 {FLR, FLR, FLR, FLR, WWW, WWW, WWW},
-                {FLR, FLR, FLR, BDD, BNN, BNN, Bgg},
+                {FLR, FLR, FLR, BDD, BNN, BNN, Bgg},    // FIXME: Strange door
                 {FLR, FLR, WWW, BNN, BNN, BNN, Bgg},
                 {WWW, WGG, WWW, BNN, BNN, BNN, Bgg},
                 {WWW, non, WWW, Bgg, Bgg, Bgg, Bgg},
@@ -694,7 +694,7 @@ public class CornerBlocks {
                 {FLR, FLR, FLR, FLR, FLR, WWW, WWW},
                 {FLR, FLR, FLR, FLR, FLR, Wgg, non},
                 {FLR, FLR, FLR, FLR, WWW, WWW, WWW},
-                {FLR, FLR, FLR, BDD, BNN, BNN, Bgg},
+                {FLR, FLR, FLR, BDD, BNN, BNN, Bgg},    // FIXME: Strange door
                 {FLR, FLR, WWW, BNN, BNN, BNN, Bgg},
                 {WWW, Wgg, WWW, BNN, BNN, BNN, Bgg},
                 {WWW, non, WWW, Bgg, Bgg, Bgg, Bgg},
@@ -931,6 +931,7 @@ public class CornerBlocks {
                             break;
                         case Wgg:
                             blocks.setBlock(xInset + x, y1, zInset + z, primary);
+                            // TODO: Direction
                             blocks.setBlocks(xInset + x, y1 + 1, y2, zInset + z, Material.GLASS_PANE);
                             break;
                         case GWW:
@@ -951,6 +952,7 @@ public class CornerBlocks {
                             blocks.setBlock(xInset + x, y2 - 1, zInset + z, primary);
                             break;
                         case ggW:
+                            // TODO: Direction
                             blocks.setBlocks(xInset + x, y1, y2 - 1, zInset + z, Material.GLASS_PANE);
                             blocks.setBlock(xInset + x, y2 - 1, zInset + z, primary);
                             break;
@@ -1120,6 +1122,7 @@ public class CornerBlocks {
     }
 
     // Detect door direction (Maybe we need some better ways?)
+    // Maybe hardcode in/with corners list?
     private BlockFace getDoorDirection(byte[][] source, int x, int z, BlockFace connectedTo) {
         if (connectedTo == BlockFace.SOUTH_WEST) {
             if (x + z + 1 < CornerBlocks.CornerWidth) {
