@@ -608,6 +608,7 @@ public abstract class SupportBlocks extends AbstractBlocks {
         setBlock(x, y + 1, z, tableTop);
     }
 
+    @Override
     public void setDoor(int x, int y, int z, Material material, BlockFace facing) {
         clearBlock(x, y, z);
         clearBlock(x, y + 1, z);
@@ -898,28 +899,6 @@ public abstract class SupportBlocks extends AbstractBlocks {
             block.setBlockData(blockData);
             checkRightBlock.setBlockData(checkRightBlockData);
         }
-    }
-
-    private BlockFace fixFacing(BlockFace facing) {
-        switch (facing) {
-            case WEST_NORTH_WEST:
-            case WEST_SOUTH_WEST:
-                facing = BlockFace.WEST;
-                break;
-            case NORTH_NORTH_WEST:
-            case NORTH_NORTH_EAST:
-                facing = BlockFace.NORTH;
-                break;
-            case EAST_NORTH_EAST:
-            case EAST_SOUTH_EAST:
-                facing = BlockFace.EAST;
-                break;
-            case SOUTH_SOUTH_EAST:
-            case SOUTH_SOUTH_WEST:
-                facing = BlockFace.SOUTH;
-                break;
-        }
-        return facing;
     }
 
     public final Block setGate(int x, int y, int z, Material material, BlockFace facing, boolean isOpen) {

@@ -1,8 +1,9 @@
 package me.daddychurchill.CityWorld.Support;
 
-import java.util.ArrayList;
-
 import org.bukkit.Material;
+import org.bukkit.block.BlockFace;
+
+import java.util.ArrayList;
 
 public class CornerBlocks {
 
@@ -978,29 +979,54 @@ public class CornerBlocks {
                             break;
                         case BDD:
                             if (!onRoof) {
-                                //TODO: need to put a door here. In order to do that though we will have to completely change who calls this and start passing in SupportBlocks
+                                // Put a door here
                                 blocks.setBlocks(xInset + x, y1 + 2, y2, zInset + z, primary);
+                                // Detect direction (Maybe we need some better ways?)
+                                if (x >= 2 && source[x - 2][z] == FLR) {
+                                    blocks.setDoor(xInset + x, y1, zInset + z, Material.SPRUCE_DOOR, BlockFace.EAST);
+                                } else if (x <= CornerBlocks.CornerWidth - 2 && source[x + 2][z] == FLR) {
+                                    blocks.setDoor(xInset + x, y1, zInset + z, Material.SPRUCE_DOOR, BlockFace.WEST);
+                                } else if (z >= 2 && source[x][z - 2] == FLR) {
+                                    blocks.setDoor(xInset + x, y1, zInset + z, Material.SPRUCE_DOOR, BlockFace.SOUTH);
+                                } else if (z <= CornerBlocks.CornerWidth - 2 && source[x][z + 2] == FLR) {
+                                    blocks.setDoor(xInset + x, y1, zInset + z, Material.SPRUCE_DOOR, BlockFace.NORTH);
+                                }
                             }
                             break;
                         case BRR:
                             if (onRoof) {
                                 blocks.setBlocks(xInset + x, y1, y2, zInset + z, primary);
                             } else {
-                                blocks.setBlock(xInset + x, y1, zInset + z, Material.IRON_BARS);
+                                // Detect direction (Maybe we need some better ways?)
+                                if (x > 0 && source[x - 1][z] == BRR || x < CornerBlocks.CornerWidth - 1 && source[x + 1][z] == BRR) {
+                                    blocks.setBlock(xInset + x, y1, zInset + z, Material.IRON_BARS, BlockFace.EAST, BlockFace.WEST);
+                                } else {
+                                    blocks.setBlock(xInset + x, y1, zInset + z, Material.IRON_BARS, BlockFace.NORTH, BlockFace.SOUTH);
+                                }
                             }
                             break;
                         case Brr:
                             if (onRoof) {
                                 blocks.setBlocks(xInset + x, y1, y2, zInset + z, primary);
                             } else {
-                                blocks.setBlock(xInset + x, y1, zInset + z, Material.SPRUCE_FENCE);
+                                // Detect direction (Maybe we need some better ways?)
+                                if (x > 0 && source[x - 1][z] == Brr || x < CornerBlocks.CornerWidth - 1 && source[x + 1][z] == Brr) {
+                                    blocks.setBlock(xInset + x, y1, zInset + z, Material.SPRUCE_FENCE, BlockFace.EAST, BlockFace.WEST);
+                                } else {
+                                    blocks.setBlock(xInset + x, y1, zInset + z, Material.SPRUCE_FENCE, BlockFace.NORTH, BlockFace.SOUTH);
+                                }
                             }
                             break;
                         case Bgg:
                             if (onRoof) {
                                 blocks.setBlocks(xInset + x, y1, y2, zInset + z, primary);
                             } else {
-                                blocks.setBlock(xInset + x, y1, zInset + z, Material.GLASS_PANE);
+                                // Detect direction (Maybe we need some better ways?)
+                                if (x > 0 && source[x - 1][z] == Bgg || x < CornerBlocks.CornerWidth - 1 && source[x + 1][z] == Bgg) {
+                                    blocks.setBlock(xInset + x, y1, zInset + z, Material.GLASS_PANE, BlockFace.EAST, BlockFace.WEST);
+                                } else {
+                                    blocks.setBlock(xInset + x, y1, zInset + z, Material.GLASS_PANE, BlockFace.NORTH, BlockFace.SOUTH);
+                                }
                             }
                             break;
 

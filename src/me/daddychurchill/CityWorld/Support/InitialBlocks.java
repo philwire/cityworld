@@ -3,7 +3,9 @@ package me.daddychurchill.CityWorld.Support;
 import me.daddychurchill.CityWorld.CityWorldGenerator;
 import org.bukkit.Material;
 import org.bukkit.block.BlockFace;
+import org.bukkit.block.data.Bisected;
 import org.bukkit.block.data.BlockData;
+import org.bukkit.block.data.Directional;
 import org.bukkit.block.data.MultipleFacing;
 import org.bukkit.generator.ChunkGenerator.ChunkData;
 
@@ -229,6 +231,33 @@ public final class InitialBlocks extends AbstractBlocks {
                 if (isEmpty(x, y, z))
                     setBlock(x, y, z, material);
             }
+        }
+    }
+
+    @Override
+    public void setDoor(int x, int y, int z, Material material, BlockFace facing) {
+        clearBlock(x, y, z);
+        clearBlock(x, y + 1, z);
+
+        BlockData dataBottom = material.createBlockData();
+        BlockData dataTop = material.createBlockData();
+
+        facing = fixFacing(facing);
+        facing = facing.getOppositeFace();
+
+        try {
+            if (dataBottom instanceof Directional)
+                ((Directional) dataBottom).setFacing(facing);
+            if (dataTop instanceof Directional)
+                ((Directional) dataTop).setFacing(facing);
+
+            if (dataBottom instanceof Bisected)
+                ((Bisected) dataBottom).setHalf(Bisected.Half.BOTTOM);
+            if (dataTop instanceof Bisected)
+                ((Bisected) dataTop).setHalf(Bisected.Half.TOP);
+        } finally {
+            chunkData.setBlock(x, y, z, dataBottom);
+            chunkData.setBlock(x, y + 1, z, dataTop);
         }
     }
 

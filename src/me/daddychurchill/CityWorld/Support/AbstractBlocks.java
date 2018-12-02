@@ -130,6 +130,8 @@ public abstract class AbstractBlocks {
 
     public abstract void setEmptyBlocks(int x1, int x2, int y, int z1, int z2, Material material);
 
+    public abstract void setDoor(int x, int y, int z, Material material, BlockFace facing);
+
     private void drawCircleBlocks(int cx, int cz, int x, int z, int y, Material material) {
         // Ref: Notes/BCircle.PDF
         setBlock(cx + x, y, cz + z, material); // point in octant 1
@@ -621,6 +623,28 @@ public abstract class AbstractBlocks {
                 xChange += 2;
             }
         }
+    }
+
+    protected BlockFace fixFacing(BlockFace facing) {
+        switch (facing) {
+            case WEST_NORTH_WEST:
+            case WEST_SOUTH_WEST:
+                facing = BlockFace.WEST;
+                break;
+            case NORTH_NORTH_WEST:
+            case NORTH_NORTH_EAST:
+                facing = BlockFace.NORTH;
+                break;
+            case EAST_NORTH_EAST:
+            case EAST_SOUTH_EAST:
+                facing = BlockFace.EAST;
+                break;
+            case SOUTH_SOUTH_EAST:
+            case SOUTH_SOUTH_WEST:
+                facing = BlockFace.SOUTH;
+                break;
+        }
+        return facing;
     }
 
 }
