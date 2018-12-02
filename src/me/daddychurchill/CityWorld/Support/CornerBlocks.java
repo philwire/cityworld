@@ -984,11 +984,11 @@ public class CornerBlocks {
                                 // Detect direction (Maybe we need some better ways?)
                                 if (x >= 2 && source[x - 2][z] == FLR) {
                                     blocks.setDoor(xInset + x, y1, zInset + z, Material.SPRUCE_DOOR, BlockFace.EAST);
-                                } else if (x <= CornerBlocks.CornerWidth - 2 && source[x + 2][z] == FLR) {
+                                } else if (x < CornerBlocks.CornerWidth - 2 && source[x + 2][z] == FLR) {
                                     blocks.setDoor(xInset + x, y1, zInset + z, Material.SPRUCE_DOOR, BlockFace.WEST);
                                 } else if (z >= 2 && source[x][z - 2] == FLR) {
                                     blocks.setDoor(xInset + x, y1, zInset + z, Material.SPRUCE_DOOR, BlockFace.SOUTH);
-                                } else if (z <= CornerBlocks.CornerWidth - 2 && source[x][z + 2] == FLR) {
+                                } else if (z < CornerBlocks.CornerWidth - 2 && source[x][z + 2] == FLR) {
                                     blocks.setDoor(xInset + x, y1, zInset + z, Material.SPRUCE_DOOR, BlockFace.NORTH);
                                 }
                             }
