@@ -503,10 +503,10 @@ public class RoadLot extends ConnectedLot {
         chunk.setBlocks(15, baseY - 2, baseY + 4, z, shellMaterial);
     }
 
-    private void placeRetainingWall(AbstractBlocks chunk, int x, int z, int baseY, int topY) {
-        chunk.setBlocks(x, baseY, topY + 1, z, retainingWallMaterial);
+    private void placeRetainingWall(AbstractBlocks chunk, int x, int z, int baseY, int topY, BlockFace... facing) {
+        chunk.setBlocks(x, baseY, topY + 1, z, retainingWallMaterial, facing);
         if (topY > baseY + fenceHeight)
-            chunk.setBlocks(x, topY + 1, topY + fenceHeight + 1, z, retainingFenceMaterial);
+            chunk.setBlocks(x, topY + 1, topY + fenceHeight + 1, z, retainingFenceMaterial, facing);
     }
 
     @Override
@@ -812,8 +812,8 @@ public class RoadLot extends ConnectedLot {
 
                         // walls please, this will find the Y the hard way since we are looking at the next chunk over
                         for (int x = 0; x < chunk.width; x++) {
-                            placeRetainingWall(chunk, x, 0, pavementLevel + 1, generator.getFarBlockY(originX + x, originZ - 1));
-                            placeRetainingWall(chunk, x, 15, pavementLevel + 1, generator.getFarBlockY(originX + x, originZ + 16));
+                            placeRetainingWall(chunk, x, 0, pavementLevel + 1, generator.getFarBlockY(originX + x, originZ - 1), BlockFace.EAST, BlockFace.WEST);
+                            placeRetainingWall(chunk, x, 15, pavementLevel + 1, generator.getFarBlockY(originX + x, originZ + 16), BlockFace.EAST, BlockFace.WEST);
                         }
                     } else if (roads.toNorth() && roads.toSouth()) {
 
@@ -822,8 +822,8 @@ public class RoadLot extends ConnectedLot {
 
                         // walls please, this will find the Y the hard way since we are looking at the next chunk over
                         for (int z = 0; z < chunk.width; z++) {
-                            placeRetainingWall(chunk, 0, z, pavementLevel + 1, generator.getFarBlockY(originX - 1, originZ + z));
-                            placeRetainingWall(chunk, 15, z, pavementLevel + 1, generator.getFarBlockY(originX + 16, originZ + z));
+                            placeRetainingWall(chunk, 0, z, pavementLevel + 1, generator.getFarBlockY(originX - 1, originZ + z), BlockFace.NORTH, BlockFace.SOUTH);
+                            placeRetainingWall(chunk, 15, z, pavementLevel + 1, generator.getFarBlockY(originX + 16, originZ + z), BlockFace.NORTH, BlockFace.SOUTH);
                         }
                     }
                 }
