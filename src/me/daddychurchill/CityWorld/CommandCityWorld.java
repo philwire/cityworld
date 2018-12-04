@@ -1,15 +1,14 @@
 package me.daddychurchill.CityWorld;
 
 import me.daddychurchill.CityWorld.CityWorldGenerator.WorldStyle;
-
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.World.Environment;
 import org.bukkit.WorldCreator;
-import org.bukkit.entity.Player;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 public class CommandCityWorld implements CommandExecutor {
     private final CityWorld plugin;
@@ -28,18 +27,18 @@ public class CommandCityWorld implements CommandExecutor {
                 boolean error = false;
 
                 // arguments?
-                for (int n = 0; n < split.length; n++) {
-                    if (split[n].compareToIgnoreCase("LEAVE") == 0) {
+                for (String splitString : split) {
+                    if (splitString.compareToIgnoreCase("LEAVE") == 0) {
                         leaving = true;
                         break;
-                    } else if (split[n].compareToIgnoreCase("NETHER") == 0) {
+                    } else if (splitString.compareToIgnoreCase("NETHER") == 0) {
                         environment = Environment.NETHER;
-                    } else if (split[n].compareToIgnoreCase("THE_END") == 0) {
+                    } else if (splitString.compareToIgnoreCase("THE_END") == 0) {
                         environment = Environment.THE_END;
                     } else try {
-                        style = WorldStyle.valueOf(split[n].trim().toUpperCase());
+                        style = WorldStyle.valueOf(splitString.trim().toUpperCase());
                     } catch (IllegalArgumentException e) {
-                        CityWorld.log.info("[CityWorld] Unknown world style " + split[n]);
+                        CityWorld.log.info("[CityWorld] Unknown world style " + splitString);
 
                         WorldStyle[] styles = WorldStyle.values();
                         StringBuilder worldStyles = new StringBuilder();

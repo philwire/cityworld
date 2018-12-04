@@ -1,11 +1,10 @@
 package me.daddychurchill.CityWorld.Plats.SnowDunes;
 
-import org.bukkit.Material;
-
 import me.daddychurchill.CityWorld.CityWorldGenerator;
 import me.daddychurchill.CityWorld.Plats.PlatLot;
 import me.daddychurchill.CityWorld.Plats.RoadLot;
 import me.daddychurchill.CityWorld.Support.PlatMap;
+import org.bukkit.Material;
 
 public class SnowDunesRoadLot extends RoadLot {
 

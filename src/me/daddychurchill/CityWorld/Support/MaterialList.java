@@ -1,13 +1,12 @@
 package me.daddychurchill.CityWorld.Support;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import me.daddychurchill.CityWorld.CityWorldGenerator;
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.inventory.ItemStack;
 
-import me.daddychurchill.CityWorld.CityWorldGenerator;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MaterialList {
 
@@ -27,7 +26,7 @@ public class MaterialList {
 
     private void init(boolean clear) {
         if (items == null)
-            items = new ArrayList<ItemStack>();
+            items = new ArrayList<>();
         else if (clear)
             items.clear();
     }
@@ -74,7 +73,7 @@ public class MaterialList {
     }
 
     public void write(CityWorldGenerator generator, ConfigurationSection section) {
-        List<String> names = new ArrayList<String>();
+        List<String> names = new ArrayList<>();
         if (items != null) {
             for (ItemStack item : items) {
                 names.add(item.getType().name());
@@ -88,7 +87,7 @@ public class MaterialList {
             init(true);
             List<String> names = section.getStringList(listName);
             for (String name : names) {
-                Material material = null;
+                Material material;
                 try {
                     material = Material.matchMaterial(name);
 

@@ -7,7 +7,6 @@ import me.daddychurchill.CityWorld.Support.Colors;
 import me.daddychurchill.CityWorld.Support.Colors.ColorSet;
 import me.daddychurchill.CityWorld.Support.Odds;
 import me.daddychurchill.CityWorld.Support.SupportBlocks;
-
 import org.bukkit.Material;
 import org.bukkit.World.Environment;
 

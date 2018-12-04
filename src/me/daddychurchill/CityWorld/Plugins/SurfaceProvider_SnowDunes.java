@@ -1,14 +1,13 @@
 package me.daddychurchill.CityWorld.Plugins;
 
-import org.bukkit.Material;
-import org.bukkit.entity.EntityType;
-import org.bukkit.util.noise.NoiseGenerator;
-
 import me.daddychurchill.CityWorld.CityWorldGenerator;
 import me.daddychurchill.CityWorld.Plats.PlatLot;
 import me.daddychurchill.CityWorld.Support.Odds;
 import me.daddychurchill.CityWorld.Support.SupportBlocks;
 import me.daddychurchill.CityWorld.Support.Trees;
+import org.bukkit.Material;
+import org.bukkit.entity.EntityType;
+import org.bukkit.util.noise.NoiseGenerator;
 
 public class SurfaceProvider_SnowDunes extends SurfaceProvider_Flooded {
 

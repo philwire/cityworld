@@ -5,12 +5,11 @@ import me.daddychurchill.CityWorld.Plats.PlatLot;
 import me.daddychurchill.CityWorld.Support.CachedYs;
 import me.daddychurchill.CityWorld.Support.Odds;
 import me.daddychurchill.CityWorld.Support.SupportBlocks;
+import org.bukkit.Material;
+import org.bukkit.block.Biome;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import org.bukkit.Material;
-import org.bukkit.block.Biome;
 
 public abstract class OreProvider extends Provider {
 
@@ -19,7 +18,7 @@ public abstract class OreProvider extends Provider {
     protected final static double oreSprinkleOdds = Odds.oddsHalvedPrettyLikely;
     protected final static double snowSprinkleOdds = Odds.oddsThricedSomewhatUnlikely;
 
-    protected List<Material> ore_types = new ArrayList<Material>();
+    protected List<Material> ore_types = new ArrayList<>();
 
     public Material surfaceMaterial;
     public Material subsurfaceMaterial;

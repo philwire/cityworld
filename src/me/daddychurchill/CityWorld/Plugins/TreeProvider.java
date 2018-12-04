@@ -1,24 +1,16 @@
 package me.daddychurchill.CityWorld.Plugins;
 
+import me.daddychurchill.CityWorld.CityWorldGenerator;
+import me.daddychurchill.CityWorld.Support.*;
 import org.bukkit.Material;
 import org.bukkit.TreeSpecies;
 import org.bukkit.TreeType;
 import org.bukkit.block.BlockFace;
 import org.bukkit.util.noise.NoiseGenerator;
 
-import me.daddychurchill.CityWorld.CityWorldGenerator;
-import me.daddychurchill.CityWorld.Support.Colors;
-import me.daddychurchill.CityWorld.Support.Odds;
-import me.daddychurchill.CityWorld.Support.RelativeBlocks;
-import me.daddychurchill.CityWorld.Support.RememberedBlocks;
-import me.daddychurchill.CityWorld.Support.SupportBlocks;
-import me.daddychurchill.CityWorld.Support.Trees;
-
 public abstract class TreeProvider {
 
     public enum TreeStyle {NORMAL, SPOOKY, CRYSTAL}
-
-    ;
 
     public static TreeStyle toTreeStyle(String value, TreeStyle defaultValue) {
         try {
@@ -36,7 +28,7 @@ public abstract class TreeProvider {
 
     public static TreeProvider loadProvider(CityWorldGenerator generator, Odds odds) {
 
-        TreeProvider provider = null;
+        TreeProvider provider;
 
         // get the right defaults
         switch (generator.settings.treeStyle) {
@@ -122,7 +114,7 @@ public abstract class TreeProvider {
     }
 
     protected boolean generateMiniTree(CityWorldGenerator generator, SupportBlocks chunk, int x, int y, int z, TreeType treeType, Boolean includeLeaves) {
-        int trunkHeight = 2;
+        int trunkHeight;
 
         // Figure out the height
         switch (treeType) {
@@ -342,7 +334,7 @@ public abstract class TreeProvider {
         Material trunkMaterial = Material.SPRUCE_LOG;
         Material leavesMaterial = Material.SPRUCE_LEAVES;
 //		int trunkBlackMagicData = 0;
-        int trunkHeight = 2;
+        int trunkHeight;
         int trunkWidth = 1;
 
         boolean leaves1exist = false;

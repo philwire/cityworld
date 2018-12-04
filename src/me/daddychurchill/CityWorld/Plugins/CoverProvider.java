@@ -47,9 +47,7 @@ public abstract class CoverProvider extends Provider {
         FIRE
     }
 
-    ;
-		
-	/*
+    /*
     BUBBLE_COLUMN(13758, BubbleColumn.class),
 
 
@@ -73,8 +71,6 @@ public abstract class CoverProvider extends Provider {
         NETHER_PLANTS, DECAY_PLANTS,
         SEA_PLANTS, SEA_CORALS
     }
-
-    ;
 
     private final static CoverageType[] ShortFlowers = {
             CoverageType.DANDELION, CoverageType.POPPY,

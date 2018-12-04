@@ -3,7 +3,6 @@ package me.daddychurchill.CityWorld.Plugins;
 import me.daddychurchill.CityWorld.Support.Colors;
 import me.daddychurchill.CityWorld.Support.Odds;
 import me.daddychurchill.CityWorld.Support.SupportBlocks;
-
 import org.bukkit.Material;
 
 public class TreeProvider_Spooky extends TreeProvider {

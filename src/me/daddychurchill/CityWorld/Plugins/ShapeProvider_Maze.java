@@ -1,23 +1,12 @@
 package me.daddychurchill.CityWorld.Plugins;
 
-import org.bukkit.util.noise.NoiseGenerator;
-import org.bukkit.util.noise.SimplexNoiseGenerator;
-
 import me.daddychurchill.CityWorld.CityWorldGenerator;
 import me.daddychurchill.CityWorld.Context.DataContext;
-import me.daddychurchill.CityWorld.Context.Maze.MazeCampgroundContext;
-import me.daddychurchill.CityWorld.Context.Maze.MazeCastleContext;
-import me.daddychurchill.CityWorld.Context.Maze.MazeFarmContext;
-import me.daddychurchill.CityWorld.Context.Maze.MazeMineContext;
-import me.daddychurchill.CityWorld.Context.Maze.MazeNatureContext;
-import me.daddychurchill.CityWorld.Context.Maze.MazeNeighborhoodContext;
-import me.daddychurchill.CityWorld.Context.Maze.MazeNexusContext;
-import me.daddychurchill.CityWorld.Context.Maze.MazeParkContext;
-import me.daddychurchill.CityWorld.Context.Maze.MazeRoadContext;
-import me.daddychurchill.CityWorld.Context.Maze.MazeTownContext;
-import me.daddychurchill.CityWorld.Context.Maze.MazeWoodworksContext;
+import me.daddychurchill.CityWorld.Context.Maze.*;
 import me.daddychurchill.CityWorld.Support.Odds;
 import me.daddychurchill.CityWorld.Support.PlatMap;
+import org.bukkit.util.noise.NoiseGenerator;
+import org.bukkit.util.noise.SimplexNoiseGenerator;
 
 public class ShapeProvider_Maze extends ShapeProvider_Normal {
 

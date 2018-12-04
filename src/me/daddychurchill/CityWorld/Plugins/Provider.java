@@ -1,7 +1,6 @@
 package me.daddychurchill.CityWorld.Plugins;
 
 import me.daddychurchill.CityWorld.CityWorldGenerator;
-
 import org.bukkit.plugin.Plugin;
 
 public abstract class Provider {

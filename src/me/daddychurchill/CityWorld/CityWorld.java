@@ -1,12 +1,12 @@
 package me.daddychurchill.CityWorld;
 
-import java.util.logging.Logger;
-
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.generator.ChunkGenerator;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.logging.Logger;
 
 public class CityWorld extends JavaPlugin {
 

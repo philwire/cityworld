@@ -236,8 +236,6 @@ public class StructureOnGroundProvider extends Provider {
 
     private enum HouseRoofStyle {FLAT, NORTHSOUTH, WESTEAST, ANGLED}
 
-    ;
-
     public int generateRuralShack(CityWorldGenerator generator, RealBlocks chunk, DataContext context, Odds odds, int baseY, int roomWidth) {
 
         // what are we made of?
@@ -676,8 +674,6 @@ public class StructureOnGroundProvider extends Provider {
     // the description of a single room
     private final static class Room {
         public enum Style {BED, KITCHEN, DINING, ENTRY, LIVING}
-
-        ;
 
         public int widthX;
         public int widthZ;

@@ -1,9 +1,8 @@
 package me.daddychurchill.CityWorld.Plugins;
 
+import me.daddychurchill.CityWorld.CityWorldGenerator;
 import org.bukkit.Material;
 import org.bukkit.block.Biome;
-
-import me.daddychurchill.CityWorld.CityWorldGenerator;
 
 public class OreProvider_TheEnd extends OreProvider {
 

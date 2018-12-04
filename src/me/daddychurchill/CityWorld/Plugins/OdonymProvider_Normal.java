@@ -1,13 +1,13 @@
 package me.daddychurchill.CityWorld.Plugins;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
-import org.bukkit.configuration.ConfigurationSection;
-
 import me.daddychurchill.CityWorld.CityWorldGenerator;
 import me.daddychurchill.CityWorld.Support.Odds;
+import org.bukkit.configuration.ConfigurationSection;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
 
 public class OdonymProvider_Normal extends OdonymProvider {
 
@@ -320,9 +320,7 @@ public class OdonymProvider_Normal extends OdonymProvider {
     );
 
     private List<String> createList(String... items) {
-        List<String> result = new ArrayList<String>();
-        for (String item : items)
-            result.add(item);
+        List<String> result = new ArrayList<>(Arrays.asList(items));
         return result;
     }
 

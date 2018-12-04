@@ -4,11 +4,7 @@ import me.daddychurchill.CityWorld.CityWorldGenerator;
 import me.daddychurchill.CityWorld.Plats.FinishedBuildingLot;
 import me.daddychurchill.CityWorld.Plats.PlatLot;
 import me.daddychurchill.CityWorld.Plugins.RoomProvider;
-import me.daddychurchill.CityWorld.Rooms.Populators.OfficeWithCubicles;
-import me.daddychurchill.CityWorld.Rooms.Populators.OfficeWithLounges;
-import me.daddychurchill.CityWorld.Rooms.Populators.OfficeWithNothing;
-import me.daddychurchill.CityWorld.Rooms.Populators.OfficeWithRandom;
-import me.daddychurchill.CityWorld.Rooms.Populators.OfficeWithRooms;
+import me.daddychurchill.CityWorld.Rooms.Populators.*;
 import me.daddychurchill.CityWorld.Support.PlatMap;
 import me.daddychurchill.CityWorld.Support.SupportBlocks;
 
@@ -22,7 +18,6 @@ public class OfficeBuildingLot extends FinishedBuildingLot {
 
     public enum ContentStyle {RANDOM, EMPTY, OFFICES, CUBICLES}
 
-    ;
     protected ContentStyle contentStyle;
 
     public OfficeBuildingLot(PlatMap platmap, int chunkX, int chunkZ) {

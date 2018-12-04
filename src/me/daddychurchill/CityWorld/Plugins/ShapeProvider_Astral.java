@@ -1,28 +1,12 @@
 package me.daddychurchill.CityWorld.Plugins;
 
 import me.daddychurchill.CityWorld.CityWorldGenerator;
-import me.daddychurchill.CityWorld.Context.DataContext;
-import me.daddychurchill.CityWorld.Context.Astral.AstralBaseContext;
-import me.daddychurchill.CityWorld.Context.Astral.AstralBlackZoneContext;
-import me.daddychurchill.CityWorld.Context.Astral.AstralBuriedCityContext;
-import me.daddychurchill.CityWorld.Context.Astral.AstralCrystalSpiresContext;
-import me.daddychurchill.CityWorld.Context.Astral.AstralDataContext;
-import me.daddychurchill.CityWorld.Context.Astral.AstralForestContext;
+import me.daddychurchill.CityWorld.Context.Astral.*;
 import me.daddychurchill.CityWorld.Context.Astral.AstralForestContext.ForestStyle;
 import me.daddychurchill.CityWorld.Context.Astral.AstralMushroomContext.MushroomStyle;
-import me.daddychurchill.CityWorld.Context.Astral.AstralNatureContext;
-import me.daddychurchill.CityWorld.Context.Astral.AstralMushroomContext;
-import me.daddychurchill.CityWorld.Context.Astral.AstralNexusContext;
-import me.daddychurchill.CityWorld.Context.Astral.AstralRoadContext;
-import me.daddychurchill.CityWorld.Context.Astral.AstralWhiteZoneContext;
+import me.daddychurchill.CityWorld.Context.DataContext;
 import me.daddychurchill.CityWorld.Plats.PlatLot;
-import me.daddychurchill.CityWorld.Support.InitialBlocks;
-import me.daddychurchill.CityWorld.Support.CachedYs;
-import me.daddychurchill.CityWorld.Support.Odds;
-import me.daddychurchill.CityWorld.Support.PlatMap;
-import me.daddychurchill.CityWorld.Support.RealBlocks;
-import me.daddychurchill.CityWorld.Support.SegmentedCachedYs;
-
+import me.daddychurchill.CityWorld.Support.*;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Biome;
@@ -479,7 +463,7 @@ public class ShapeProvider_Astral extends ShapeProvider {
 
     @Override
     public double findPerciseY(CityWorldGenerator generator, int blockX, int blockZ) {
-        double y = 0;
+        double y;
 
         // shape the noise
         double noise = noiseShape.noise(blockX, blockZ, noiseFrequency, noiseAmplitude, true);

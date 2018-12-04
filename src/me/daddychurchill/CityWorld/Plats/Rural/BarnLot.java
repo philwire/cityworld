@@ -213,7 +213,7 @@ public class BarnLot extends IsolatedLot {
                 chunk.setBlock(5, y1, 5, Material.SPRUCE_FENCE, BlockFace.NORTH, BlockFace.EAST);
                 chunk.setBlock(6, y1, 5, Material.SPRUCE_FENCE, BlockFace.EAST, BlockFace.WEST);
 
-                chunk.setGates(7 ,9, y1, 5, 6, Material.SPRUCE_FENCE_GATE, BlockFace.SOUTH, true); // open south
+                chunk.setGates(7, 9, y1, 5, 6, Material.SPRUCE_FENCE_GATE, BlockFace.SOUTH, true); // open south
 
                 chunk.setBlock(9, y1, 5, Material.SPRUCE_FENCE, BlockFace.EAST, BlockFace.WEST);
                 chunk.setBlock(10, y1, 5, Material.SPRUCE_FENCE, BlockFace.NORTH, BlockFace.WEST);
@@ -237,7 +237,7 @@ public class BarnLot extends IsolatedLot {
                 chunk.setBlock(5, y1, 10, Material.SPRUCE_FENCE, BlockFace.SOUTH, BlockFace.EAST);
                 chunk.setBlock(6, y1, 10, Material.SPRUCE_FENCE, BlockFace.EAST, BlockFace.WEST);
 
-                chunk.setGates(7 ,9, y1, 10, 11, Material.SPRUCE_FENCE_GATE, BlockFace.NORTH, true); // open north
+                chunk.setGates(7, 9, y1, 10, 11, Material.SPRUCE_FENCE_GATE, BlockFace.NORTH, true); // open north
 
                 chunk.setBlock(9, y1, 10, Material.SPRUCE_FENCE, BlockFace.EAST, BlockFace.WEST);
                 chunk.setBlock(10, y1, 10, Material.SPRUCE_FENCE, BlockFace.SOUTH, BlockFace.WEST);

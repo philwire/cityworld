@@ -6,7 +6,6 @@ import me.daddychurchill.CityWorld.Plats.ConstructLot;
 import me.daddychurchill.CityWorld.Support.CachedYs;
 import me.daddychurchill.CityWorld.Support.InitialBlocks;
 import me.daddychurchill.CityWorld.Support.PlatMap;
-
 import org.bukkit.Material;
 
 public abstract class MountainFlatLot extends ConstructLot {
@@ -90,7 +89,7 @@ public abstract class MountainFlatLot extends ConstructLot {
 
     private void generateBevelBlock(CityWorldGenerator generator, InitialBlocks chunk, DataContext context, int inset, int x, int z) {
         int y = getBlockY(x, z);
-        int y1 = y;
+        int y1;
         if (y < blockYs.averageHeight) {
             // build up
             y1 = (blockYs.averageHeight - y) / 2 + y;

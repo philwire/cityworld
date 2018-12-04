@@ -1,12 +1,11 @@
 package me.daddychurchill.CityWorld.Rooms.Populators;
 
-import org.bukkit.Material;
-
 import me.daddychurchill.CityWorld.Plugins.RoomProvider;
 import me.daddychurchill.CityWorld.Rooms.EmptyRoom;
 import me.daddychurchill.CityWorld.Rooms.RegisterRoom;
 import me.daddychurchill.CityWorld.Rooms.StorageDoubleShelvesRoom;
 import me.daddychurchill.CityWorld.Rooms.StorageSingleRowRoom;
+import org.bukkit.Material;
 
 public class StoreWithRandom extends RoomProvider {
 

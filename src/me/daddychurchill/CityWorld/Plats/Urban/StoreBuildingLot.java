@@ -20,7 +20,6 @@ public class StoreBuildingLot extends FinishedBuildingLot {
 
     public enum ContentStyle {RANDOM, BOOKS, EMPTY}
 
-    ;
     private ContentStyle contentStyle;
 
     public StoreBuildingLot(PlatMap platmap, int chunkX, int chunkZ) {

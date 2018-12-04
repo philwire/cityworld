@@ -1,7 +1,5 @@
 package me.daddychurchill.CityWorld.Context;
 
-import org.bukkit.block.BlockFace;
-
 import me.daddychurchill.CityWorld.CityWorldGenerator;
 import me.daddychurchill.CityWorld.Clipboard.Clipboard;
 import me.daddychurchill.CityWorld.Clipboard.ClipboardRoundaboutLot;
@@ -11,6 +9,7 @@ import me.daddychurchill.CityWorld.Plats.RoadLot;
 import me.daddychurchill.CityWorld.Plats.Urban.RoundaboutCenterLot;
 import me.daddychurchill.CityWorld.Support.Odds;
 import me.daddychurchill.CityWorld.Support.PlatMap;
+import org.bukkit.block.BlockFace;
 
 public class RoadContext extends UrbanContext {
 

@@ -1,12 +1,11 @@
 package me.daddychurchill.CityWorld.Plats.Astral;
 
-import org.bukkit.Material;
-import org.bukkit.util.noise.NoiseGenerator;
-
 import me.daddychurchill.CityWorld.CityWorldGenerator;
 import me.daddychurchill.CityWorld.Context.DataContext;
 import me.daddychurchill.CityWorld.Support.PlatMap;
 import me.daddychurchill.CityWorld.Support.RealBlocks;
+import org.bukkit.Material;
+import org.bukkit.util.noise.NoiseGenerator;
 
 public class AstralCrystalSpiresLot extends AstralNatureLot {
 

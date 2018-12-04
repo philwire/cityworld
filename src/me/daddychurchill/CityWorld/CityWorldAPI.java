@@ -1,17 +1,15 @@
 package me.daddychurchill.CityWorld;
 
-import java.util.HashMap;
-
 import me.daddychurchill.CityWorld.Clipboard.ClipboardLot;
 import me.daddychurchill.CityWorld.Context.DataContext;
 import me.daddychurchill.CityWorld.Plats.PlatLot;
 import me.daddychurchill.CityWorld.Plats.PlatLot.LotStyle;
 import me.daddychurchill.CityWorld.Support.PlatMap;
-import me.daddychurchill.CityWorld.CityWorldGenerator;
-
 import org.bukkit.Chunk;
 import org.bukkit.World;
 import org.bukkit.generator.ChunkGenerator;
+
+import java.util.HashMap;
 
 public class CityWorldAPI {
     // This class was created by Sablednah
@@ -32,7 +30,7 @@ public class CityWorldAPI {
         //Unneeded debug info
         //plugin.reportMessage(CityWorld.pluginName + " API Full info called");
 
-        HashMap<String, String> info = new HashMap<String, String>();
+        HashMap<String, String> info = new HashMap<>();
         String classname;
 
         World genWorld = c.getWorld();

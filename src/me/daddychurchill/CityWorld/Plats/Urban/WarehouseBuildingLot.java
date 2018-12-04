@@ -3,12 +3,7 @@ package me.daddychurchill.CityWorld.Plats.Urban;
 import me.daddychurchill.CityWorld.CityWorldGenerator;
 import me.daddychurchill.CityWorld.Plats.PlatLot;
 import me.daddychurchill.CityWorld.Plugins.RoomProvider;
-import me.daddychurchill.CityWorld.Rooms.Populators.WarehouseWithBooks;
-import me.daddychurchill.CityWorld.Rooms.Populators.WarehouseWithBoxes;
-import me.daddychurchill.CityWorld.Rooms.Populators.WarehouseWithChests;
-import me.daddychurchill.CityWorld.Rooms.Populators.WarehouseWithNothing;
-import me.daddychurchill.CityWorld.Rooms.Populators.WarehouseWithRandom;
-import me.daddychurchill.CityWorld.Rooms.Populators.WarehouseWithStacks;
+import me.daddychurchill.CityWorld.Rooms.Populators.*;
 import me.daddychurchill.CityWorld.Support.PlatMap;
 import me.daddychurchill.CityWorld.Support.SupportBlocks;
 
@@ -23,7 +18,6 @@ public class WarehouseBuildingLot extends IndustrialBuildingLot {
 
     public enum ContentStyle {RANDOM, BOOKS, BOXES, EMPTY, STACKS, CHESTS}
 
-    ;
     private ContentStyle contentStyle;
 
     public WarehouseBuildingLot(PlatMap platmap, int chunkX, int chunkZ) {

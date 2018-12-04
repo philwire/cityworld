@@ -1,12 +1,11 @@
 package me.daddychurchill.CityWorld.Plugins;
 
-import org.bukkit.block.Block;
-import org.bukkit.inventory.ItemStack;
-
 import me.daddychurchill.CityWorld.CityWorldGenerator;
 import me.daddychurchill.CityWorld.Plugins.PhatLoot.LootProvider_Phat;
 import me.daddychurchill.CityWorld.Support.MaterialList;
 import me.daddychurchill.CityWorld.Support.Odds;
+import org.bukkit.block.Block;
+import org.bukkit.inventory.ItemStack;
 
 public abstract class LootProvider extends Provider {
 
@@ -15,8 +14,6 @@ public abstract class LootProvider extends Provider {
         WOODWORKS, WOODWORKSOUTPUT, STONEWORKS, STONEWORKSOUTPUT
     }
 
-    ;
-
     public abstract void setLoot(CityWorldGenerator generator, Odds odds, String worldPrefix, LootLocation chestLocation, Block block);
 
     public abstract void saveLoots();
@@ -24,7 +21,7 @@ public abstract class LootProvider extends Provider {
     public static LootProvider loadProvider(CityWorldGenerator generator) {
         // Based on work contributed by drew-bahrue (https://github.com/echurchill/CityWorld/pull/2)
 
-        LootProvider provider = null;
+        LootProvider provider;
 
         // try PhatLoots...
         provider = LootProvider_Phat.loadPhatLoots(generator);

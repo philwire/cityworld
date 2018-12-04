@@ -1,18 +1,12 @@
 package me.daddychurchill.CityWorld.Plats.Urban;
 
-import org.bukkit.Material;
-import org.bukkit.generator.ChunkGenerator.BiomeGrid;
-
 import me.daddychurchill.CityWorld.CityWorldGenerator;
 import me.daddychurchill.CityWorld.Context.DataContext;
 import me.daddychurchill.CityWorld.Plats.ConnectedLot;
 import me.daddychurchill.CityWorld.Plats.PlatLot;
-import me.daddychurchill.CityWorld.Support.CachedYs;
-import me.daddychurchill.CityWorld.Support.Colors;
-import me.daddychurchill.CityWorld.Support.InitialBlocks;
-import me.daddychurchill.CityWorld.Support.Odds;
-import me.daddychurchill.CityWorld.Support.PlatMap;
-import me.daddychurchill.CityWorld.Support.RealBlocks;
+import me.daddychurchill.CityWorld.Support.*;
+import org.bukkit.Material;
+import org.bukkit.generator.ChunkGenerator.BiomeGrid;
 
 public class GovernmentMonumentLot extends ConnectedLot {
 
@@ -43,7 +37,6 @@ public class GovernmentMonumentLot extends ConnectedLot {
 
     private enum MonumentStyle {COLUMN, PYRAMID, PEDESTAL, CHICKEN}
 
-    ;
     private MonumentStyle monumentStyle;
 
     protected MonumentStyle pickMonumentStyle() {

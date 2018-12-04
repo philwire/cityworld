@@ -1,17 +1,7 @@
 package me.daddychurchill.CityWorld.Plugins;
 
 import me.daddychurchill.CityWorld.CityWorldGenerator;
-import me.daddychurchill.CityWorld.Support.AnimalList;
-import me.daddychurchill.CityWorld.Support.EntityList;
-import me.daddychurchill.CityWorld.Support.Odds;
-import me.daddychurchill.CityWorld.Support.SeaAnimalList;
-import me.daddychurchill.CityWorld.Support.SupportBlocks;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+import me.daddychurchill.CityWorld.Support.*;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
@@ -21,6 +11,11 @@ import org.bukkit.block.CreatureSpawner;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class SpawnProvider extends Provider {
 
@@ -193,7 +188,7 @@ public class SpawnProvider extends Provider {
     private Map<EntityType, Biome> entityToBiome;
 
     public SpawnProvider(CityWorldGenerator generator) {
-        entityToBiome = new HashMap<EntityType, Biome>();
+        entityToBiome = new HashMap<>();
         entityToBiome.put(EntityType.WOLF, Biome.FOREST);
         entityToBiome.put(EntityType.OCELOT, Biome.JUNGLE);
     }
@@ -392,7 +387,7 @@ public class SpawnProvider extends Provider {
 
         // add it to the big list so we can generically remember it
         if (listOfLists == null)
-            listOfLists = new ArrayList<EntityList>();
+            listOfLists = new ArrayList<>();
         listOfLists.add(list);
 
         // return it so we can specifically remember it

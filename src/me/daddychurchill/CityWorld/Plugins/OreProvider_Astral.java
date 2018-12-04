@@ -1,10 +1,9 @@
 package me.daddychurchill.CityWorld.Plugins;
 
-import org.bukkit.Material;
-
 import me.daddychurchill.CityWorld.CityWorldGenerator;
 import me.daddychurchill.CityWorld.Support.Odds;
 import me.daddychurchill.CityWorld.Support.SupportBlocks;
+import org.bukkit.Material;
 
 public class OreProvider_Astral extends OreProvider_Normal {
 

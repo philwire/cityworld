@@ -1,16 +1,5 @@
 package me.daddychurchill.CityWorld.Plugins.WorldEdit;
 
-import java.io.File;
-import java.io.IOException;
-
-import org.bukkit.Material;
-import org.bukkit.block.BlockFace;
-import org.bukkit.configuration.file.YamlConfiguration;
-
-import me.daddychurchill.CityWorld.CityWorldGenerator;
-import me.daddychurchill.CityWorld.Clipboard.Clipboard;
-import me.daddychurchill.CityWorld.Support.RealBlocks;
-
 import com.sk89q.worldedit.CuboidClipboard;
 import com.sk89q.worldedit.CuboidClipboard.FlipDirection;
 import com.sk89q.worldedit.EditSession;
@@ -19,6 +8,15 @@ import com.sk89q.worldedit.Vector;
 import com.sk89q.worldedit.blocks.BaseBlock;
 import com.sk89q.worldedit.bukkit.BukkitWorld;
 import com.sk89q.worldedit.schematic.SchematicFormat;
+import me.daddychurchill.CityWorld.CityWorldGenerator;
+import me.daddychurchill.CityWorld.Clipboard.Clipboard;
+import me.daddychurchill.CityWorld.Support.RealBlocks;
+import org.bukkit.Material;
+import org.bukkit.block.BlockFace;
+import org.bukkit.configuration.file.YamlConfiguration;
+
+import java.io.File;
+import java.io.IOException;
 
 @SuppressWarnings("deprecation")
 public class Clipboard_WorldEdit extends Clipboard {
@@ -163,7 +161,7 @@ public class Clipboard_WorldEdit extends Clipboard {
     }
 
     private int getFacingIndex(BlockFace facing) {
-        int result = 0;
+        int result;
         switch (facing) {
             case SOUTH:
                 result = 0;

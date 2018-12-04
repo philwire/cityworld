@@ -1,8 +1,7 @@
 package me.daddychurchill.CityWorld.Plugins;
 
-import org.bukkit.Material;
-
 import me.daddychurchill.CityWorld.CityWorldGenerator;
+import org.bukkit.Material;
 
 public class OreProvider_Decayed extends OreProvider_Normal {
 

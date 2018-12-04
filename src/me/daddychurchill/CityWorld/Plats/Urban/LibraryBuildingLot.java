@@ -4,12 +4,7 @@ import me.daddychurchill.CityWorld.CityWorldGenerator;
 import me.daddychurchill.CityWorld.Plats.FinishedBuildingLot;
 import me.daddychurchill.CityWorld.Plats.PlatLot;
 import me.daddychurchill.CityWorld.Plugins.RoomProvider;
-import me.daddychurchill.CityWorld.Rooms.Populators.LibraryWithAllBooks;
-import me.daddychurchill.CityWorld.Rooms.Populators.LibraryWithLounges;
-import me.daddychurchill.CityWorld.Rooms.Populators.LibraryWithMostlyBooks;
-import me.daddychurchill.CityWorld.Rooms.Populators.LibraryWithNoBooks;
-import me.daddychurchill.CityWorld.Rooms.Populators.LibraryWithRandom;
-import me.daddychurchill.CityWorld.Rooms.Populators.LibraryWithSomeBooks;
+import me.daddychurchill.CityWorld.Rooms.Populators.*;
 import me.daddychurchill.CityWorld.Support.PlatMap;
 import me.daddychurchill.CityWorld.Support.SupportBlocks;
 

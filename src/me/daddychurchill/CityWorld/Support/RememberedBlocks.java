@@ -1,9 +1,9 @@
 package me.daddychurchill.CityWorld.Support;
 
-import java.util.Stack;
-
 import org.bukkit.Material;
 import org.bukkit.block.Block;
+
+import java.util.Stack;
 
 public class RememberedBlocks {
 
@@ -12,7 +12,7 @@ public class RememberedBlocks {
 
     public RememberedBlocks(SupportBlocks chunk) {
         blocks = chunk;
-        originals = new Stack<rememberedBlock>();
+        originals = new Stack<>();
     }
 
     private static class rememberedBlock {

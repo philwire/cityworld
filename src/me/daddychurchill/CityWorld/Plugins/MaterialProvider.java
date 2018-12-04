@@ -1,13 +1,12 @@
 package me.daddychurchill.CityWorld.Plugins;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import me.daddychurchill.CityWorld.CityWorldGenerator;
+import me.daddychurchill.CityWorld.Support.MaterialList;
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
 
-import me.daddychurchill.CityWorld.CityWorldGenerator;
-import me.daddychurchill.CityWorld.Support.MaterialList;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MaterialProvider {
     //https://minecraft.gamepedia.com/1.13/Flattening
@@ -1423,7 +1422,7 @@ public class MaterialProvider {
 
         // add it to the big list so we can generically remember it
         if (listOfLists == null)
-            listOfLists = new ArrayList<MaterialList>();
+            listOfLists = new ArrayList<>();
         listOfLists.add(list);
 
         // return it so we can specifically remember it

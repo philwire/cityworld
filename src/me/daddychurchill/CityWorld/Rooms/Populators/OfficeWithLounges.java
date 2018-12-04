@@ -1,13 +1,7 @@
 package me.daddychurchill.CityWorld.Rooms.Populators;
 
 import me.daddychurchill.CityWorld.Plugins.RoomProvider;
-import me.daddychurchill.CityWorld.Rooms.EmptyRoom;
-import me.daddychurchill.CityWorld.Rooms.LoungeCouchRoom;
-import me.daddychurchill.CityWorld.Rooms.LoungeKitchenetteRoom;
-import me.daddychurchill.CityWorld.Rooms.LoungeQuadRoom;
-import me.daddychurchill.CityWorld.Rooms.LoungeTVRoom;
-import me.daddychurchill.CityWorld.Rooms.LoungeTableRoom;
-import me.daddychurchill.CityWorld.Rooms.LoungeTrioRoom;
+import me.daddychurchill.CityWorld.Rooms.*;
 
 public class OfficeWithLounges extends RoomProvider {
 

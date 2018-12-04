@@ -4,13 +4,7 @@ import me.daddychurchill.CityWorld.CityWorldGenerator;
 import me.daddychurchill.CityWorld.Context.DataContext;
 import me.daddychurchill.CityWorld.Plats.ConstructLot;
 import me.daddychurchill.CityWorld.Plats.PlatLot;
-import me.daddychurchill.CityWorld.Support.CachedYs;
-import me.daddychurchill.CityWorld.Support.InitialBlocks;
-import me.daddychurchill.CityWorld.Support.Odds;
-import me.daddychurchill.CityWorld.Support.PlatMap;
-import me.daddychurchill.CityWorld.Support.RealBlocks;
-import me.daddychurchill.CityWorld.Support.SupportBlocks;
-
+import me.daddychurchill.CityWorld.Support.*;
 import org.bukkit.Material;
 import org.bukkit.block.BlockFace;
 import org.bukkit.block.data.Bisected.Half;
@@ -95,11 +89,11 @@ public class MineEntranceLot extends ConstructLot {
                                          Material stairs, Material landing, Material center) {
 
         // drill down
-        chunk.setBlocks(offX + 0, offX + 4, shaftY, clearToY, offZ + 0, offZ + 4, Material.AIR);
+        chunk.setBlocks(offX, offX + 4, shaftY, clearToY, offZ, offZ + 4, Material.AIR);
         chunk.setBlocks(offX + 1, offX + 3, shaftY, surfaceY, offZ + 1, offZ + 3, center);
 
         // make the surface bits
-        chunk.setBlocks(offX + 0, offX + 4, minHeight, surfaceY + 1, offZ + 0, offZ + 4, landing);
+        chunk.setBlocks(offX, offX + 4, minHeight, surfaceY + 1, offZ, offZ + 4, landing);
 
         // now do the stair
         do {
@@ -111,29 +105,29 @@ public class MineEntranceLot extends ConstructLot {
                     BlockFace.NORTH, BlockFace.EAST, stairs);
             if (shaftY > surfaceY)
                 break;
-            generateLanding(generator, chunk, odds, offX + 3, shaftY, offZ + 0,
+            generateLanding(generator, chunk, odds, offX + 3, shaftY, offZ,
                     BlockFace.EAST, stairs, landing);
 
-            shaftY = generateStairs(generator, chunk, odds, offX + 2, shaftY, offZ + 0,
+            shaftY = generateStairs(generator, chunk, odds, offX + 2, shaftY, offZ,
                     BlockFace.WEST, BlockFace.EAST, stairs);
             if (shaftY > surfaceY)
                 break;
-            shaftY = generateStairs(generator, chunk, odds, offX + 1, shaftY, offZ + 0,
+            shaftY = generateStairs(generator, chunk, odds, offX + 1, shaftY, offZ,
                     BlockFace.WEST, BlockFace.NORTH, stairs);
             if (shaftY > surfaceY)
                 break;
-            generateLanding(generator, chunk, odds, offX + 0, shaftY, offZ + 0,
+            generateLanding(generator, chunk, odds, offX, shaftY, offZ,
                     BlockFace.NORTH, stairs, landing);
 
-            shaftY = generateStairs(generator, chunk, odds, offX + 0, shaftY, offZ + 1,
+            shaftY = generateStairs(generator, chunk, odds, offX, shaftY, offZ + 1,
                     BlockFace.SOUTH, BlockFace.NORTH, stairs);
             if (shaftY > surfaceY)
                 break;
-            shaftY = generateStairs(generator, chunk, odds, offX + 0, shaftY, offZ + 2,
+            shaftY = generateStairs(generator, chunk, odds, offX, shaftY, offZ + 2,
                     BlockFace.SOUTH, BlockFace.WEST, stairs);
             if (shaftY > surfaceY)
                 break;
-            generateLanding(generator, chunk, odds, offX + 0, shaftY, offZ + 3,
+            generateLanding(generator, chunk, odds, offX, shaftY, offZ + 3,
                     BlockFace.WEST, stairs, landing);
 
             shaftY = generateStairs(generator, chunk, odds, offX + 1, shaftY, offZ + 3,

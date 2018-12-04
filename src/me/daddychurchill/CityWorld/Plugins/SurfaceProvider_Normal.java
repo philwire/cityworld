@@ -1,14 +1,13 @@
 package me.daddychurchill.CityWorld.Plugins;
 
-import org.bukkit.Material;
-import org.bukkit.util.noise.NoiseGenerator;
-
 import me.daddychurchill.CityWorld.CityWorldGenerator;
 import me.daddychurchill.CityWorld.Plats.PlatLot;
 import me.daddychurchill.CityWorld.Plugins.CoverProvider.CoverageSets;
 import me.daddychurchill.CityWorld.Plugins.CoverProvider.CoverageType;
 import me.daddychurchill.CityWorld.Support.Odds;
 import me.daddychurchill.CityWorld.Support.SupportBlocks;
+import org.bukkit.Material;
+import org.bukkit.util.noise.NoiseGenerator;
 
 public class SurfaceProvider_Normal extends SurfaceProvider {
 

@@ -52,7 +52,7 @@ public class CornerBlocks {
     }
 
     public CornerBlocks() {
-        corners = new ArrayList<Corner>();
+        corners = new ArrayList<>();
 
         corners.add(new RoundedCorner()); // always put this in first
 
@@ -845,9 +845,7 @@ public class CornerBlocks {
         private byte[][] flipWE(byte[][] source) {
             byte[][] result = new byte[CornerBlocks.CornerWidth][CornerBlocks.CornerWidth];
             for (int x = 0; x < CornerBlocks.CornerWidth; x++) {
-                for (int z = 0; z < CornerBlocks.CornerWidth; z++) {
-                    result[CornerBlocks.CornerWidth - x - 1][z] = source[x][z];
-                }
+                System.arraycopy(source[x], 0, result[CornerBlocks.CornerWidth - x - 1], 0, CornerBlocks.CornerWidth);
             }
             return result;
         }

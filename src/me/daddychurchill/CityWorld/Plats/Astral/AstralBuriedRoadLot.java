@@ -1,18 +1,16 @@
 package me.daddychurchill.CityWorld.Plats.Astral;
 
-import org.bukkit.Material;
-
 import me.daddychurchill.CityWorld.CityWorldGenerator;
 import me.daddychurchill.CityWorld.Context.DataContext;
 import me.daddychurchill.CityWorld.Support.Odds;
 import me.daddychurchill.CityWorld.Support.PlatMap;
 import me.daddychurchill.CityWorld.Support.RealBlocks;
+import org.bukkit.Material;
 
 public class AstralBuriedRoadLot extends AstralBuriedCityLot {
 
     public enum SidewalkStyle {NONE, NORTHSOUTH, EASTWEST, INTERSECTION}
 
-    ;
     private SidewalkStyle style;
 
     public AstralBuriedRoadLot(PlatMap platmap, int chunkX, int chunkZ, SidewalkStyle style) {

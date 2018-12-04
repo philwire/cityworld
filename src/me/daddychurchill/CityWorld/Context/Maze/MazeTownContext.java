@@ -2,13 +2,7 @@ package me.daddychurchill.CityWorld.Context.Maze;
 
 import me.daddychurchill.CityWorld.CityWorldGenerator;
 import me.daddychurchill.CityWorld.Plats.PlatLot;
-import me.daddychurchill.CityWorld.Plats.Urban.ConcreteLot;
-import me.daddychurchill.CityWorld.Plats.Urban.LibraryBuildingLot;
-import me.daddychurchill.CityWorld.Plats.Urban.OfficeBuildingLot;
-import me.daddychurchill.CityWorld.Plats.Urban.ParkLot;
-import me.daddychurchill.CityWorld.Plats.Urban.StoreBuildingLot;
-import me.daddychurchill.CityWorld.Plats.Urban.UnfinishedBuildingLot;
-import me.daddychurchill.CityWorld.Plats.Urban.WarehouseBuildingLot;
+import me.daddychurchill.CityWorld.Plats.Urban.*;
 import me.daddychurchill.CityWorld.Support.Odds;
 import me.daddychurchill.CityWorld.Support.PlatMap;
 

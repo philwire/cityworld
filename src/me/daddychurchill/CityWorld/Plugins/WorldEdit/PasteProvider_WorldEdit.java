@@ -1,20 +1,18 @@
 package me.daddychurchill.CityWorld.Plugins.WorldEdit;
 
-import java.io.File;
-import java.io.FilenameFilter;
-
-import me.daddychurchill.CityWorld.CityWorldSettings;
+import com.sk89q.worldedit.bukkit.WorldEditPlugin;
 import me.daddychurchill.CityWorld.CityWorldGenerator;
+import me.daddychurchill.CityWorld.CityWorldSettings;
 import me.daddychurchill.CityWorld.Clipboard.Clipboard;
 import me.daddychurchill.CityWorld.Clipboard.ClipboardList;
 import me.daddychurchill.CityWorld.Clipboard.PasteProvider;
 import me.daddychurchill.CityWorld.Support.SupportBlocks;
-
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 
-import com.sk89q.worldedit.bukkit.WorldEditPlugin;
+import java.io.File;
+import java.io.FilenameFilter;
 
 public class PasteProvider_WorldEdit extends PasteProvider {
 
@@ -55,15 +53,11 @@ public class PasteProvider_WorldEdit extends PasteProvider {
     }
 
     private FilenameFilter matchSchematics() {
-        return new FilenameFilter() {
-            public boolean accept(File dir, String name) {
-                return name.endsWith(".schematic");
-            }
-        };
+        return (dir, name) -> name.endsWith(".schematic");
     }
 
     private String toCamelCase(String text) {
-        return text.substring(0, 1).toUpperCase() + text.substring(1, text.length()).toLowerCase();
+        return text.substring(0, 1).toUpperCase() + text.substring(1).toLowerCase();
     }
 
     @Override

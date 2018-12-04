@@ -1,10 +1,9 @@
 package me.daddychurchill.CityWorld.Plugins;
 
-import org.bukkit.Material;
-import org.bukkit.block.Biome;
-
 import me.daddychurchill.CityWorld.CityWorldGenerator;
 import me.daddychurchill.CityWorld.Support.SupportBlocks;
+import org.bukkit.Material;
+import org.bukkit.block.Biome;
 
 public class OreProvider_Nether extends OreProvider {
 

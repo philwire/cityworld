@@ -1,11 +1,10 @@
 package me.daddychurchill.CityWorld.Plugins;
 
-import java.util.Random;
-
-import org.bukkit.configuration.ConfigurationSection;
-
 import me.daddychurchill.CityWorld.CityWorldGenerator;
 import me.daddychurchill.CityWorld.Support.Odds;
+import org.bukkit.configuration.ConfigurationSection;
+
+import java.util.Random;
 
 public abstract class OdonymProvider extends Provider {
 

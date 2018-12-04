@@ -1,9 +1,8 @@
 package me.daddychurchill.CityWorld.Rooms.Populators;
 
-import org.bukkit.Material;
-
 import me.daddychurchill.CityWorld.Plugins.RoomProvider;
 import me.daddychurchill.CityWorld.Rooms.StorageStacksRoom;
+import org.bukkit.Material;
 
 public class WarehouseWithStacks extends RoomProvider {
 

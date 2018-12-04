@@ -34,7 +34,6 @@ public abstract class FinishedBuildingLot extends BuildingLot {
 
     private enum WallStyle {SAME, ALTFLOORS, ALTINDENT, RANDOM, PENTHOUSE}
 
-    ;
     private WallStyle wallStyle;
 
     private MaterialFactory wallsInterior;
@@ -44,22 +43,18 @@ public abstract class FinishedBuildingLot extends BuildingLot {
         INSET_BOX, INSET_BOXES, RAISED_BOX, RAISED_BOXES, OUTSET_BOX, INSET_RIDGEBOX, INSET_RIDGEBOXES
     }
 
-    ;
-
     //, SLANT_NORTH, SLANT_SOUTH, SLANT_WEST, SLANT_EAST};
     protected enum RoofFeature {
         PLAIN, ANTENNAS, CONDITIONERS, TILE, SKYLIGHT, SKYPEAK, ALTPEAK, ALTPEAK2,
         SKYLIGHT_NS, SKYLIGHT_WE, SKYLIGHT_BOX, SKYLIGHT_TINY, SKYLIGHT_CHECKERS, SKYLIGHT_CROSS
     }
 
-    ;
     protected RoofStyle roofStyle;
     protected RoofFeature roofFeature;
     protected int roofScale;
 
     protected enum InteriorStyle {EMPTY, COLUMNS_ONLY, WALLS_ONLY, COLUMNS_OFFICES, WALLS_OFFICES, RANDOM}
 
-    ;
     protected InteriorStyle interiorStyle;
     protected double oddsOfAnInteriorDoor = Odds.oddsExtremelyLikely;
     //	protected double oddsOfAnExteriorDoor = Odds.oddsHalvedPrettyLikely;
@@ -71,7 +66,6 @@ public abstract class FinishedBuildingLot extends BuildingLot {
 
     protected enum CornerWallStyle {EMPTY, FILLED, WOODCOLUMN, STONECOLUMN, FILLEDTHENEMPTY, WOODTHENFILLED, STONETHENFILLED}
 
-    ;
     protected CornerWallStyle cornerWallStyle;
 
     protected int navLightX = 0;
@@ -87,7 +81,7 @@ public abstract class FinishedBuildingLot extends BuildingLot {
 
     protected enum InsetStyle {STRAIGHT, BIGTOSMALL, SMALLTOBIG, UNDULATEIN, UNDULATEOUT}
 
-    ; // combinations like SmallToUndulating
+    // combinations like SmallToUndulating
     protected InsetStyle insetStyle;
     protected int insetInsetMidAt;
     protected int insetInsetHighAt;
@@ -928,8 +922,6 @@ public abstract class FinishedBuildingLot extends BuildingLot {
     }
 
     public enum DoorStyle {NONE, HOLE, WOOD}
-
-    ;
 
     private void drawInteriorParts(CityWorldGenerator generator, RealBlocks chunk,
                                    DataContext context, InteriorStyle style, RoomProvider rooms,

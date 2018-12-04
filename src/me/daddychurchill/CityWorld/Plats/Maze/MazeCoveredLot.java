@@ -1,11 +1,10 @@
 package me.daddychurchill.CityWorld.Plats.Maze;
 
-import org.bukkit.Material;
-
 import me.daddychurchill.CityWorld.CityWorldGenerator;
 import me.daddychurchill.CityWorld.Context.DataContext;
 import me.daddychurchill.CityWorld.Support.PlatMap;
 import me.daddychurchill.CityWorld.Support.RealBlocks;
+import org.bukkit.Material;
 
 public class MazeCoveredLot extends MazeNatureLot {
 

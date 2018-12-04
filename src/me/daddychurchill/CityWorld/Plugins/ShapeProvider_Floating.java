@@ -1,30 +1,18 @@
 package me.daddychurchill.CityWorld.Plugins;
 
+import me.daddychurchill.CityWorld.CityWorldGenerator;
+import me.daddychurchill.CityWorld.Context.*;
+import me.daddychurchill.CityWorld.Context.Floating.FloatingNatureContext;
+import me.daddychurchill.CityWorld.Context.Floating.FloatingRoadContext;
+import me.daddychurchill.CityWorld.Plats.Floating.FloatingBlimpLot;
+import me.daddychurchill.CityWorld.Plats.PlatLot;
+import me.daddychurchill.CityWorld.Plats.PlatLot.LotStyle;
+import me.daddychurchill.CityWorld.Support.*;
 import org.bukkit.Material;
 import org.bukkit.block.Biome;
 import org.bukkit.generator.ChunkGenerator.BiomeGrid;
 import org.bukkit.util.noise.NoiseGenerator;
 import org.bukkit.util.noise.SimplexNoiseGenerator;
-import me.daddychurchill.CityWorld.CityWorldGenerator;
-import me.daddychurchill.CityWorld.Context.ConstructionContext;
-import me.daddychurchill.CityWorld.Context.FarmContext;
-import me.daddychurchill.CityWorld.Context.HighriseContext;
-import me.daddychurchill.CityWorld.Context.IndustrialContext;
-import me.daddychurchill.CityWorld.Context.LowriseContext;
-import me.daddychurchill.CityWorld.Context.MidriseContext;
-import me.daddychurchill.CityWorld.Context.MunicipalContext;
-import me.daddychurchill.CityWorld.Context.NeighborhoodContext;
-import me.daddychurchill.CityWorld.Context.ParkContext;
-import me.daddychurchill.CityWorld.Context.Floating.FloatingNatureContext;
-import me.daddychurchill.CityWorld.Context.Floating.FloatingRoadContext;
-import me.daddychurchill.CityWorld.Plats.PlatLot;
-import me.daddychurchill.CityWorld.Plats.Floating.FloatingBlimpLot;
-import me.daddychurchill.CityWorld.Plats.PlatLot.LotStyle;
-import me.daddychurchill.CityWorld.Support.InitialBlocks;
-import me.daddychurchill.CityWorld.Support.CachedYs;
-import me.daddychurchill.CityWorld.Support.Odds;
-import me.daddychurchill.CityWorld.Support.PlatMap;
-import me.daddychurchill.CityWorld.Support.RealBlocks;
 
 public class ShapeProvider_Floating extends ShapeProvider_Normal {
 

@@ -11,8 +11,6 @@ public abstract class PasteProvider extends Provider {
         NEIGHBORHOOD, FARM, NATURE, ASTRAL, OUTLAND
     }
 
-    ;
-
     public PasteProvider() {
         super();
         // TODO Auto-generated constructor stub
@@ -44,7 +42,7 @@ public abstract class PasteProvider extends Provider {
     // Loosely based on work contributed by drew-bahrue (https://github.com/echurchill/CityWorld/pull/2)
     public static PasteProvider loadProvider(CityWorldGenerator generator) {
 
-        PasteProvider provider = null;
+        PasteProvider provider;
 
         // try worldedit...
         provider = PasteProvider_WorldEdit.loadWorldEdit(generator);

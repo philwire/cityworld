@@ -11,8 +11,6 @@ public class MazeArray {
 
     public enum MazeBit {HALL, WALL}
 
-    ;
-
     private Random random;
     private MazeBit[][] maze;
     private int width;
@@ -73,9 +71,9 @@ public class MazeArray {
         Integer[] randDirs = generateRandomDirections();
 
         // Examine each direction
-        for (int i = 0; i < randDirs.length; i++) {
+        for (Integer randDir : randDirs) {
 
-            switch (randDirs[i]) {
+            switch (randDir) {
                 case 1: // Up
 
                     // Whether 2 cells up is out or not
@@ -132,7 +130,7 @@ public class MazeArray {
      */
     private Integer[] generateRandomDirections() {
 
-        ArrayList<Integer> randoms = new ArrayList<Integer>();
+        ArrayList<Integer> randoms = new ArrayList<>();
         for (int i = 0; i < 4; i++)
             randoms.add(i + 1);
         Collections.shuffle(randoms);

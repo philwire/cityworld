@@ -1,16 +1,9 @@
 package me.daddychurchill.CityWorld.Context;
 
 import me.daddychurchill.CityWorld.CityWorldGenerator;
+import me.daddychurchill.CityWorld.Plats.Nature.*;
 import me.daddychurchill.CityWorld.Plats.PlatLot;
 import me.daddychurchill.CityWorld.Plats.RoadLot;
-import me.daddychurchill.CityWorld.Plats.Nature.BunkerLot;
-import me.daddychurchill.CityWorld.Plats.Nature.HotairBalloonLot;
-import me.daddychurchill.CityWorld.Plats.Nature.MineEntranceLot;
-import me.daddychurchill.CityWorld.Plats.Nature.MountainShackLot;
-import me.daddychurchill.CityWorld.Plats.Nature.MountainTentLot;
-import me.daddychurchill.CityWorld.Plats.Nature.OilPlatformLot;
-import me.daddychurchill.CityWorld.Plats.Nature.OldCastleLot;
-import me.daddychurchill.CityWorld.Plats.Nature.RadioTowerLot;
 import me.daddychurchill.CityWorld.Support.HeightInfo;
 import me.daddychurchill.CityWorld.Support.HeightInfo.HeightState;
 import me.daddychurchill.CityWorld.Support.Odds;

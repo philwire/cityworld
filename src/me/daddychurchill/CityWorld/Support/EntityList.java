@@ -1,12 +1,11 @@
 package me.daddychurchill.CityWorld.Support;
 
+import me.daddychurchill.CityWorld.CityWorldGenerator;
+import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.entity.EntityType;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import org.bukkit.entity.EntityType;
-import org.bukkit.configuration.ConfigurationSection;
-
-import me.daddychurchill.CityWorld.CityWorldGenerator;
 
 public class EntityList {
 
@@ -26,7 +25,7 @@ public class EntityList {
 
     private void init(boolean clear) {
         if (items == null)
-            items = new ArrayList<EntityType>();
+            items = new ArrayList<>();
         else if (clear)
             items.clear();
     }
@@ -78,7 +77,7 @@ public class EntityList {
     }
 
     public void write(CityWorldGenerator generator, ConfigurationSection section) {
-        List<String> names = new ArrayList<String>();
+        List<String> names = new ArrayList<>();
         if (items != null) {
             for (EntityType item : items) {
                 names.add(item.name());
@@ -97,12 +96,12 @@ public class EntityList {
                 try {
 
                     // look through our list of possibilities
-                    for (int i = 0; i < entities.length; i++)
-                        if (entities[i].name().equalsIgnoreCase(name)) {
+                    for (EntityType entity1 : entities)
+                        if (entity1.name().equalsIgnoreCase(name)) {
 
                             // if the one found is one that is alive then great!
-                            if (entities[i].isAlive())
-                                entity = entities[i];
+                            if (entity1.isAlive())
+                                entity = entity1;
                             else
                                 generator.reportMessage("Ignoring " + generator.worldName + ".Entities." + listName + ": " + name + ", it is nonliving");
                             break;

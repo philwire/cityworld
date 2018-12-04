@@ -35,17 +35,12 @@ public abstract class BuildingLot extends ConnectedLot {
 
     public enum StairStyle {STUDIO_A, CROSSED, LANDING, CORNER}
 
-    ;
     protected StairStyle stairStyle;
     protected StairFacing stairDirection;
 
     public enum StairWell {NONE, CENTER, NORTHWEST, NORTHEAST, SOUTHWEST, SOUTHEAST, NORTH, SOUTH, WEST, EAST}
 
-    ;
-
     public enum StairFacing {NORTH, SOUTH, WEST, EAST}
-
-    ;
 
     protected int cornerLotStyle;
 
@@ -588,8 +583,6 @@ public abstract class BuildingLot extends ConnectedLot {
                 break;
         }
     }
-
-    ;
 
     protected void drawOtherPillars(RealBlocks chunk, int y1, int floorHeight,
                                     StairWell where, Material wallMaterial) {

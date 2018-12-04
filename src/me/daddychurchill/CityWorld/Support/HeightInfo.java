@@ -6,7 +6,6 @@ public final class HeightInfo {
 
     public enum HeightState {EMPTY, DEEPSEA, SEA, BUILDING, LOWLAND, MIDLAND, HIGHLAND, PEAK}
 
-    ;
     public HeightState state;
 
     private int count = 0;
@@ -26,9 +25,9 @@ public final class HeightInfo {
         HeightInfo heights = new HeightInfo();
 
         heights.add(generator, blockX + 8, blockZ + 8); // center
-        heights.add(generator, blockX + 0, blockZ + 0); // corners
-        heights.add(generator, blockX + 15, blockZ + 0);
-        heights.add(generator, blockX + 0, blockZ + 15);
+        heights.add(generator, blockX, blockZ); // corners
+        heights.add(generator, blockX + 15, blockZ);
+        heights.add(generator, blockX, blockZ + 15);
         heights.add(generator, blockX + 15, blockZ + 15);
 
         heights.calcState(generator);
@@ -39,11 +38,11 @@ public final class HeightInfo {
         HeightInfo heights = new HeightInfo();
 
         heights.add(generator, blockX + 8, blockZ + 8); // center
-        heights.add(generator, blockX + 0, blockZ + 0); // corners
-        heights.add(generator, blockX + 15, blockZ + 0);
-        heights.add(generator, blockX + 0, blockZ + 15);
+        heights.add(generator, blockX, blockZ); // corners
+        heights.add(generator, blockX + 15, blockZ);
+        heights.add(generator, blockX, blockZ + 15);
         heights.add(generator, blockX + 15, blockZ + 15);
-        heights.add(generator, blockX + 0, blockZ + 8); // edges
+        heights.add(generator, blockX, blockZ + 8); // edges
         heights.add(generator, blockX + 15, blockZ + 8);
         heights.add(generator, blockX + 8, blockZ + 15);
         heights.add(generator, blockX + 8, blockZ + 15);

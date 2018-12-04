@@ -1,11 +1,11 @@
 package me.daddychurchill.CityWorld.Support;
 
-import java.util.Stack;
-
-import org.bukkit.Material;
-import org.bukkit.block.Block;
 import me.daddychurchill.CityWorld.CityWorldGenerator;
 import me.daddychurchill.CityWorld.Context.DataContext;
+import org.bukkit.Material;
+import org.bukkit.block.Block;
+
+import java.util.Stack;
 
 public final class WorldBlocks extends SupportBlocks {
 
@@ -185,7 +185,7 @@ public final class WorldBlocks extends SupportBlocks {
     public void desperseArea(int x, int y, int z, int radius) {
 
         // debris
-        Stack<debrisItem> debris = new Stack<debrisItem>();
+        Stack<debrisItem> debris = new Stack<>();
 
         // clear out the space
         desperseSphere(x, y, z, radius, debris);

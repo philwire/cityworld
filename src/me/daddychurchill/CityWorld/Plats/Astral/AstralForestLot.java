@@ -1,12 +1,11 @@
 package me.daddychurchill.CityWorld.Plats.Astral;
 
-import org.bukkit.Material;
-
 import me.daddychurchill.CityWorld.CityWorldGenerator;
 import me.daddychurchill.CityWorld.Context.DataContext;
 import me.daddychurchill.CityWorld.Support.PlatMap;
 import me.daddychurchill.CityWorld.Support.RealBlocks;
 import me.daddychurchill.CityWorld.Support.WorldBlocks;
+import org.bukkit.Material;
 
 public abstract class AstralForestLot extends AstralNatureLot {
 

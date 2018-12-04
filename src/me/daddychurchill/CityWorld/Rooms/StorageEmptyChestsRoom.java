@@ -1,11 +1,10 @@
 package me.daddychurchill.CityWorld.Rooms;
 
-import org.bukkit.block.BlockFace;
-
 import me.daddychurchill.CityWorld.CityWorldGenerator;
 import me.daddychurchill.CityWorld.Plugins.LootProvider.LootLocation;
 import me.daddychurchill.CityWorld.Support.Odds;
 import me.daddychurchill.CityWorld.Support.RealBlocks;
+import org.bukkit.block.BlockFace;
 
 public class StorageEmptyChestsRoom extends StorageFilledChestsRoom {
 

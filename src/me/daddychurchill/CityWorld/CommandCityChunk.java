@@ -43,14 +43,14 @@ public class CommandCityChunk implements CommandExecutor {
                 int radius = 0;
 
                 // arguments?
-                for (int n = 0; n < split.length; n++) {
-                    if (split[n].compareToIgnoreCase("CLEAN") == 0 && !cleaning)
+                for (String splitString : split) {
+                    if (splitString.compareToIgnoreCase("CLEAN") == 0 && !cleaning)
                         cleaning = true;
-                    else if (split[n].compareToIgnoreCase("REGEN") == 0 && !regening)
+                    else if (splitString.compareToIgnoreCase("REGEN") == 0 && !regening)
                         regening = true;
                     else if (cleaning || regening) {
                         try {
-                            radius = Integer.parseInt(split[n]);
+                            radius = Integer.parseInt(splitString);
                         } catch (NumberFormatException e) {
                             error = true;
                             break;

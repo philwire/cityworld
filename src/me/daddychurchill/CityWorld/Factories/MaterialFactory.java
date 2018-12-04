@@ -9,11 +9,8 @@ public abstract class MaterialFactory {
 
     public enum VerticalStyle {GGGG, WGGG, WGGW, WWWW}
 
-    ;
-
     public enum HorizontalStyle {WG, WGG, WGGG, WWG, WWGG, GGGG, RANDOM}
 
-    ;
     public VerticalStyle verticalStyle;
     public HorizontalStyle horizontalStyle;
     protected Boolean decayed;

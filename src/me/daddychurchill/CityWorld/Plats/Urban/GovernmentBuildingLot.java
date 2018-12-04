@@ -1,19 +1,13 @@
 package me.daddychurchill.CityWorld.Plats.Urban;
 
-import org.bukkit.Material;
-import org.bukkit.block.BlockFace;
-
 import me.daddychurchill.CityWorld.CityWorldGenerator;
 import me.daddychurchill.CityWorld.Context.DataContext;
 import me.daddychurchill.CityWorld.Plats.FinishedBuildingLot;
 import me.daddychurchill.CityWorld.Plats.PlatLot;
 import me.daddychurchill.CityWorld.Plugins.RoomProvider;
-import me.daddychurchill.CityWorld.Support.InitialBlocks;
-import me.daddychurchill.CityWorld.Support.Mapper;
-import me.daddychurchill.CityWorld.Support.PlatMap;
-import me.daddychurchill.CityWorld.Support.RealBlocks;
-import me.daddychurchill.CityWorld.Support.SupportBlocks;
-import me.daddychurchill.CityWorld.Support.Surroundings;
+import me.daddychurchill.CityWorld.Support.*;
+import org.bukkit.Material;
+import org.bukkit.block.BlockFace;
 
 public class GovernmentBuildingLot extends FinishedBuildingLot {
 
@@ -143,8 +137,6 @@ public class GovernmentBuildingLot extends FinishedBuildingLot {
             drawFoundationColumns(blocks, floorAt + higher - 1, DataContext.FloorHeight, heights);
         }
     }
-
-    ;
 
     private void drawFoundationSteps(SupportBlocks blocks, int y1, int y2, Surroundings heights) {
         // NorthWest

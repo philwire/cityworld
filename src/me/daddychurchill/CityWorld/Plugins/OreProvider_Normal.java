@@ -1,17 +1,16 @@
 package me.daddychurchill.CityWorld.Plugins;
 
-import java.util.ArrayList;
-
+import me.daddychurchill.CityWorld.CityWorldGenerator;
 import org.bukkit.Material;
 
-import me.daddychurchill.CityWorld.CityWorldGenerator;
+import java.util.ArrayList;
 
 public class OreProvider_Normal extends OreProvider {
 
     public OreProvider_Normal(CityWorldGenerator generator) {
         super(generator);
 
-        ore_types = new ArrayList<Material>();
+        ore_types = new ArrayList<>();
         ore_types.add(generator.materialProvider.itemsMaterialListFor_NormalOres.getNthMaterial(0, Material.WATER));
         ore_types.add(generator.materialProvider.itemsMaterialListFor_NormalOres.getNthMaterial(1, Material.LAVA));
         ore_types.add(generator.materialProvider.itemsMaterialListFor_NormalOres.getNthMaterial(2, Material.GRAVEL));

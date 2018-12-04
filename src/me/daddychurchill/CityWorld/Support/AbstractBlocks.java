@@ -464,7 +464,7 @@ public abstract class AbstractBlocks {
             // calculate odds stepper
             int atStep = 0;
             int steps = y2 - y1;
-            double stepOdds = 0;
+            double stepOdds;
             if (topOdds > bottomOdds)
                 stepOdds = (topOdds - bottomOdds) / steps;
             else

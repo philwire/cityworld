@@ -1,9 +1,8 @@
 package me.daddychurchill.CityWorld.Clipboard;
 
-import org.bukkit.block.BlockFace;
-
 import me.daddychurchill.CityWorld.CityWorldGenerator;
 import me.daddychurchill.CityWorld.Support.PlatMap;
+import org.bukkit.block.BlockFace;
 
 public class ClipboardConstructLot extends ClipboardLot {
 

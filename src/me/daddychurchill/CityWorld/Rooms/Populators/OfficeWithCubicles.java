@@ -1,13 +1,7 @@
 package me.daddychurchill.CityWorld.Rooms.Populators;
 
 import me.daddychurchill.CityWorld.Plugins.RoomProvider;
-import me.daddychurchill.CityWorld.Rooms.DeskAdminRoom;
-import me.daddychurchill.CityWorld.Rooms.DeskCornerRoom;
-import me.daddychurchill.CityWorld.Rooms.DeskCubbyRoom;
-import me.daddychurchill.CityWorld.Rooms.DeskForTwoRoom;
-import me.daddychurchill.CityWorld.Rooms.DeskInternsRoom;
-import me.daddychurchill.CityWorld.Rooms.MeetingForFourRoom;
-import me.daddychurchill.CityWorld.Rooms.MeetingForSixRoom;
+import me.daddychurchill.CityWorld.Rooms.*;
 
 public class OfficeWithCubicles extends RoomProvider {
 

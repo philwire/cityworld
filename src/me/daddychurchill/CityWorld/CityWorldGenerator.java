@@ -7,13 +7,10 @@ import org.bukkit.Bukkit;
 import org.bukkit.Chunk;
 import org.bukkit.World;
 import org.bukkit.World.Environment;
-import org.bukkit.block.Block;
-import org.bukkit.block.data.BlockData;
-import org.bukkit.block.data.type.Leaves;
 import org.bukkit.generator.BlockPopulator;
 import org.bukkit.generator.ChunkGenerator;
 
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Random;
@@ -86,7 +83,7 @@ public class CityWorldGenerator extends ChunkGenerator {
         NORMAL
     }
 
-    ;        // traditional terrain and cities
+    // traditional terrain and cities
 
     public static WorldStyle validateStyle(WorldStyle style) {
         switch (style) {
@@ -213,7 +210,7 @@ public class CityWorldGenerator extends ChunkGenerator {
 
     @Override
     public List<BlockPopulator> getDefaultPopulators(World world) {
-        return Arrays.asList((BlockPopulator) new CityWorldBlockPopulator(this));
+        return Collections.singletonList(new CityWorldBlockPopulator(this));
     }
 
     public void initializeWorldInfo(World aWorld) {
@@ -351,14 +348,14 @@ public class CityWorldGenerator extends ChunkGenerator {
 
         // get the plat map collection
         if (platmaps == null)
-            platmaps = new Hashtable<Long, PlatMap>();
+            platmaps = new Hashtable<>();
 
         // find the origin for the plat
         int platX = calcOrigin(chunkX);
         int platZ = calcOrigin(chunkZ);
 
         // calculate the plat's key
-        Long platkey = Long.valueOf(((long) platX * (long) Integer.MAX_VALUE + (long) platZ));
+        Long platkey = ((long) platX * (long) Integer.MAX_VALUE + (long) platZ);
 
         // get the right plat
         PlatMap platmap = platmaps.get(platkey);

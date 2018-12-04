@@ -1,15 +1,7 @@
 package me.daddychurchill.CityWorld.Rooms.Populators;
 
 import me.daddychurchill.CityWorld.Plugins.RoomProvider;
-import me.daddychurchill.CityWorld.Rooms.ClosetRoom;
-import me.daddychurchill.CityWorld.Rooms.DeskAdminRoom;
-import me.daddychurchill.CityWorld.Rooms.DeskCornerRoom;
-import me.daddychurchill.CityWorld.Rooms.DeskCubbyRoom;
-import me.daddychurchill.CityWorld.Rooms.DeskExecutiveRoom;
-import me.daddychurchill.CityWorld.Rooms.DeskForTwoRoom;
-import me.daddychurchill.CityWorld.Rooms.DividedEllRoom;
-import me.daddychurchill.CityWorld.Rooms.DividedSingleRoom;
-import me.daddychurchill.CityWorld.Rooms.EmptyRoom;
+import me.daddychurchill.CityWorld.Rooms.*;
 
 public class OfficeWithRooms extends RoomProvider {
 

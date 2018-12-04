@@ -1,11 +1,10 @@
 package me.daddychurchill.CityWorld.Plats.Astral;
 
-import org.bukkit.Material;
-import org.bukkit.block.BlockFace;
-
 import me.daddychurchill.CityWorld.CityWorldGenerator;
 import me.daddychurchill.CityWorld.Support.PlatMap;
 import me.daddychurchill.CityWorld.Support.WorldBlocks;
+import org.bukkit.Material;
+import org.bukkit.block.BlockFace;
 
 public class AstralForestCanopyLot extends AstralForestLot {
 

@@ -1,10 +1,9 @@
 package me.daddychurchill.CityWorld.Plats.SandDunes;
 
-import org.bukkit.Material;
-
 import me.daddychurchill.CityWorld.Plats.PlatLot;
 import me.daddychurchill.CityWorld.Plats.Rural.FarmLot;
 import me.daddychurchill.CityWorld.Support.PlatMap;
+import org.bukkit.Material;
 
 public class SandDunesFarmLot extends FarmLot {
 

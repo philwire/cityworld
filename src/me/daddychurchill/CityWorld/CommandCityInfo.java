@@ -1,8 +1,5 @@
 package me.daddychurchill.CityWorld;
 
-import java.util.HashMap;
-import java.util.Map.Entry;
-
 import org.bukkit.Chunk;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -10,6 +7,9 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+
+import java.util.HashMap;
+import java.util.Map.Entry;
 
 public class CommandCityInfo implements CommandExecutor {
     // This class was created by Sablednah

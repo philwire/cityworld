@@ -1,10 +1,9 @@
 package me.daddychurchill.CityWorld.Rooms.Populators;
 
-import org.bukkit.Material;
-
 import me.daddychurchill.CityWorld.Plugins.RoomProvider;
 import me.daddychurchill.CityWorld.Rooms.StorageDoubleRowRoom;
 import me.daddychurchill.CityWorld.Rooms.StorageSingleRowRoom;
+import org.bukkit.Material;
 
 public class WarehouseWithBooks extends RoomProvider {
 

@@ -52,7 +52,6 @@ public class FarmLot extends ConnectedLot {
         PADDOCK
     }
 
-    ;
     protected CropType cropType;
 
     private boolean directionNorthSouth;

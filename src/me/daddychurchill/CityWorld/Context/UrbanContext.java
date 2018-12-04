@@ -2,12 +2,7 @@ package me.daddychurchill.CityWorld.Context;
 
 import me.daddychurchill.CityWorld.CityWorldGenerator;
 import me.daddychurchill.CityWorld.Plats.PlatLot;
-import me.daddychurchill.CityWorld.Plats.Urban.EmptyBuildingLot;
-import me.daddychurchill.CityWorld.Plats.Urban.LibraryBuildingLot;
-import me.daddychurchill.CityWorld.Plats.Urban.OfficeBuildingLot;
-import me.daddychurchill.CityWorld.Plats.Urban.ParkLot;
-import me.daddychurchill.CityWorld.Plats.Urban.StoreBuildingLot;
-import me.daddychurchill.CityWorld.Plats.Urban.UnfinishedBuildingLot;
+import me.daddychurchill.CityWorld.Plats.Urban.*;
 import me.daddychurchill.CityWorld.Plugins.ShapeProvider;
 import me.daddychurchill.CityWorld.Support.Odds;
 import me.daddychurchill.CityWorld.Support.PlatMap;

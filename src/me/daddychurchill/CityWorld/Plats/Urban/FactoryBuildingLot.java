@@ -21,12 +21,12 @@ public class FactoryBuildingLot extends IndustrialBuildingLot {
         BUNKER_RECALL, BUNKER_TANK, BUNKER_QUAD, BUNKER_BALLS, BUNKER_GROWING
     }
 
-    ;//, BUNKER_FLOORED};
+    //, BUNKER_FLOORED};
     private ContentStyle contentStyle;
 
     private enum WallStyle {BUILDING, METAL_FENCE, WOOD_FENCE}
 
-    ;//, STONE_FENCE};
+    //, STONE_FENCE};
     private WallStyle wallStyle;
 
     public FactoryBuildingLot(PlatMap platmap, int chunkX, int chunkZ) {
@@ -623,7 +623,7 @@ public class FactoryBuildingLot extends IndustrialBuildingLot {
     }
 
     private void generateLadder(RealBlocks chunk, int x, int y1, int y2, int z, BlockFace facing) {
-        boolean doLadder = false;
+        boolean doLadder;
         boolean chunkXEven = getChunkX() % 2 == 0;
         boolean chunkZEven = getChunkZ() % 2 == 0;
 

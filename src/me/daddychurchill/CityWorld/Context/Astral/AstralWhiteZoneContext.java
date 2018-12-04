@@ -1,15 +1,14 @@
 package me.daddychurchill.CityWorld.Context.Astral;
 
-import org.bukkit.Material;
-
 import me.daddychurchill.CityWorld.CityWorldGenerator;
-import me.daddychurchill.CityWorld.Plats.PlatLot;
 import me.daddychurchill.CityWorld.Plats.Astral.AstralWhiteSpiresLot;
 import me.daddychurchill.CityWorld.Plats.Astral.AstralWhiteTowerLot;
+import me.daddychurchill.CityWorld.Plats.PlatLot;
 import me.daddychurchill.CityWorld.Plugins.ShapeProvider;
 import me.daddychurchill.CityWorld.Support.HeightInfo;
 import me.daddychurchill.CityWorld.Support.PlatMap;
 import me.daddychurchill.CityWorld.Support.SupportBlocks;
+import org.bukkit.Material;
 
 public class AstralWhiteZoneContext extends AstralDataContext {
 

@@ -33,8 +33,6 @@ public class AnimalList extends EntityList {
 
     public enum EntityAffilation {HOSTILE, NEUTRAL, FRIENDLY, OTHER}
 
-    ;
-
     public EntityAffilation getEntityAffilation(EntityType foo) {
         switch (foo) {
 

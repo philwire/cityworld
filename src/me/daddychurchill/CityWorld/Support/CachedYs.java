@@ -1,7 +1,6 @@
 package me.daddychurchill.CityWorld.Support;
 
 import me.daddychurchill.CityWorld.CityWorldGenerator;
-
 import org.bukkit.util.noise.NoiseGenerator;
 
 public class CachedYs {

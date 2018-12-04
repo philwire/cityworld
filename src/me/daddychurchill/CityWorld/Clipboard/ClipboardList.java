@@ -1,11 +1,11 @@
 package me.daddychurchill.CityWorld.Clipboard;
 
-import java.util.HashMap;
-import java.util.Iterator;
-
 import me.daddychurchill.CityWorld.CityWorldGenerator;
 import me.daddychurchill.CityWorld.Support.Odds;
 import me.daddychurchill.CityWorld.Support.PlatMap;
+
+import java.util.HashMap;
+import java.util.Iterator;
 
 
 public class ClipboardList implements Iterable<Clipboard> {
@@ -13,7 +13,7 @@ public class ClipboardList implements Iterable<Clipboard> {
     public ClipboardList() {
         super();
 
-        list = new HashMap<String, Clipboard>();
+        list = new HashMap<>();
     }
 
     private HashMap<String, Clipboard> list;

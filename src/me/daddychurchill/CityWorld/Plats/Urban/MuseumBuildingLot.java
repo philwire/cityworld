@@ -1,8 +1,5 @@
 package me.daddychurchill.CityWorld.Plats.Urban;
 
-import org.bukkit.Material;
-import org.bukkit.block.BlockFace;
-
 import me.daddychurchill.CityWorld.CityWorldGenerator;
 import me.daddychurchill.CityWorld.Context.DataContext;
 import me.daddychurchill.CityWorld.Plats.FinishedBuildingLot;
@@ -12,6 +9,8 @@ import me.daddychurchill.CityWorld.Support.Colors;
 import me.daddychurchill.CityWorld.Support.PlatMap;
 import me.daddychurchill.CityWorld.Support.RealBlocks;
 import me.daddychurchill.CityWorld.Support.Surroundings;
+import org.bukkit.Material;
+import org.bukkit.block.BlockFace;
 
 public class MuseumBuildingLot extends FinishedBuildingLot {
 

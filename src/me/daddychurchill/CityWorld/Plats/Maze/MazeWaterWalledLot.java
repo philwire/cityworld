@@ -1,9 +1,8 @@
 package me.daddychurchill.CityWorld.Plats.Maze;
 
-import org.bukkit.Material;
-
 import me.daddychurchill.CityWorld.CityWorldGenerator;
 import me.daddychurchill.CityWorld.Support.PlatMap;
+import org.bukkit.Material;
 
 public class MazeWaterWalledLot extends MazeLavaWalledLot {
 
