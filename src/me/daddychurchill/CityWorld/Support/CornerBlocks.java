@@ -921,6 +921,7 @@ public class CornerBlocks {
                             blocks.setBlocks(xInset + x, y1, y2, zInset + z, secondary);
                             break;
                         case ggg:
+                            // TODO: Direction
                             blocks.setBlocks(xInset + x, y1, y2, zInset + z, Material.GLASS_PANE);
                             break;
                         case WGG:
