@@ -9,18 +9,18 @@ import org.bukkit.Material;
 
 public class StoreWithRandom extends RoomProvider {
 
-    public StoreWithRandom() {
-        super();
+	public StoreWithRandom() {
+		super();
 
-        roomTypes.add(new StorageDoubleShelvesRoom());
-        roomTypes.add(new StorageDoubleShelvesRoom());
-        roomTypes.add(new StorageSingleRowRoom(Material.BOOKSHELF));
-        roomTypes.add(new StorageSingleRowRoom(Material.BOOKSHELF));
-        roomTypes.add(new EmptyRoom());
-        roomTypes.add(new EmptyRoom());
-        roomTypes.add(new EmptyRoom());
-        roomTypes.add(new EmptyRoom());
-        roomTypes.add(new RegisterRoom());
-    }
+		roomTypes.add(new StorageDoubleShelvesRoom());
+		roomTypes.add(new StorageDoubleShelvesRoom());
+		roomTypes.add(new StorageSingleRowRoom(Material.BOOKSHELF));
+		roomTypes.add(new StorageSingleRowRoom(Material.BOOKSHELF));
+		roomTypes.add(new EmptyRoom());
+		roomTypes.add(new EmptyRoom());
+		roomTypes.add(new EmptyRoom());
+		roomTypes.add(new EmptyRoom());
+		roomTypes.add(new RegisterRoom());
+	}
 
 }

@@ -6,28 +6,28 @@ import me.daddychurchill.CityWorld.Support.Odds;
 
 public class LowriseContext extends UrbanContext {
 
-    public LowriseContext(CityWorldGenerator generator) {
-        super(generator);
+	public LowriseContext(CityWorldGenerator generator) {
+		super(generator);
 
-        oddsOfParks = Odds.oddsLikely;
-        oddsOfIsolatedLots = Odds.oddsVeryLikely;
-        oddsOfIdenticalBuildingHeights = Odds.oddsExtremelyLikely;
-        oddsOfSimilarBuildingHeights = Odds.oddsExtremelyLikely;
-        oddsOfSimilarBuildingRounding = Odds.oddsExtremelyLikely;
-        oddsOfUnfinishedBuildings = Odds.oddsPrettyUnlikely;
-        oddsOfOnlyUnfinishedBasements = Odds.oddsNeverGoingToHappen;
-        //oddsOfMissingRoad = oddsLikely;
-        oddsOfRoundAbouts = Odds.oddsLikely;
+		oddsOfParks = Odds.oddsLikely;
+		oddsOfIsolatedLots = Odds.oddsVeryLikely;
+		oddsOfIdenticalBuildingHeights = Odds.oddsExtremelyLikely;
+		oddsOfSimilarBuildingHeights = Odds.oddsExtremelyLikely;
+		oddsOfSimilarBuildingRounding = Odds.oddsExtremelyLikely;
+		oddsOfUnfinishedBuildings = Odds.oddsPrettyUnlikely;
+		oddsOfOnlyUnfinishedBasements = Odds.oddsNeverGoingToHappen;
+		//oddsOfMissingRoad = oddsLikely;
+		oddsOfRoundAbouts = Odds.oddsLikely;
 
-        oddsOfStairWallMaterialIsWallMaterial = Odds.oddsExtremelyLikely;
-        oddsOfBuildingWallInset = Odds.oddsExtremelyLikely;
-        oddsOfFlatWalledBuildings = Odds.oddsExtremelyLikely;
-        oddsOfSimilarInsetBuildings = Odds.oddsExtremelyLikely;
-        rangeOfWallInset = 2;
+		oddsOfStairWallMaterialIsWallMaterial = Odds.oddsExtremelyLikely;
+		oddsOfBuildingWallInset = Odds.oddsExtremelyLikely;
+		oddsOfFlatWalledBuildings = Odds.oddsExtremelyLikely;
+		oddsOfSimilarInsetBuildings = Odds.oddsExtremelyLikely;
+		rangeOfWallInset = 2;
 
-        setSchematicFamily(SchematicFamily.LOWRISE);
+		setSchematicFamily(SchematicFamily.LOWRISE);
 
-        maximumFloorsAbove = 3;
-        maximumFloorsBelow = 1;
-    }
+		maximumFloorsAbove = 3;
+		maximumFloorsBelow = 1;
+	}
 }

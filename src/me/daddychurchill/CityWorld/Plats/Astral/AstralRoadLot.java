@@ -11,29 +11,29 @@ import org.bukkit.generator.ChunkGenerator.BiomeGrid;
 
 public class AstralRoadLot extends RoadLot {
 
-    public AstralRoadLot(PlatMap platmap, int chunkX, int chunkZ,
-                         long globalconnectionkey, boolean roundaboutPart) {
-        super(platmap, chunkX, chunkZ, globalconnectionkey, roundaboutPart);
-        // TODO Auto-generated constructor stub
-    }
+	public AstralRoadLot(PlatMap platmap, int chunkX, int chunkZ,
+						 long globalconnectionkey, boolean roundaboutPart) {
+		super(platmap, chunkX, chunkZ, globalconnectionkey, roundaboutPart);
+		// TODO Auto-generated constructor stub
+	}
 
-    @Override
-    public int getBottomY(CityWorldGenerator generator) {
-        return generator.streetLevel;
-    }
+	@Override
+	public int getBottomY(CityWorldGenerator generator) {
+		return generator.streetLevel;
+	}
 
-    @Override
-    protected void generateActualChunk(CityWorldGenerator generator,
-                                       PlatMap platmap, InitialBlocks chunk, BiomeGrid biomes,
-                                       DataContext context, int platX, int platZ) {
+	@Override
+	protected void generateActualChunk(CityWorldGenerator generator,
+									   PlatMap platmap, InitialBlocks chunk, BiomeGrid biomes,
+									   DataContext context, int platX, int platZ) {
 
-    }
+	}
 
-    @Override
-    protected void generateActualBlocks(CityWorldGenerator generator,
-                                        PlatMap platmap, RealBlocks chunk, DataContext context, int platX,
-                                        int platZ) {
+	@Override
+	protected void generateActualBlocks(CityWorldGenerator generator,
+										PlatMap platmap, RealBlocks chunk, DataContext context, int platX,
+										int platZ) {
 
-        chunk.setBlocks(7, generator.streetLevel, 200, 7, Material.GLOWSTONE);
-    }
+		chunk.setBlocks(7, generator.streetLevel, 200, 7, Material.GLOWSTONE);
+	}
 }

@@ -10,34 +10,34 @@ import me.daddychurchill.CityWorld.Support.PlatMap;
 
 public class MazeNatureContext extends NatureContext {
 
-    public MazeNatureContext(CityWorldGenerator generator) {
-        super(generator);
+	public MazeNatureContext(CityWorldGenerator generator) {
+		super(generator);
 
-        oddsOfParks = Odds.oddsUnlikely;
-        oddsOfIsolatedLots = Odds.oddsLikely;
-        oddsOfIdenticalBuildingHeights = Odds.oddsExtremelyLikely;
-        oddsOfSimilarBuildingHeights = Odds.oddsExtremelyLikely;
-        oddsOfSimilarBuildingRounding = Odds.oddsExtremelyLikely;
-        oddsOfUnfinishedBuildings = Odds.oddsPrettyUnlikely;
-        oddsOfOnlyUnfinishedBasements = Odds.oddsVeryUnlikely;
+		oddsOfParks = Odds.oddsUnlikely;
+		oddsOfIsolatedLots = Odds.oddsLikely;
+		oddsOfIdenticalBuildingHeights = Odds.oddsExtremelyLikely;
+		oddsOfSimilarBuildingHeights = Odds.oddsExtremelyLikely;
+		oddsOfSimilarBuildingRounding = Odds.oddsExtremelyLikely;
+		oddsOfUnfinishedBuildings = Odds.oddsPrettyUnlikely;
+		oddsOfOnlyUnfinishedBasements = Odds.oddsVeryUnlikely;
 
-        oddsOfArt = Odds.oddsExceedinglyLikely;
-        oddsOfNaturalArt = Odds.oddsUnlikely;
+		oddsOfArt = Odds.oddsExceedinglyLikely;
+		oddsOfNaturalArt = Odds.oddsUnlikely;
 
-        oddsOfStairWallMaterialIsWallMaterial = Odds.oddsExtremelyLikely;
-        oddsOfBuildingWallInset = Odds.oddsExtremelyLikely;
-        oddsOfFlatWalledBuildings = Odds.oddsExtremelyLikely;
-        oddsOfSimilarInsetBuildings = Odds.oddsExtremelyLikely;
-        rangeOfWallInset = 2;
+		oddsOfStairWallMaterialIsWallMaterial = Odds.oddsExtremelyLikely;
+		oddsOfBuildingWallInset = Odds.oddsExtremelyLikely;
+		oddsOfFlatWalledBuildings = Odds.oddsExtremelyLikely;
+		oddsOfSimilarInsetBuildings = Odds.oddsExtremelyLikely;
+		rangeOfWallInset = 2;
 
-        setSchematicFamily(SchematicFamily.MIDRISE);
+		setSchematicFamily(SchematicFamily.MIDRISE);
 
-        maximumFloorsAbove = absoluteMaximumFloorsAbove / 3;
-        maximumFloorsBelow = 2;
-    }
+		maximumFloorsAbove = absoluteMaximumFloorsAbove / 3;
+		maximumFloorsBelow = 2;
+	}
 
-    @Override
-    public PlatLot createNaturalLot(CityWorldGenerator generator, PlatMap platmap, int x, int z) {
-        return new MazeNatureLot(platmap, platmap.originX + x, platmap.originZ + z);
-    }
+	@Override
+	public PlatLot createNaturalLot(CityWorldGenerator generator, PlatMap platmap, int x, int z) {
+		return new MazeNatureLot(platmap, platmap.originX + x, platmap.originZ + z);
+	}
 }

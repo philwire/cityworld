@@ -7,11 +7,11 @@ import org.bukkit.Material;
 
 public class WarehouseWithBooks extends RoomProvider {
 
-    public WarehouseWithBooks() {
-        super();
+	public WarehouseWithBooks() {
+		super();
 
-        roomTypes.add(new StorageSingleRowRoom(Material.BOOKSHELF));
-        roomTypes.add(new StorageDoubleRowRoom(Material.BOOKSHELF));
-    }
+		roomTypes.add(new StorageSingleRowRoom(Material.BOOKSHELF));
+		roomTypes.add(new StorageDoubleRowRoom(Material.BOOKSHELF));
+	}
 
 }

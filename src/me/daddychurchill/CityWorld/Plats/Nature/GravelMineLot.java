@@ -8,25 +8,25 @@ import me.daddychurchill.CityWorld.Support.RealBlocks;
 
 public class GravelMineLot extends GravelLot {
 
-    public GravelMineLot(PlatMap platmap, int chunkX, int chunkZ) {
-        super(platmap, chunkX, chunkZ);
+	public GravelMineLot(PlatMap platmap, int chunkX, int chunkZ) {
+		super(platmap, chunkX, chunkZ);
 
-        trulyIsolated = true;
-    }
+		trulyIsolated = true;
+	}
 
-    @Override
-    public PlatLot newLike(PlatMap platmap, int chunkX, int chunkZ) {
-        return new GravelMineLot(platmap, chunkX, chunkZ);
-    }
+	@Override
+	public PlatLot newLike(PlatMap platmap, int chunkX, int chunkZ) {
+		return new GravelMineLot(platmap, chunkX, chunkZ);
+	}
 
-    @Override
-    protected void generateActualBlocks(CityWorldGenerator generator,
-                                        PlatMap platmap, RealBlocks chunk, DataContext context, int platX,
-                                        int platZ) {
-        generateHole(generator, chunkOdds, chunk, generator.streetLevel, 14, 16);
+	@Override
+	protected void generateActualBlocks(CityWorldGenerator generator,
+										PlatMap platmap, RealBlocks chunk, DataContext context, int platX,
+										int platZ) {
+		generateHole(generator, chunkOdds, chunk, generator.streetLevel, 14, 16);
 
-        // place snow
-        generateSurface(generator, chunk, false);
+		// place snow
+		generateSurface(generator, chunk, false);
 
-    }
+	}
 }

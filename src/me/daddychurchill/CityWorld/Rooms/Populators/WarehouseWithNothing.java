@@ -6,11 +6,11 @@ import me.daddychurchill.CityWorld.Rooms.StorageDoubleShelvesRoom;
 
 public class WarehouseWithNothing extends RoomProvider {
 
-    public WarehouseWithNothing() {
-        super();
+	public WarehouseWithNothing() {
+		super();
 
-        roomTypes.add(new EmptyRoom());
-        roomTypes.add(new StorageDoubleShelvesRoom());
-    }
+		roomTypes.add(new EmptyRoom());
+		roomTypes.add(new StorageDoubleShelvesRoom());
+	}
 
 }

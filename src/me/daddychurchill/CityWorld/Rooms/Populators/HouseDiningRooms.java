@@ -6,12 +6,12 @@ import me.daddychurchill.CityWorld.Rooms.MeetingForSixRoom;
 
 public class HouseDiningRooms extends RoomProvider {
 
-    public HouseDiningRooms() {
-        super();
+	public HouseDiningRooms() {
+		super();
 
-        roomTypes.add(new MeetingForFourRoom());
-        roomTypes.add(new MeetingForSixRoom());
+		roomTypes.add(new MeetingForFourRoom());
+		roomTypes.add(new MeetingForSixRoom());
 
-    }
+	}
 
 }

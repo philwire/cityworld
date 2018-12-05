@@ -14,113 +14,113 @@ import org.bukkit.entity.Player;
 import java.util.List;
 
 public class CommandCityChunk implements CommandExecutor {
-    private final CityWorld plugin;
+	private final CityWorld plugin;
 
-    public CommandCityChunk(CityWorld plugin) {
-        this.plugin = plugin;
-    }
+	public CommandCityChunk(CityWorld plugin) {
+		this.plugin = plugin;
+	}
 
-    public CityWorld getWorld() {
-        return plugin;
-    }
+	public CityWorld getWorld() {
+		return plugin;
+	}
 
-    @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] split) {
-        Player player = null;
-        if (sender instanceof Player)
-            player = (Player) sender;
+	@Override
+	public boolean onCommand(CommandSender sender, Command command, String label, String[] split) {
+		Player player = null;
+		if (sender instanceof Player)
+			player = (Player) sender;
 //		else {
 //			player = sender.getServer().getPlayer("echurchill");
 //			if (player != null)
 //				sender.sendMessage("Found " + player);
 //		}
 
-        if (player != null) {
-            if (player.hasPermission("citychunk.command")) {
-                boolean cleaning = false;
-                boolean regening = false;
-                boolean error = false;
-                int radius = 0;
+		if (player != null) {
+			if (player.hasPermission("citychunk.command")) {
+				boolean cleaning = false;
+				boolean regening = false;
+				boolean error = false;
+				int radius = 0;
 
-                // arguments?
-                for (String splitString : split) {
-                    if (splitString.compareToIgnoreCase("CLEAN") == 0 && !cleaning)
-                        cleaning = true;
-                    else if (splitString.compareToIgnoreCase("REGEN") == 0 && !regening)
-                        regening = true;
-                    else if (cleaning || regening) {
-                        try {
-                            radius = Integer.parseInt(splitString);
-                        } catch (NumberFormatException e) {
-                            error = true;
-                            break;
-                        }
-                        radius = Math.max(0, Math.min(15, radius));
-                    } else {
-                        error = true;
-                        break;
-                    }
-                }
+				// arguments?
+				for (String splitString : split) {
+					if (splitString.compareToIgnoreCase("CLEAN") == 0 && !cleaning)
+						cleaning = true;
+					else if (splitString.compareToIgnoreCase("REGEN") == 0 && !regening)
+						regening = true;
+					else if (cleaning || regening) {
+						try {
+							radius = Integer.parseInt(splitString);
+						} catch (NumberFormatException e) {
+							error = true;
+							break;
+						}
+						radius = Math.max(0, Math.min(15, radius));
+					} else {
+						error = true;
+						break;
+					}
+				}
 
-                // that isn't an option we support or no option was given
-                if (error || !(cleaning || regening)) {
-                    sender.sendMessage("Syntax error");
-                    return false;
+				// that isn't an option we support or no option was given
+				if (error || !(cleaning || regening)) {
+					sender.sendMessage("Syntax error");
+					return false;
 
-                    // let's do our stuff
-                } else {
+					// let's do our stuff
+				} else {
 
-                    // find ourselves
-                    World world = player.getWorld();
-                    Location location = player.getLocation();
-                    Chunk chunk = world.getChunkAt(location);
-                    int chunkX = chunk.getX();
-                    int chunkZ = chunk.getZ();
+					// find ourselves
+					World world = player.getWorld();
+					Location location = player.getLocation();
+					Chunk chunk = world.getChunkAt(location);
+					int chunkX = chunk.getX();
+					int chunkZ = chunk.getZ();
 
-                    // iterate through the chunks
-                    if (regening) {
-                        for (int x = chunkX - radius; x <= chunkX + radius; x++) {
-                            for (int z = chunkZ - radius; z <= chunkZ + radius; z++) {
-                                player.sendMessage("Regenerating chunk[" + x + ", " + z + "]");
-                                world.regenerateChunk(x, z);
-                            }
-                        }
-                    }
+					// iterate through the chunks
+					if (regening) {
+						for (int x = chunkX - radius; x <= chunkX + radius; x++) {
+							for (int z = chunkZ - radius; z <= chunkZ + radius; z++) {
+								player.sendMessage("Regenerating chunk[" + x + ", " + z + "]");
+								world.regenerateChunk(x, z);
+							}
+						}
+					}
 
-                    // cleaning up chunks of stray items
-                    if (cleaning) {
-                        player.sendMessage("Cleaning up orphan items");
-                        int x1 = (chunkX - radius) * SupportBlocks.sectionBlockWidth;
-                        int x2 = (chunkX + radius + 1) * SupportBlocks.sectionBlockWidth;
-                        int z1 = (chunkZ - radius) * SupportBlocks.sectionBlockWidth;
-                        int z2 = (chunkZ + radius + 1) * SupportBlocks.sectionBlockWidth;
-                        List<Entity> entities = world.getEntities();
-                        for (Entity entity : entities) {
+					// cleaning up chunks of stray items
+					if (cleaning) {
+						player.sendMessage("Cleaning up orphan items");
+						int x1 = (chunkX - radius) * SupportBlocks.sectionBlockWidth;
+						int x2 = (chunkX + radius + 1) * SupportBlocks.sectionBlockWidth;
+						int z1 = (chunkZ - radius) * SupportBlocks.sectionBlockWidth;
+						int z2 = (chunkZ + radius + 1) * SupportBlocks.sectionBlockWidth;
+						List<Entity> entities = world.getEntities();
+						for (Entity entity : entities) {
 
-                            // something we care about?
-                            if (entity instanceof Item) {
+							// something we care about?
+							if (entity instanceof Item) {
 
-                                // is it in the right place?
-                                Location entityAt = entity.getLocation();
-                                if (entityAt.getBlockX() >= x1 && entityAt.getBlockX() < x2 &&
-                                        entityAt.getBlockZ() >= z1 && entityAt.getBlockZ() < z2)
-                                    entity.remove();
-                            }
-                        }
-                    }
+								// is it in the right place?
+								Location entityAt = entity.getLocation();
+								if (entityAt.getBlockX() >= x1 && entityAt.getBlockX() < x2 &&
+									entityAt.getBlockZ() >= z1 && entityAt.getBlockZ() < z2)
+									entity.remove();
+							}
+						}
+					}
 
-                    // all done
-                    player.sendMessage("Finished chunk operation");
-                    return true;
-                }
+					// all done
+					player.sendMessage("Finished chunk operation");
+					return true;
+				}
 
-            } else {
-                sender.sendMessage("You do not have permission to use this command");
-                return false;
-            }
-        } else {
-            sender.sendMessage("This command is only usable by a player");
-            return false;
-        }
-    }
+			} else {
+				sender.sendMessage("You do not have permission to use this command");
+				return false;
+			}
+		} else {
+			sender.sendMessage("This command is only usable by a player");
+			return false;
+		}
+	}
 }

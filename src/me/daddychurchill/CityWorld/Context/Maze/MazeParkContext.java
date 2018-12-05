@@ -11,26 +11,26 @@ import me.daddychurchill.CityWorld.Support.PlatMap;
 
 public class MazeParkContext extends MazeConstructContext {
 
-    public MazeParkContext(CityWorldGenerator generator) {
-        super(generator);
-        // TODO Auto-generated constructor stub
-    }
+	public MazeParkContext(CityWorldGenerator generator) {
+		super(generator);
+		// TODO Auto-generated constructor stub
+	}
 
-    private int connectParkMagicValue = 18273645;
+	private int connectParkMagicValue = 18273645;
 
-    @Override
-    protected PlatLot generateSpecialOneLot(PlatMap platmap, Odds odds, int chunkX, int chunkZ) {
-        return new RoundaboutCenterLot(platmap, chunkX, chunkZ);
-    }
+	@Override
+	protected PlatLot generateSpecialOneLot(PlatMap platmap, Odds odds, int chunkX, int chunkZ) {
+		return new RoundaboutCenterLot(platmap, chunkX, chunkZ);
+	}
 
-    @Override
-    protected PlatLot generateNormalLot(PlatMap platmap, Odds odds, int chunkX, int chunkZ) {
-        return new ParkLot(platmap, chunkX, chunkZ, connectParkMagicValue,
-                DataContext.FloorHeight);
-    }
+	@Override
+	protected PlatLot generateNormalLot(PlatMap platmap, Odds odds, int chunkX, int chunkZ) {
+		return new ParkLot(platmap, chunkX, chunkZ, connectParkMagicValue,
+			DataContext.FloorHeight);
+	}
 
-    @Override
-    protected PlatLot generateSpecialTooLot(PlatMap platmap, Odds odds, int chunkX, int chunkZ) {
-        return new WaterTowerLot(platmap, chunkX, chunkZ);
-    }
+	@Override
+	protected PlatLot generateSpecialTooLot(PlatMap platmap, Odds odds, int chunkX, int chunkZ) {
+		return new WaterTowerLot(platmap, chunkX, chunkZ);
+	}
 }

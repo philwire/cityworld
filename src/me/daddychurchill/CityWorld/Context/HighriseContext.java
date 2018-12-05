@@ -6,31 +6,31 @@ import me.daddychurchill.CityWorld.Support.Odds;
 
 public class HighriseContext extends UrbanContext {
 
-    public HighriseContext(CityWorldGenerator generator) {
-        super(generator);
+	public HighriseContext(CityWorldGenerator generator) {
+		super(generator);
 
-        oddsOfParks = Odds.oddsNeverGoingToHappen;
-        oddsOfIsolatedLots = Odds.oddsLikely;
-        oddsOfIdenticalBuildingHeights = Odds.oddsExtremelyLikely;
-        oddsOfSimilarBuildingHeights = Odds.oddsExtremelyLikely;
-        oddsOfSimilarBuildingRounding = Odds.oddsExtremelyLikely;
-        oddsOfUnfinishedBuildings = Odds.oddsPrettyUnlikely;
-        oddsOfOnlyUnfinishedBasements = Odds.oddsNeverGoingToHappen;
-        //oddsOfMissingRoad = oddsNeverGoingToHappen;
-        oddsOfRoundAbouts = Odds.oddsNeverGoingToHappen;
+		oddsOfParks = Odds.oddsNeverGoingToHappen;
+		oddsOfIsolatedLots = Odds.oddsLikely;
+		oddsOfIdenticalBuildingHeights = Odds.oddsExtremelyLikely;
+		oddsOfSimilarBuildingHeights = Odds.oddsExtremelyLikely;
+		oddsOfSimilarBuildingRounding = Odds.oddsExtremelyLikely;
+		oddsOfUnfinishedBuildings = Odds.oddsPrettyUnlikely;
+		oddsOfOnlyUnfinishedBasements = Odds.oddsNeverGoingToHappen;
+		//oddsOfMissingRoad = oddsNeverGoingToHappen;
+		oddsOfRoundAbouts = Odds.oddsNeverGoingToHappen;
 
-        oddsOfStairWallMaterialIsWallMaterial = Odds.oddsExtremelyLikely;
-        oddsOfBuildingWallInset = Odds.oddsExtremelyLikely;
-        oddsOfFlatWalledBuildings = Odds.oddsExtremelyLikely;
-        oddsOfSimilarInsetBuildings = Odds.oddsExtremelyLikely;
-        rangeOfWallInset = 1;
+		oddsOfStairWallMaterialIsWallMaterial = Odds.oddsExtremelyLikely;
+		oddsOfBuildingWallInset = Odds.oddsExtremelyLikely;
+		oddsOfFlatWalledBuildings = Odds.oddsExtremelyLikely;
+		oddsOfSimilarInsetBuildings = Odds.oddsExtremelyLikely;
+		rangeOfWallInset = 1;
 
-        setSchematicFamily(SchematicFamily.HIGHRISE);
+		setSchematicFamily(SchematicFamily.HIGHRISE);
 
-        minSizeOfBuilding = 2;
+		minSizeOfBuilding = 2;
 
-        maximumFloorsAbove = absoluteMaximumFloorsAbove;
-        maximumFloorsBelow = 3;
-    }
+		maximumFloorsAbove = absoluteMaximumFloorsAbove;
+		maximumFloorsBelow = 3;
+	}
 
 }

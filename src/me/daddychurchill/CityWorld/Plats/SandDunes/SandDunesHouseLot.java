@@ -6,14 +6,14 @@ import me.daddychurchill.CityWorld.Support.PlatMap;
 
 public class SandDunesHouseLot extends HouseLot {
 
-    public SandDunesHouseLot(PlatMap platmap, int chunkX, int chunkZ) {
-        super(platmap, chunkX, chunkZ);
-        // TODO Auto-generated constructor stub
-    }
+	public SandDunesHouseLot(PlatMap platmap, int chunkX, int chunkZ) {
+		super(platmap, chunkX, chunkZ);
+		// TODO Auto-generated constructor stub
+	}
 
 
-    @Override
-    public PlatLot newLike(PlatMap platmap, int chunkX, int chunkZ) {
-        return new SandDunesHouseLot(platmap, chunkX, chunkZ);
-    }
+	@Override
+	public PlatLot newLike(PlatMap platmap, int chunkX, int chunkZ) {
+		return new SandDunesHouseLot(platmap, chunkX, chunkZ);
+	}
 }

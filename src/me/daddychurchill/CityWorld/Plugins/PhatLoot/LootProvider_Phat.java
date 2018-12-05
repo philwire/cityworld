@@ -15,91 +15,91 @@ import java.util.Iterator;
 
 public class LootProvider_Phat extends LootProvider {
 
-    private HashSet<PhatLoot> phatLoots;
+	private HashSet<PhatLoot> phatLoots;
 
-    public LootProvider_Phat() {
-        phatLoots = new HashSet<>();
-    }
+	public LootProvider_Phat() {
+		phatLoots = new HashSet<>();
+	}
 
-    @Override
-    public void setLoot(CityWorldGenerator generator, Odds odds, String worldPrefix, LootLocation lootLocation, Block block) {
-        String name = worldPrefix + "_" + lootLocation;
-        PhatLoot phatLoot = getByName(name);
-        phatLoot.addChest(block);
+	@Override
+	public void setLoot(CityWorldGenerator generator, Odds odds, String worldPrefix, LootLocation lootLocation, Block block) {
+		String name = worldPrefix + "_" + lootLocation;
+		PhatLoot phatLoot = getByName(name);
+		phatLoot.addChest(block);
 
-        // remember it!
-        if (!phatLoots.contains(phatLoot))
-            phatLoots.add(phatLoot);
-    }
+		// remember it!
+		if (!phatLoots.contains(phatLoot))
+			phatLoots.add(phatLoot);
+	}
 
-    @Override
-    public void saveLoots() {
+	@Override
+	public void saveLoots() {
 
-        // something to do?
-        if (!phatLoots.isEmpty()) {
+		// something to do?
+		if (!phatLoots.isEmpty()) {
 
-            // save everything
-            Iterator<PhatLoot> aPhatLoot = phatLoots.iterator();
-            while (aPhatLoot.hasNext()) {
-                PhatLoot loot = aPhatLoot.next();
+			// save everything
+			Iterator<PhatLoot> aPhatLoot = phatLoots.iterator();
+			while (aPhatLoot.hasNext()) {
+				PhatLoot loot = aPhatLoot.next();
 
-                // sometimes hasNext is true but there really isn't a next... go figure
-                // reported by EODStevens on SpigotMC.org
-                if (loot != null)
-                    loot.saveChests();
-            }
+				// sometimes hasNext is true but there really isn't a next... go figure
+				// reported by EODStevens on SpigotMC.org
+				if (loot != null)
+					loot.saveChests();
+			}
 
-            // for get about it!
-            phatLoots.clear();
-        }
-    }
+			// for get about it!
+			phatLoots.clear();
+		}
+	}
 
-    private static PhatLoot getByName(String name) {
-        PhatLoot phatLoot;
+	private static PhatLoot getByName(String name) {
+		PhatLoot phatLoot;
 
-        if (!PhatLoots.hasPhatLoot(name)) {
-            PhatLoots.addPhatLoot(new PhatLoot(name));
-        }
+		if (!PhatLoots.hasPhatLoot(name)) {
+			PhatLoots.addPhatLoot(new PhatLoot(name));
+		}
 
-        phatLoot = PhatLoots.getPhatLoot(name);
-        phatLoot.save();
+		phatLoot = PhatLoots.getPhatLoot(name);
+		phatLoot.save();
 
-        return phatLoot;
-    }
+		return phatLoot;
+	}
 
-    private static String name = "PhatLoots";
+	private static String name = "PhatLoots";
 
-    public static LootProvider loadPhatLoots(CityWorldGenerator generator) {
+	public static LootProvider loadPhatLoots(CityWorldGenerator generator) {
 
-        PhatLoots phatLoots = null;
+		PhatLoots phatLoots = null;
 
-        try {
+		try {
 
-            PluginManager pm = Bukkit.getServer().getPluginManager();
-            if (pm != null) {
-                Plugin plugin = pm.getPlugin(name);
-                if (plugin != null)
-                    phatLoots = (PhatLoots) plugin;
-            }
+			PluginManager pm = Bukkit.getServer().getPluginManager();
+			if (pm != null) {
+				Plugin plugin = pm.getPlugin(name);
+				if (plugin != null)
+					phatLoots = (PhatLoots) plugin;
+			}
 
-            if (phatLoots == null) {
-                generator.reportMessage("[PasteProvider] Problem loading PhatLoots, could not find it");
-                return null;
-            }
+			if (phatLoots == null) {
+				generator.reportMessage("[PasteProvider] Problem loading PhatLoots, could not find it");
+				return null;
+			}
 
-            //CityWorld.(String.format("[LootProvider] Found %s.", name));
+			//CityWorld.(String.format("[LootProvider] Found %s.", name));
 
-            if (!pm.isPluginEnabled(phatLoots)) {
-                //CityWorld.reportMessage(String.format("[LootProvider] Enabling %s.", name));
-                pm.enablePlugin(phatLoots);
-            }
-            //CityWorld.reportMessage(String.format("[LootProvider] %s Enabled.", name));
+			if (!pm.isPluginEnabled(phatLoots)) {
+				//CityWorld.reportMessage(String.format("[LootProvider] Enabling %s.", name));
+				pm.enablePlugin(phatLoots);
+			}
+			//CityWorld.reportMessage(String.format("[LootProvider] %s Enabled.", name));
 
-            return new LootProvider_Phat();
+			return new LootProvider_Phat();
 
-        } catch (Exception e) {
-            generator.reportMessage("[LootProvider] Problem loading PhatLoots (" + e.getMessage() + ")");
-            return null;
-        }
-    }
+		} catch (Exception e) {
+			generator.reportMessage("[LootProvider] Problem loading PhatLoots (" + e.getMessage() + ")");
+			return null;
+		}
+	}
 }

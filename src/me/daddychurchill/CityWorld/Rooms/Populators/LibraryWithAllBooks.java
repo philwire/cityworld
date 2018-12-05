@@ -5,10 +5,10 @@ import me.daddychurchill.CityWorld.Rooms.LibraryDoubleRoom;
 
 public class LibraryWithAllBooks extends RoomProvider {
 
-    public LibraryWithAllBooks() {
-        super();
+	public LibraryWithAllBooks() {
+		super();
 
-        roomTypes.add(new LibraryDoubleRoom());
-    }
+		roomTypes.add(new LibraryDoubleRoom());
+	}
 
 }

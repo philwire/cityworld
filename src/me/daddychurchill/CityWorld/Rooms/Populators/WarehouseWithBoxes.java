@@ -6,10 +6,10 @@ import org.bukkit.Material;
 
 public class WarehouseWithBoxes extends RoomProvider {
 
-    public WarehouseWithBoxes() {
-        super();
+	public WarehouseWithBoxes() {
+		super();
 
-        roomTypes.add(new StorageDoubleRowRoom(Material.PISTON));
-    }
+		roomTypes.add(new StorageDoubleRowRoom(Material.PISTON));
+	}
 
 }

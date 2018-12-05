@@ -10,18 +10,18 @@ import me.daddychurchill.CityWorld.Support.PlatMap;
 
 public class SandDunesFarmContext extends FarmContext {
 
-    public SandDunesFarmContext(CityWorldGenerator generator) {
-        super(generator);
-        // TODO Auto-generated constructor stub
-    }
+	public SandDunesFarmContext(CityWorldGenerator generator) {
+		super(generator);
+		// TODO Auto-generated constructor stub
+	}
 
-    @Override
-    protected PlatLot getFarmLot(CityWorldGenerator generator, PlatMap platmap, Odds odds, int chunkX, int chunkZ) {
-        return new SandDunesFarmLot(platmap, chunkX, chunkZ);
-    }
+	@Override
+	protected PlatLot getFarmLot(CityWorldGenerator generator, PlatMap platmap, Odds odds, int chunkX, int chunkZ) {
+		return new SandDunesFarmLot(platmap, chunkX, chunkZ);
+	}
 
-    @Override
-    protected PlatLot getHouseLot(CityWorldGenerator generator, PlatMap platmap, Odds odds, int chunkX, int chunkZ) {
-        return new SandDunesHouseLot(platmap, chunkX, chunkZ);
-    }
+	@Override
+	protected PlatLot getHouseLot(CityWorldGenerator generator, PlatMap platmap, Odds odds, int chunkX, int chunkZ) {
+		return new SandDunesHouseLot(platmap, chunkX, chunkZ);
+	}
 }

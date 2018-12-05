@@ -5,14 +5,14 @@ import me.daddychurchill.CityWorld.Rooms.EmptyRoom;
 
 public class BusinessWithStock extends RoomProvider {
 
-    public BusinessWithStock() {
-        super();
+	public BusinessWithStock() {
+		super();
 
-        roomTypes.add(new EmptyRoom());
+		roomTypes.add(new EmptyRoom());
 
-        // shelves
-        // cash register
+		// shelves
+		// cash register
 
-    }
+	}
 
 }

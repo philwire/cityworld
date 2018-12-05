@@ -11,27 +11,27 @@ import org.bukkit.generator.ChunkGenerator.BiomeGrid;
 
 public class FloodedNatureLot extends NatureLot {
 
-    public FloodedNatureLot(PlatMap platmap, int chunkX, int chunkZ) {
-        super(platmap, chunkX, chunkZ);
-        // TODO Auto-generated constructor stub
-    }
+	public FloodedNatureLot(PlatMap platmap, int chunkX, int chunkZ) {
+		super(platmap, chunkX, chunkZ);
+		// TODO Auto-generated constructor stub
+	}
 
-    @Override
-    public PlatLot newLike(PlatMap platmap, int chunkX, int chunkZ) {
-        return new FloodedNatureLot(platmap, chunkX, chunkZ);
-    }
+	@Override
+	public PlatLot newLike(PlatMap platmap, int chunkX, int chunkZ) {
+		return new FloodedNatureLot(platmap, chunkX, chunkZ);
+	}
 
-    @Override
-    protected void generateActualChunk(CityWorldGenerator generator, PlatMap platmap, InitialBlocks chunk, BiomeGrid biomes, DataContext context, int platX, int platZ) {
-        // TODO Auto-generated method stub
+	@Override
+	protected void generateActualChunk(CityWorldGenerator generator, PlatMap platmap, InitialBlocks chunk, BiomeGrid biomes, DataContext context, int platX, int platZ) {
+		// TODO Auto-generated method stub
 
-    }
+	}
 
-    @Override
-    protected void generateActualBlocks(CityWorldGenerator generator, PlatMap platmap, RealBlocks chunk, DataContext context, int platX, int platZ) {
-        generateSurface(generator, chunk, true);
+	@Override
+	protected void generateActualBlocks(CityWorldGenerator generator, PlatMap platmap, RealBlocks chunk, DataContext context, int platX, int platZ) {
+		generateSurface(generator, chunk, true);
 
-        generateEntities(generator, chunk);
-    }
+		generateEntities(generator, chunk);
+	}
 
 }

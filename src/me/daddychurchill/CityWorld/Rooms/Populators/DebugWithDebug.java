@@ -5,10 +5,10 @@ import me.daddychurchill.CityWorld.Rooms.DebugRoom;
 
 public class DebugWithDebug extends RoomProvider {
 
-    public DebugWithDebug() {
-        super();
+	public DebugWithDebug() {
+		super();
 
-        roomTypes.add(new DebugRoom());
-    }
+		roomTypes.add(new DebugRoom());
+	}
 
 }
