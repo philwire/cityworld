@@ -113,7 +113,7 @@ public class MaterialProvider {
 		Material.FEATHER,
 		Material.PAPER,
 		Material.BOOK,
-		//@@Material.BOOK_AND_QUILL,
+		Material.WRITABLE_BOOK,
 		Material.MAP,
 		Material.NAME_TAG,
 
@@ -273,7 +273,24 @@ public class MaterialProvider {
 		Material.RABBIT,
 		Material.MUTTON,
 		Material.WHEAT_SEEDS,
+
 		Material.WHITE_WOOL,
+		Material.ORANGE_WOOL,
+		Material.MAGENTA_WOOL,
+		Material.LIGHT_BLUE_WOOL,
+		Material.YELLOW_WOOL,
+		Material.LIME_WOOL,
+		Material.PINK_WOOL,
+		Material.GRAY_WOOL,
+		Material.LIGHT_GRAY_WOOL,
+		Material.CYAN_WOOL,
+		Material.PURPLE_WOOL,
+		Material.BLUE_WOOL,
+		Material.BROWN_WOOL,
+		Material.GREEN_WOOL,
+		Material.RED_WOOL,
+		Material.BLACK_WOOL,
+
 		Material.POTATO,
 		Material.CARROT,
 		Material.PUMPKIN_SEEDS,
@@ -304,16 +321,16 @@ public class MaterialProvider {
 
 	public final static String tagRandomMaterials_LumberOutputChests = "Random_Materials_For_Lumber_Output_Chests";
 	public MaterialList itemsRandomMaterials_LumberOutputChests = createList(tagRandomMaterials_LumberOutputChests,
-		Material.SPRUCE_PLANKS, // simple but cheesy way to increase the odds for this one
-		Material.SPRUCE_PLANKS,
-		Material.SPRUCE_PLANKS,
-		Material.SPRUCE_PLANKS,
-		Material.SPRUCE_PLANKS,
-		Material.SPRUCE_PLANKS,
-		Material.SPRUCE_PLANKS,
-		Material.SPRUCE_PLANKS,
-		Material.SPRUCE_PLANKS,
-		Material.SPRUCE_PLANKS,
+		Material.SPRUCE_WOOD, // simple but cheesy way to increase the odds for this one
+		Material.SPRUCE_WOOD,
+		Material.SPRUCE_WOOD,
+		Material.SPRUCE_WOOD,
+		Material.SPRUCE_WOOD,
+		Material.SPRUCE_WOOD,
+		Material.SPRUCE_WOOD,
+		Material.SPRUCE_WOOD,
+		Material.SPRUCE_WOOD,
+		Material.SPRUCE_WOOD,
 		Material.SPRUCE_LOG,
 		Material.SPRUCE_LOG,
 		Material.SPRUCE_LOG,
@@ -443,24 +460,42 @@ public class MaterialProvider {
 		Material.SAND,
 		Material.GRAVEL,
 		Material.SANDSTONE,
-		Material.WHITE_WOOL,
-		//@@Material.DOUBLE_STEP,
 		Material.BRICKS,
 		Material.MOSSY_COBBLESTONE,
 		Material.CLAY,
 		Material.NETHERRACK,
 		Material.SOUL_SAND,
+		Material.STONE,
 		Material.SMOOTH_STONE,
 		Material.STONE_BRICKS,
 		Material.NETHER_BRICKS,
 		Material.QUARTZ_BLOCK,
+		Material.CHISELED_STONE_BRICKS,
+		Material.CRACKED_STONE_BRICKS,
 
-		Material.ACACIA_PLANKS,
-		Material.BIRCH_PLANKS,
-		Material.DARK_OAK_PLANKS,
-		Material.JUNGLE_PLANKS,
-		Material.OAK_PLANKS,
-		Material.SPRUCE_PLANKS,
+		Material.ACACIA_WOOD,
+		Material.BIRCH_WOOD,
+		Material.DARK_OAK_WOOD,
+		Material.JUNGLE_WOOD,
+		Material.OAK_WOOD,
+		Material.SPRUCE_WOOD,
+
+		Material.WHITE_WOOL,
+		Material.ORANGE_WOOL,
+		Material.MAGENTA_WOOL,
+		Material.LIGHT_BLUE_WOOL,
+		Material.YELLOW_WOOL,
+		Material.LIME_WOOL,
+		Material.PINK_WOOL,
+		Material.GRAY_WOOL,
+		Material.LIGHT_GRAY_WOOL,
+		Material.CYAN_WOOL,
+		Material.PURPLE_WOOL,
+		Material.BLUE_WOOL,
+		Material.BROWN_WOOL,
+		Material.GREEN_WOOL,
+		Material.RED_WOOL,
+		Material.BLACK_WOOL,
 
 		Material.TERRACOTTA,
 		Material.WHITE_TERRACOTTA,
@@ -481,14 +516,12 @@ public class MaterialProvider {
 		Material.BLACK_TERRACOTTA,
 
 		Material.COAL_BLOCK,
-		Material.END_STONE,
-		Material.STONE,
 		Material.RED_SANDSTONE,
+		Material.RED_NETHER_BRICKS,
 		Material.PRISMARINE,
+		Material.PRISMARINE_BRICKS,
 		Material.PURPUR_BLOCK,
 		Material.PURPUR_PILLAR,
-		Material.END_STONE_BRICKS,
-		//@@Material.DOUBLE_STONE_SLAB2,
 
 		Material.WHITE_CONCRETE_POWDER,
 		Material.ORANGE_CONCRETE_POWDER,
@@ -506,6 +539,7 @@ public class MaterialProvider {
 		Material.GREEN_CONCRETE_POWDER,
 		Material.RED_CONCRETE_POWDER,
 		Material.BLACK_CONCRETE_POWDER,
+
 		Material.WHITE_CONCRETE,
 		Material.ORANGE_CONCRETE,
 		Material.MAGENTA_CONCRETE,
@@ -523,30 +557,47 @@ public class MaterialProvider {
 		Material.RED_CONCRETE,
 		Material.BLACK_CONCRETE,
 
+		Material.END_STONE,
 		Material.END_STONE_BRICKS);
 
 	public final static String tagSelectMaterial_BuildingFoundation = "Materials_For_BuildingFoundation";
 	public MaterialList itemsSelectMaterial_BuildingFoundation = createList(tagSelectMaterial_BuildingFoundation,
 		Material.COBBLESTONE,
 		Material.SANDSTONE,
-		Material.WHITE_WOOL,
-		//@@Material.DOUBLE_STEP,
 		Material.BRICKS,
 		Material.MOSSY_COBBLESTONE,
 		Material.CLAY,
 		Material.NETHERRACK,
-//			Material.SOUL_SAND,
 		Material.SMOOTH_STONE,
 		Material.STONE_BRICKS,
 		Material.NETHER_BRICKS,
 		Material.QUARTZ_BLOCK,
+		Material.CHISELED_STONE_BRICKS,
+		Material.CRACKED_STONE_BRICKS,
 
-		Material.ACACIA_PLANKS,
-		Material.BIRCH_PLANKS,
-		Material.DARK_OAK_PLANKS,
-		Material.JUNGLE_PLANKS,
-		Material.OAK_PLANKS,
-		Material.SPRUCE_PLANKS,
+		Material.ACACIA_WOOD,
+		Material.BIRCH_WOOD,
+		Material.DARK_OAK_WOOD,
+		Material.JUNGLE_WOOD,
+		Material.OAK_WOOD,
+		Material.SPRUCE_WOOD,
+
+		Material.WHITE_WOOL,
+		Material.ORANGE_WOOL,
+		Material.MAGENTA_WOOL,
+		Material.LIGHT_BLUE_WOOL,
+		Material.YELLOW_WOOL,
+		Material.LIME_WOOL,
+		Material.PINK_WOOL,
+		Material.GRAY_WOOL,
+		Material.LIGHT_GRAY_WOOL,
+		Material.CYAN_WOOL,
+		Material.PURPLE_WOOL,
+		Material.BLUE_WOOL,
+		Material.BROWN_WOOL,
+		Material.GREEN_WOOL,
+		Material.RED_WOOL,
+		Material.BLACK_WOOL,
 
 		Material.TERRACOTTA,
 		Material.WHITE_TERRACOTTA,
@@ -567,13 +618,13 @@ public class MaterialProvider {
 		Material.BLACK_TERRACOTTA,
 
 		Material.COAL_BLOCK,
-		Material.END_STONE,
-		Material.STONE,
 		Material.RED_SANDSTONE,
+		Material.RED_NETHER_BRICKS,
 		Material.PRISMARINE,
+		Material.PRISMARINE_BRICKS,
 		Material.PURPUR_BLOCK,
 		Material.PURPUR_PILLAR,
-		////@@Material.DOUBLE_STONE_SLAB2,
+
 		Material.WHITE_CONCRETE,
 		Material.ORANGE_CONCRETE,
 		Material.MAGENTA_CONCRETE,
@@ -591,30 +642,47 @@ public class MaterialProvider {
 		Material.RED_CONCRETE,
 		Material.BLACK_CONCRETE,
 
+		Material.END_STONE,
 		Material.END_STONE_BRICKS);
 
 	public final static String tagSelectMaterial_BuildingCeilings = "Materials_For_BuildingCeilings";
 	public MaterialList itemsSelectMaterial_BuildingCeilings = createList(tagSelectMaterial_BuildingCeilings,
 		Material.COBBLESTONE,
 		Material.SANDSTONE,
-		Material.WHITE_WOOL,
-		//@@Material.DOUBLE_STEP,
 		Material.BRICKS,
 		Material.MOSSY_COBBLESTONE,
 		Material.CLAY,
 		Material.NETHERRACK,
-//			Material.SOUL_SAND,
 		Material.SMOOTH_STONE,
 		Material.STONE_BRICKS,
 		Material.NETHER_BRICKS,
 		Material.QUARTZ_BLOCK,
+		Material.CHISELED_STONE_BRICKS,
+		Material.CRACKED_STONE_BRICKS,
 
-		Material.ACACIA_PLANKS,
-		Material.BIRCH_PLANKS,
-		Material.DARK_OAK_PLANKS,
-		Material.JUNGLE_PLANKS,
-		Material.OAK_PLANKS,
-		Material.SPRUCE_PLANKS,
+		Material.ACACIA_WOOD,
+		Material.BIRCH_WOOD,
+		Material.DARK_OAK_WOOD,
+		Material.JUNGLE_WOOD,
+		Material.OAK_WOOD,
+		Material.SPRUCE_WOOD,
+
+		Material.WHITE_WOOL,
+		Material.ORANGE_WOOL,
+		Material.MAGENTA_WOOL,
+		Material.LIGHT_BLUE_WOOL,
+		Material.YELLOW_WOOL,
+		Material.LIME_WOOL,
+		Material.PINK_WOOL,
+		Material.GRAY_WOOL,
+		Material.LIGHT_GRAY_WOOL,
+		Material.CYAN_WOOL,
+		Material.PURPLE_WOOL,
+		Material.BLUE_WOOL,
+		Material.BROWN_WOOL,
+		Material.GREEN_WOOL,
+		Material.RED_WOOL,
+		Material.BLACK_WOOL,
 
 		Material.TERRACOTTA,
 		Material.WHITE_TERRACOTTA,
@@ -635,13 +703,13 @@ public class MaterialProvider {
 		Material.BLACK_TERRACOTTA,
 
 		Material.COAL_BLOCK,
-		Material.END_STONE,
-		Material.STONE,
 		Material.RED_SANDSTONE,
+		Material.RED_NETHER_BRICKS,
 		Material.PRISMARINE,
+		Material.PRISMARINE_BRICKS,
 		Material.PURPUR_BLOCK,
 		Material.PURPUR_PILLAR,
-		//@@Material.DOUBLE_STONE_SLAB2,
+
 		Material.WHITE_CONCRETE,
 		Material.ORANGE_CONCRETE,
 		Material.MAGENTA_CONCRETE,
@@ -659,30 +727,47 @@ public class MaterialProvider {
 		Material.RED_CONCRETE,
 		Material.BLACK_CONCRETE,
 
+		Material.END_STONE,
 		Material.END_STONE_BRICKS);
 
 	public final static String tagSelectMaterial_BuildingRoofs = "Materials_For_BuildingRoofs";
 	public MaterialList itemsSelectMaterial_BuildingRoofs = createList(tagSelectMaterial_BuildingRoofs,
 		Material.COBBLESTONE,
 		Material.SANDSTONE,
-		Material.WHITE_WOOL,
-		//@@Material.DOUBLE_STEP,
 		Material.BRICKS,
 		Material.MOSSY_COBBLESTONE,
 		Material.CLAY,
 		Material.NETHERRACK,
-//			Material.SOUL_SAND,
 		Material.SMOOTH_STONE,
 		Material.STONE_BRICKS,
 		Material.NETHER_BRICKS,
 		Material.QUARTZ_BLOCK,
+		Material.CHISELED_STONE_BRICKS,
+		Material.CRACKED_STONE_BRICKS,
 
-		Material.ACACIA_PLANKS,
-		Material.BIRCH_PLANKS,
-		Material.DARK_OAK_PLANKS,
-		Material.JUNGLE_PLANKS,
-		Material.OAK_PLANKS,
-		Material.SPRUCE_PLANKS,
+		Material.ACACIA_WOOD,
+		Material.BIRCH_WOOD,
+		Material.DARK_OAK_WOOD,
+		Material.JUNGLE_WOOD,
+		Material.OAK_WOOD,
+		Material.SPRUCE_WOOD,
+
+		Material.WHITE_WOOL,
+		Material.ORANGE_WOOL,
+		Material.MAGENTA_WOOL,
+		Material.LIGHT_BLUE_WOOL,
+		Material.YELLOW_WOOL,
+		Material.LIME_WOOL,
+		Material.PINK_WOOL,
+		Material.GRAY_WOOL,
+		Material.LIGHT_GRAY_WOOL,
+		Material.CYAN_WOOL,
+		Material.PURPLE_WOOL,
+		Material.BLUE_WOOL,
+		Material.BROWN_WOOL,
+		Material.GREEN_WOOL,
+		Material.RED_WOOL,
+		Material.BLACK_WOOL,
 
 		Material.TERRACOTTA,
 		Material.WHITE_TERRACOTTA,
@@ -703,13 +788,13 @@ public class MaterialProvider {
 		Material.BLACK_TERRACOTTA,
 
 		Material.COAL_BLOCK,
-		Material.END_STONE,
-		Material.STONE,
 		Material.RED_SANDSTONE,
+		Material.RED_NETHER_BRICKS,
 		Material.PRISMARINE,
+		Material.PRISMARINE_BRICKS,
 		Material.PURPUR_BLOCK,
 		Material.PURPUR_PILLAR,
-		//@@Material.DOUBLE_STONE_SLAB2,
+
 		Material.WHITE_CONCRETE,
 		Material.ORANGE_CONCRETE,
 		Material.MAGENTA_CONCRETE,
@@ -727,6 +812,7 @@ public class MaterialProvider {
 		Material.RED_CONCRETE,
 		Material.BLACK_CONCRETE,
 
+		Material.END_STONE,
 		Material.END_STONE_BRICKS);
 
 	public final static String tagSelectMaterial_UnfinishedBuildings = "Materials_For_UnfinishedBuildings";
@@ -750,6 +836,11 @@ public class MaterialProvider {
 		Material.LIGHT_GRAY_TERRACOTTA,
 
 		Material.QUARTZ_BLOCK,
+		Material.QUARTZ_PILLAR,
+		Material.CHISELED_QUARTZ_BLOCK,
+
+		Material.END_STONE,
+		Material.END_STONE_BRICKS,
 		Material.WHITE_WOOL);
 
 	public final static String tagSelectMaterial_GovernmentFoundations = "Materials_For_GovernmentFoundations";
@@ -759,6 +850,11 @@ public class MaterialProvider {
 		Material.LIGHT_GRAY_TERRACOTTA,
 
 		Material.QUARTZ_BLOCK,
+		Material.QUARTZ_PILLAR,
+		Material.CHISELED_QUARTZ_BLOCK,
+
+		Material.END_STONE,
+		Material.END_STONE_BRICKS,
 		Material.WHITE_WOOL);
 
 	public final static String tagSelectMaterial_GovernmentCeilings = "Materials_For_GovernmentCeilings";
@@ -768,6 +864,11 @@ public class MaterialProvider {
 		Material.LIGHT_GRAY_TERRACOTTA,
 
 		Material.QUARTZ_BLOCK,
+		Material.QUARTZ_PILLAR,
+		Material.CHISELED_QUARTZ_BLOCK,
+
+		Material.END_STONE,
+		Material.END_STONE_BRICKS,
 		Material.WHITE_WOOL);
 
 	public final static String tagSelectMaterial_HouseWalls = "Materials_For_HouseWalls";
@@ -804,12 +905,12 @@ public class MaterialProvider {
 		Material.PRISMARINE,
 		Material.PURPUR_BLOCK,
 
-		Material.ACACIA_PLANKS,
-		Material.BIRCH_PLANKS,
-		Material.DARK_OAK_PLANKS,
-		Material.JUNGLE_PLANKS,
-		Material.OAK_PLANKS,
-		Material.SPRUCE_PLANKS,
+		Material.ACACIA_WOOD,
+		Material.BIRCH_WOOD,
+		Material.DARK_OAK_WOOD,
+		Material.JUNGLE_WOOD,
+		Material.OAK_WOOD,
+		Material.SPRUCE_WOOD,
 
 		Material.WHITE_CONCRETE,
 		Material.ORANGE_CONCRETE,
@@ -828,6 +929,7 @@ public class MaterialProvider {
 		Material.RED_CONCRETE,
 		Material.BLACK_CONCRETE,
 
+		Material.END_STONE,
 		Material.END_STONE_BRICKS);
 
 	public final static String tagSelectMaterial_HouseFloors = "Materials_For_HouseFloors";
@@ -838,16 +940,30 @@ public class MaterialProvider {
 		Material.STONE,
 		Material.STONE,
 		Material.STONE,
-		Material.WHITE_WOOL,
-		Material.WHITE_WOOL,
-		Material.WHITE_WOOL,
 
-		Material.ACACIA_PLANKS,
-		Material.BIRCH_PLANKS,
-		Material.DARK_OAK_PLANKS,
-		Material.JUNGLE_PLANKS,
-		Material.OAK_PLANKS,
-		Material.SPRUCE_PLANKS,
+		Material.ACACIA_WOOD,
+		Material.BIRCH_WOOD,
+		Material.DARK_OAK_WOOD,
+		Material.JUNGLE_WOOD,
+		Material.OAK_WOOD,
+		Material.SPRUCE_WOOD,
+
+		Material.WHITE_WOOL,
+		Material.ORANGE_WOOL,
+		Material.MAGENTA_WOOL,
+		Material.LIGHT_BLUE_WOOL,
+		Material.YELLOW_WOOL,
+		Material.LIME_WOOL,
+		Material.PINK_WOOL,
+		Material.GRAY_WOOL,
+		Material.LIGHT_GRAY_WOOL,
+		Material.CYAN_WOOL,
+		Material.PURPLE_WOOL,
+		Material.BLUE_WOOL,
+		Material.BROWN_WOOL,
+		Material.GREEN_WOOL,
+		Material.RED_WOOL,
+		Material.BLACK_WOOL,
 
 		Material.TERRACOTTA,
 		Material.WHITE_TERRACOTTA,
@@ -891,12 +1007,12 @@ public class MaterialProvider {
 		Material.SANDSTONE,
 		Material.RED_SANDSTONE,
 
-		Material.ACACIA_PLANKS,
-		Material.BIRCH_PLANKS,
-		Material.DARK_OAK_PLANKS,
-		Material.JUNGLE_PLANKS,
-		Material.OAK_PLANKS,
-		Material.SPRUCE_PLANKS,
+		Material.ACACIA_WOOD,
+		Material.BIRCH_WOOD,
+		Material.DARK_OAK_WOOD,
+		Material.JUNGLE_WOOD,
+		Material.OAK_WOOD,
+		Material.SPRUCE_WOOD,
 
 		Material.STONE);
 
@@ -908,23 +1024,23 @@ public class MaterialProvider {
 		Material.SANDSTONE,
 		Material.RED_SANDSTONE,
 
-		Material.ACACIA_PLANKS,
-		Material.BIRCH_PLANKS,
-		Material.DARK_OAK_PLANKS,
-		Material.JUNGLE_PLANKS,
-		Material.OAK_PLANKS,
-		Material.SPRUCE_PLANKS,
+		Material.ACACIA_WOOD,
+		Material.BIRCH_WOOD,
+		Material.DARK_OAK_WOOD,
+		Material.JUNGLE_WOOD,
+		Material.OAK_WOOD,
+		Material.SPRUCE_WOOD,
 
 		Material.STONE);
 
 	public final static String tagSelectMaterial_ShackWalls = "Materials_For_ShackWalls";
 	public MaterialList itemsSelectMaterial_ShackWalls = createList(tagSelectMaterial_ShackWalls,
-		Material.ACACIA_PLANKS,
-		Material.BIRCH_PLANKS,
-		Material.DARK_OAK_PLANKS,
-		Material.JUNGLE_PLANKS,
-		Material.OAK_PLANKS,
-		Material.SPRUCE_PLANKS,
+		Material.ACACIA_WOOD,
+		Material.BIRCH_WOOD,
+		Material.DARK_OAK_WOOD,
+		Material.JUNGLE_WOOD,
+		Material.OAK_WOOD,
+		Material.SPRUCE_WOOD,
 
 		Material.MOSSY_COBBLESTONE,
 		Material.RED_SANDSTONE,
@@ -936,12 +1052,12 @@ public class MaterialProvider {
 
 	public final static String tagSelectMaterial_ShackRoofs = "Materials_For_ShackRoofs";
 	public MaterialList itemsSelectMaterial_ShackRoofs = createList(tagSelectMaterial_ShackRoofs,
-		Material.ACACIA_PLANKS,
-		Material.BIRCH_PLANKS,
-		Material.DARK_OAK_PLANKS,
-		Material.JUNGLE_PLANKS,
-		Material.OAK_PLANKS,
-		Material.SPRUCE_PLANKS,
+		Material.ACACIA_WOOD,
+		Material.BIRCH_WOOD,
+		Material.DARK_OAK_WOOD,
+		Material.JUNGLE_WOOD,
+		Material.OAK_WOOD,
+		Material.SPRUCE_WOOD,
 
 		Material.STONE);
 
@@ -949,17 +1065,17 @@ public class MaterialProvider {
 	public MaterialList itemsSelectMaterial_ShedWalls = createList(tagSelectMaterial_ShedWalls,
 		Material.SANDSTONE,
 		Material.RED_SANDSTONE,
-		Material.SPRUCE_PLANKS,
+		Material.SPRUCE_WOOD,
 		Material.COBBLESTONE,
 		Material.BRICKS,
 		Material.SMOOTH_STONE,
 
-		Material.ACACIA_PLANKS,
-		Material.BIRCH_PLANKS,
-		Material.DARK_OAK_PLANKS,
-		Material.JUNGLE_PLANKS,
-		Material.OAK_PLANKS,
-		Material.SPRUCE_PLANKS,
+		Material.ACACIA_WOOD,
+		Material.BIRCH_WOOD,
+		Material.DARK_OAK_WOOD,
+		Material.JUNGLE_WOOD,
+		Material.OAK_WOOD,
+		Material.SPRUCE_WOOD,
 
 		Material.STONE);
 
@@ -1007,12 +1123,10 @@ public class MaterialProvider {
 
 	public final static String tagSelectMaterial_Castles = "Materials_For_Castles";
 	public MaterialList itemsSelectMaterial_Castles = createList(tagSelectMaterial_Castles,
-//			Material.STONE,
 		Material.COBBLESTONE,
 		Material.MOSSY_COBBLESTONE,
-//			Material.END_STONE,
-//			//@@Material.DOUBLE_STEP,
-//			//@@Material.DOUBLE_STONE_SLAB2,
+		Material.CRACKED_STONE_BRICKS,
+		Material.CHISELED_STONE_BRICKS,
 		Material.SMOOTH_STONE);
 
 	public final static String tagSelectMaterial_WaterTowers = "Materials_For_WaterTowers";
@@ -1057,8 +1171,6 @@ public class MaterialProvider {
 	public MaterialList itemsSelectMaterial_FactoryInsides = createList(tagSelectMaterial_FactoryInsides,
 		Material.STONE,
 		Material.SMOOTH_STONE,
-		//@@Material.DOUBLE_STEP,
-		//@@Material.DOUBLE_STONE_SLAB2,
 		Material.QUARTZ_BLOCK,
 		Material.CLAY,
 
@@ -1306,11 +1418,13 @@ public class MaterialProvider {
 
 	public final static String tagSelectMaterial_AstralTowerLight = "Materials_For_AstralTowerLight";
 	public MaterialList itemsSelectMaterial_AstralTowerLight = createList(tagSelectMaterial_AstralTowerLight,
-		Material.END_STONE);
+		Material.END_STONE,
+		Material.END_STONE_BRICKS);
 
 	public final static String tagSelectMaterial_AstralTowerDark = "Materials_For_AstralTowerDark";
 	public MaterialList itemsSelectMaterial_AstralTowerDark = createList(tagSelectMaterial_AstralTowerDark,
-		Material.OBSIDIAN);
+		Material.OBSIDIAN,
+		Material.BLACK_CONCRETE);
 
 	public final static String tagSelectMaterial_AstralTowerOres = "Materials_For_AstralTowerOres";
 	public MaterialList itemsSelectMaterial_AstralTowerOres = createList(tagSelectMaterial_AstralTowerOres,
@@ -1346,8 +1460,12 @@ public class MaterialProvider {
 		Material.DIRT,
 		Material.STONE,
 		Material.INFESTED_STONE,
+		Material.INFESTED_CHISELED_STONE_BRICKS,
+		Material.INFESTED_COBBLESTONE,
+		Material.INFESTED_CRACKED_STONE_BRICKS,
+		Material.INFESTED_STONE_BRICKS,
 		Material.COBBLESTONE,
-		Material.SPRUCE_PLANKS,
+		Material.SPRUCE_WOOD,
 		Material.IRON_BLOCK,
 		Material.COAL_BLOCK,
 		Material.DIAMOND_BLOCK,
@@ -1422,7 +1540,7 @@ public class MaterialProvider {
 
 		// add it to the big list so we can generically remember it
 		if (listOfLists == null)
-			listOfLists = new ArrayList<>();
+			listOfLists = new ArrayList<MaterialList>();
 		listOfLists.add(list);
 
 		// return it so we can specifically remember it

@@ -15,6 +15,8 @@ import org.bukkit.block.data.*;
 import org.bukkit.block.data.Bisected.Half;
 import org.bukkit.block.data.Rail.Shape;
 import org.bukkit.block.data.type.*;
+import org.bukkit.block.data.type.Bed.Part;
+import org.bukkit.block.data.type.Door.Hinge;
 import org.bukkit.util.noise.NoiseGenerator;
 
 public abstract class SupportBlocks extends AbstractBlocks {
@@ -560,37 +562,81 @@ public abstract class SupportBlocks extends AbstractBlocks {
 		setBlock(x, y + 1, z, tableTop);
 	}
 
-	@Override
+	private final Block setDoorBlock(int x, int y, int z, Material material, BlockFace facing, Half half, Hinge hinge, boolean doPhysics) {
+		Block block = getActualBlock(x, y, z);
+		block.setType(material, false);
+		BlockData data = block.getBlockData();
+		try {
+			if (data instanceof Door) {
+				((Door) data).setHalf(half);
+				((Door) data).setFacing(facing);
+				((Door) data).setHinge(hinge);
+			}
+		} finally {
+			block.setBlockData(data, doPhysics);
+		}
+		return block;
+	}
+
+	//@@	public void setDoor(int x, int y, int z, Material material, BadMagic.Door direction) {
 	public void setDoor(int x, int y, int z, Material material, BlockFace facing) {
 		clearBlock(x, y, z);
 		clearBlock(x, y + 1, z);
 
-		Block blockBottom = getActualBlock(x, y, z);
-		Block blockTop = getActualBlock(x, y + 1, z);
+		Hinge hinge = Hinge.LEFT;
 
-		blockBottom.setType(material, false);
-		blockTop.setType(material, false);
+		switch (facing) {
+			case EAST_NORTH_EAST:
+				facing = BlockFace.EAST;
+				break;
+			case NORTH_NORTH_EAST:
+				facing = BlockFace.NORTH;
+				break;
+			case SOUTH_SOUTH_EAST:
+				facing = BlockFace.SOUTH;
+				break;
+			case WEST_NORTH_WEST:
+				facing = BlockFace.WEST;
+				break;
 
-		BlockData dataBottom = blockBottom.getBlockData();
-		BlockData dataTop = blockTop.getBlockData();
+			case EAST_SOUTH_EAST:
+				facing = BlockFace.EAST;
+				hinge = Hinge.RIGHT;
+				break;
+			case NORTH_NORTH_WEST:
+				facing = BlockFace.NORTH;
+				hinge = Hinge.RIGHT;
+				break;
+			case SOUTH_SOUTH_WEST:
+				facing = BlockFace.SOUTH;
+				hinge = Hinge.RIGHT;
+				break;
+			case WEST_SOUTH_WEST:
+				facing = BlockFace.WEST;
+				hinge = Hinge.RIGHT;
+				break;
 
-		facing = fixFacing(facing);
-		facing = facing.getOppositeFace();
+			case NORTH_EAST:
+				facing = BlockFace.EAST;
+				break;
+			case NORTH_WEST:
+				facing = BlockFace.WEST;
+				break;
+			case SOUTH_EAST:
+				facing = BlockFace.EAST;
+				hinge = Hinge.RIGHT;
+				break;
+			case SOUTH_WEST:
+				facing = BlockFace.WEST;
+				hinge = Hinge.RIGHT;
+				break;
 
-		try {
-			if (dataBottom instanceof Directional)
-				((Directional) dataBottom).setFacing(facing);
-			if (dataTop instanceof Directional)
-				((Directional) dataTop).setFacing(facing);
-
-			if (dataBottom instanceof Bisected)
-				((Bisected) dataBottom).setHalf(Half.BOTTOM);
-			if (dataTop instanceof Bisected)
-				((Bisected) dataTop).setHalf(Half.TOP);
-		} finally {
-			blockBottom.setBlockData(dataBottom, false);
-			blockTop.setBlockData(dataTop, false);
+			default:
+				break;
 		}
+
+		setDoorBlock(x, y, z, material, facing, Half.BOTTOM, hinge, false);
+		setDoorBlock(x, y + 1, z, material, facing, Half.TOP, hinge, true);
 	}
 
 	public void setFenceDoor(int x, int y1, int y2, int z, Material material, BlockFace facing) {
@@ -772,40 +818,67 @@ public abstract class SupportBlocks extends AbstractBlocks {
 		return block;
 	}
 
-	public final void setBed(int x, int y, int z, BlockFace facing) {
-		Block bedHeadBlock, bedFootBlock;
-		Material bedMaterial = Material.RED_BED;
+	private final Block setBedBlock(int x, int y, int z, Material material, BlockFace facing, Part part, boolean doPhysics) {
+		Block block = getActualBlock(x, y, z);
+		block.setType(material, false);
+		BlockData data = block.getBlockData();
+		try {
+			if (data instanceof Bed) {
+				((Bed) data).setFacing(facing);
+				((Bed) data).setPart(part);
+			}
+		} finally {
+			block.setBlockData(data, doPhysics);
+		}
+		return block;
+	}
 
+	public final void setBed(int x, int y, int z, Material material, BlockFace facing) {
 		switch (facing) {
 			default:
-			case EAST:
-				bedHeadBlock = getActualBlock(x, y, z);
-				bedFootBlock = getActualBlock(x + 1, y, z);
+			case NORTH:
+				setBedBlock(x, y, z, material, BlockFace.SOUTH, Part.FOOT, false);
+				setBedBlock(x, y, z + 1, material, BlockFace.SOUTH, Part.HEAD, true);
+//			BlackMagic.setBlockType(getActualBlock(x, y, z), Material.BED_BLOCK, (byte)(0x0 + 0x8), true, false);
+//			BlackMagic.setBlockType(getActualBlock(x, y, z + 1), Material.BED_BLOCK, (byte)(0x0), true, true);
 				break;
 			case SOUTH:
-				bedHeadBlock = getActualBlock(x, y, z);
-				bedFootBlock = getActualBlock(x, y, z + 1);
+				setBedBlock(x, y, z + 1, material, BlockFace.NORTH, Part.FOOT, false);
+				setBedBlock(x, y, z, material, BlockFace.NORTH, Part.HEAD, true);
+//			BlackMagic.setBlockType(getActualBlock(x, y, z), Material.BED_BLOCK, (byte)(0x2 + 0x8), true, false);
+//			BlackMagic.setBlockType(getActualBlock(x, y, z + 1), Material.BED_BLOCK, (byte)(0x2), true, true);
+				break;
+			case EAST:
+				setBedBlock(x + 1, y, z, material, BlockFace.WEST, Part.FOOT, false);
+				setBedBlock(x, y, z, material, BlockFace.WEST, Part.HEAD, true);
+//@@			BlackMagic.setBlockType(getActualBlock(x, y, z), Material.BED_BLOCK, (byte)(0x1 + 0x8), true, false);
+//			BlackMagic.setBlockType(getActualBlock(x + 1, y, z), Material.BED_BLOCK, (byte)(0x1), true, true);
 				break;
 			case WEST:
-				bedHeadBlock = getActualBlock(x + 1, y, z);
-				bedFootBlock = getActualBlock(x, y, z);
-				break;
-			case NORTH:
-				bedHeadBlock = getActualBlock(x, y, z + 1);
-				bedFootBlock = getActualBlock(x, y, z);
+				setBedBlock(x, y, z, material, BlockFace.EAST, Part.FOOT, false);
+				setBedBlock(x + 1, y, z, material, BlockFace.EAST, Part.HEAD, true);
+//			BlackMagic.setBlockType(getActualBlock(x, y, z), Material.BED_BLOCK, (byte)(0x3 + 0x8), true, false);
+//			BlackMagic.setBlockType(getActualBlock(x + 1, y, z), Material.BED_BLOCK, (byte)(0x3), true, true);
 				break;
 		}
-
-		bedHeadBlock.setType(bedMaterial, doPhysics);
-		bedFootBlock.setType(bedMaterial, doPhysics);
-		Bed bedHeadData = (Bed) bedHeadBlock.getBlockData();
-		Bed bedFootData = (Bed) bedFootBlock.getBlockData();
-		bedHeadData.setFacing(facing.getOppositeFace());
-		bedFootData.setFacing(facing.getOppositeFace());
-		bedHeadData.setPart(Bed.Part.HEAD);
-		bedFootData.setPart(Bed.Part.FOOT);
-		bedHeadBlock.setBlockData(bedHeadData);
-		bedFootBlock.setBlockData(bedFootData);
+//		switch (facing) {
+//		case EAST:
+//			BlackMagic.setBlockType(getActualBlock(x, y, z), Material.BED_BLOCK, (byte)(0x1 + 0x8), true, false);
+//			BlackMagic.setBlockType(getActualBlock(x + 1, y, z), Material.BED_BLOCK, (byte)(0x1), true, true);
+//			break;
+//		case SOUTH:
+//			BlackMagic.setBlockType(getActualBlock(x, y, z), Material.BED_BLOCK, (byte)(0x2 + 0x8), true, false);
+//			BlackMagic.setBlockType(getActualBlock(x, y, z + 1), Material.BED_BLOCK, (byte)(0x2), true, true);
+//			break;
+//		case WEST:
+//			BlackMagic.setBlockType(getActualBlock(x, y, z), Material.BED_BLOCK, (byte)(0x3 + 0x8), true, false);
+//			BlackMagic.setBlockType(getActualBlock(x + 1, y, z), Material.BED_BLOCK, (byte)(0x3), true, true);
+//			break;
+//		case NORTH:
+//			BlackMagic.setBlockType(getActualBlock(x, y, z), Material.BED_BLOCK, (byte)(0x0 + 0x8), true, false);
+//			BlackMagic.setBlockType(getActualBlock(x, y, z + 1), Material.BED_BLOCK, (byte)(0x0), true, true);
+//			break;
+//		}
 	}
 
 	private void connectDoubleChest(int x, int y, int z, BlockFace facing) {
