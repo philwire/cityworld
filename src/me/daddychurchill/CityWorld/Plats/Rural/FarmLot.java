@@ -466,7 +466,7 @@ public class FarmLot extends ConnectedLot {
 				plantField(generator, chunk, cropY, CoverageSets.DECAY_PLANTS, 1, 2);
 				break;
 			case HOTAIR_BALLOON:
-				if (!generator.getSettings().includeDecayedNature) {
+				if (!generator.getSettings().includeDecayedNature && generator.getSettings().includeAirborneStructures) {
 
 					// place stuff
 					generateSurface(generator, chunk, false);
